@@ -4,65 +4,119 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lumen-Strata</title>
-  <meta name="description" content="Sixty paintings from the Harvard Art Museums, taken apart into transparent sheets by scrolling, then put back together by light." />
+  <meta name="description" content="Sixty paintings from the Harvard Art Museums, taken apart into transparent 3D sheets by scrolling, then put back together by light." />
+  <meta name="theme-color" content="#040509" />
+  <meta property="og:title" content="Lumen-Strata — Light, layered." />
+  <meta property="og:description" content="Scroll to dissect sixty Harvard Art Museums paintings into seven transparent strata. Then switch on the light." />
+  <meta property="og:image" content="https://nrs.harvard.edu/URN-3:HUAM:828557?width=1200" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <a class="skip" href="#collection">Skip to the collection</a>
   <canvas id="stars" aria-hidden="true"></canvas>
 
-  <header class="nav">
-    <a class="brand" href="#/" aria-label="Lumen-Strata home">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 20 16 25 26 20M6 15 16 20 26 15M6 10 16 15 26 10 16 5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-      <span>Lumen<span class="dot">·</span>Strata</span>
+  <!-- ======================= NAV + MENU ======================= -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#/" aria-label="Lumen-Strata, home">LUMEN / STRATA</a>
+    <a class="nav-back cap" href="#/collection">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="roll" data-text="Collection"><span>Collection</span></span>
     </a>
-    <nav>
-      <a href="#/collection">Collection</a>
-      <a href="#/method">Method</a>
-      <a href="#/light">Light</a>
-    </nav>
+    <p class="nav-title" id="nav-title"></p>
+    <div class="nav-right">
+      <div class="nav-pager">
+        <button class="icon-btn" id="prev" aria-label="Previous painting"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="icon-btn" id="next" aria-label="Next painting"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="roll" data-text="Menu"><span>Menu</span></span>
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      </button>
+    </div>
   </header>
+
+  <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Site menu" hidden>
+    <div class="menu-inner">
+      <nav class="menu-main" aria-label="Primary">
+        <a href="#/collection" data-preview="0"><span class="cap">01</span><em>Collection</em></a>
+        <a href="#/method" data-preview="1"><span class="cap">02</span><em>Method</em></a>
+        <a href="#/light" data-preview="2"><span class="cap">03</span><em>Light</em></a>
+        <a href="#/" id="menu-random" data-preview="3"><span class="cap">04</span><em>Surprise me</em></a>
+      </nav>
+      <div class="menu-side">
+        <div class="menu-preview" aria-hidden="true"><img id="menu-preview" alt="" /></div>
+        <div class="menu-cols">
+          <div>
+            <p class="cap dim">Source</p>
+            <a href="https://github.com/Dash0077/Lumen-Strata" target="_blank" rel="noopener">GitHub repository ↗</a>
+            <a href="https://harvardartmuseums.org/collections/api" target="_blank" rel="noopener">Harvard Art Museums API ↗</a>
+          </div>
+          <div>
+            <p class="cap dim">In the viewer</p>
+            <p><kbd>Scroll</kbd> dissect · <kbd>Drag</kbd> rotate</p>
+            <p><kbd>L</kbd> light · <kbd>O</kbd> obscura · <kbd>←</kbd><kbd>→</kbd> paintings</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ======================= HOME ======================= -->
   <main id="home">
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow mono">Harvard Art Museums · 60 paintings · technical art history</p>
-        <h1 class="title"><span>Lumen</span><span class="title-2">Strata</span></h1>
-        <p class="lede">A painting is not one surface but a sediment of decisions: a support, a ground, a drawing, a lay-in of light and colour, a skin of glaze. Scroll to <em>peel them apart</em>. Then switch on the light, and watch the sheets add back up to the picture.</p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#/collection">Choose a painting</a>
-          <a class="btn ghost" id="hero-random" href="#/">Surprise me</a>
-        </div>
-      </div>
+    <section class="hero" id="hero">
       <div class="hero-stage" aria-hidden="true">
         <div class="hero-world" id="hero-world"></div>
-        <p class="hero-caption mono" id="hero-caption"></p>
       </div>
-      <div class="scroll-cue mono" aria-hidden="true"><span></span>scroll</div>
+      <div class="hero-copy">
+        <h1 class="display reveal-lines"><span><span>Light,</span></span><span><span>Layered.</span></span></h1>
+        <div class="hero-cta">
+          <a class="link-cta" href="#/collection"><span class="roll" data-text="Explore the collection"><span>Explore the collection</span></span><i>→</i></a>
+          <a class="link-cta" href="#/p/299843" id="hero-featured"><span class="roll" data-text="Dissect a painting"><span>Dissect a painting</span></span><i>→</i></a>
+        </div>
+      </div>
+      <ul class="hero-labels cap" aria-label="At a glance">
+        <li>Harvard Art Museums</li>
+        <li>60 paintings</li>
+        <li>7 strata</li>
+        <li>1 light</li>
+      </ul>
+      <p class="hero-caption" id="hero-caption">A painting is more than its surface.<br />It is how light moves through it.</p>
     </section>
+
+    <section class="statement" id="statement">
+      <p class="cap dim">About</p>
+      <p class="statement-text" id="statement-text">We take sixty paintings apart, from support and ground through drawing, shadow, colour and glaze to varnish, and let one beam of light put each of them back together.</p>
+      <div class="statement-foot">
+        <p>Lumen-Strata is a study in <em>technical art history</em>, the discipline that reads a painting as a physical object built in layers. Every work is drawn live from the Harvard Art Museums API and taken apart in your browser.</p>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
 
     <section class="collection" id="collection">
       <div class="section-head">
-        <p class="eyebrow mono">01 / Collection</p>
-        <h2>The sixty most-viewed paintings in the collection</h2>
-        <p class="sub">Ranked by the Harvard Art Museums API's own <code>totalpageviews</code> field, limited to public-domain images. Every work below is fetched from the API.</p>
+        <p class="cap dim"><span>01</span> — Collection</p>
+        <h2 class="h2">The sixty most-viewed<br /><em>paintings</em> in the collection</h2>
+        <p class="sub">Ranked by the museum API's own page views. Choose one to dissect it.</p>
       </div>
       <div class="filters">
         <label class="search">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span class="visually-hidden">Search</span>
           <input id="q" type="search" placeholder="Search artist, title, century…" autocomplete="off" />
         </label>
-        <div class="chips" id="support-chips" role="group" aria-label="Filter by support">
-          <button class="chip on" data-support="all">All</button>
-          <button class="chip" data-support="canvas">Canvas</button>
-          <button class="chip" data-support="panel">Panel</button>
-          <button class="chip" data-support="other">Other</button>
+        <div class="tabs cap" id="support-chips" role="group" aria-label="Filter by support">
+          <button class="on" data-support="all" aria-pressed="true">All</button>
+          <button data-support="canvas" aria-pressed="false">Canvas</button>
+          <button data-support="panel" aria-pressed="false">Panel</button>
+          <button data-support="other" aria-pressed="false">Other</button>
         </div>
-        <label class="sort mono">Sort
+        <label class="sort cap">
+          <span>Sort</span>
           <select id="sort">
             <option value="views">Most viewed</option>
             <option value="year">Oldest first</option>
@@ -70,6 +124,7 @@
             <option value="artist">Artist A–Z</option>
           </select>
         </label>
+        <p class="count cap" id="count" aria-live="polite"></p>
       </div>
       <div class="grid" id="grid"></div>
       <p class="empty" id="empty" hidden>No paintings match that search.</p>
@@ -77,138 +132,225 @@
 
     <section class="method" id="method">
       <div class="section-head">
-        <p class="eyebrow mono">02 / Method</p>
-        <h2>Seven sheets, seven ways of looking beneath paint</h2>
-        <p class="sub">Each sheet stands for one stage in how a painting was traditionally built. Conservators study each stage with a different instrument. Since the 1920s Harvard's Fogg Museum has been one of the places where this science began: Alan Burroughs X-rayed paintings there, and Rutherford Gettens and George Stout worked on pigments, today's Straus Center for Conservation and Technical Studies.</p>
+        <p class="cap dim"><span>02</span> — Method</p>
+        <h2 class="h2">Seven sheets, seven ways<br />of looking <em>beneath paint</em></h2>
+        <p class="sub">One sheet per stage of making, each paired with the instrument conservators use to see it.</p>
       </div>
-      <ol class="method-list" id="method-list"></ol>
-      <p class="disclaimer">These sheets are <strong>computational analogies</strong>. Your browser generates them from the museum's photograph using edge detection, tonal posterisation and colour quantisation. They are <strong>not</strong> scans of the real paint layers. They show what each stage <em>does</em> to a picture, not what a particular painter actually laid down.</p>
+      <div class="method-split">
+        <div class="method-stage" aria-hidden="true">
+          <div class="method-world" id="method-world"></div>
+          <p class="method-count cap"><b id="method-num">01</b> of 07</p>
+        </div>
+        <ol class="method-steps" id="method-list"></ol>
+      </div>
+      <details class="more disclaimer">
+        <summary class="chip-btn">Are these real paint layers?</summary>
+        <div class="more-body"><p>No. The sheets are <strong>computational analogies</strong>, generated in your browser from the museum's photograph with edge detection, tonal posterisation and colour quantisation. They show what each stage <em>does</em> to a picture, not what a particular painter laid down.</p></div>
+      </details>
     </section>
 
     <section class="light-essay" id="light">
       <div class="section-head">
-        <p class="eyebrow mono">03 / Light</p>
-        <h2>Why a lamp puts the picture back together</h2>
+        <p class="cap dim"><span>03</span> — Light</p>
+        <h2 class="h2">Why a lamp puts<br />the picture <em>back together</em></h2>
       </div>
-      <div class="essay-cols">
-        <div>
+      <div class="essay">
+        <article>
+          <p class="cap dim">i.</p>
           <h3>Light through layers</h3>
-          <p>Oil paint is partly transparent. Light enters a glaze, passes through the colour beneath, bounces off a pale ground and comes back out filtered by every layer it crossed. That is why Van Eyck's or Titian's glazes seem to glow from within. In Lumen-Strata the lamp shines through all seven transparent sheets, and the image that lands on the wall is the painting. The whole is the sum of its strata.</p>
-        </div>
-        <div>
+          <p>Oil paint is partly transparent, so light crosses every layer and returns filtered by all of them.</p>
+          <details class="more"><summary class="chip-btn">Read more</summary><div class="more-body"><p>Light enters a glaze, passes through the colour beneath, bounces off a pale ground and comes back out. That is why Van Eyck's and Titian's glazes seem to glow from within. In the viewer the projector shines through all seven sheets, and what lands on the wall is the painting again.</p></div></details>
+        </article>
+        <article>
+          <p class="cap dim">ii.</p>
           <h3>The camera obscura</h3>
-          <p>Pass light through a small opening into a dark room and an image of the outside world appears on the far wall, <em>upside down</em>. Mozi and Aristotle noted the effect. Ibn al-Haytham (c. 1011–1021) explained it, and Giambattista della Porta (1558) recommended it to painters. Whether Vermeer traced from one is still debated (Philip Steadman, <em>Vermeer's Camera</em>, 2001; the Hockney–Falco thesis). Switch the viewer's lens to <strong>Obscura</strong> to see the inversion.</p>
-        </div>
-        <div>
+          <p>Light through a small opening casts an image on the far wall, upside down.</p>
+          <details class="more"><summary class="chip-btn">Read more</summary><div class="more-body"><p>Mozi and Aristotle noted the effect. Ibn al-Haytham (c. 1011–1021) explained it, and Giambattista della Porta (1558) recommended it to painters. Whether Vermeer used one is still debated (Steadman, <em>Vermeer's Camera</em>, 2001; the Hockney–Falco thesis). The viewer's <strong>Obscura</strong> lens shows the inversion.</p></div></details>
+        </article>
+        <article>
+          <p class="cap dim">iii.</p>
+          <h3>A light table</h3>
+          <p>Lift sheets out of the beam and the wall shows only what remains.</p>
+          <details class="more"><summary class="chip-btn">Why it matters</summary><div class="more-body"><p>Conservators work the same way. They overlay a painting's X-ray, infrared and ultraviolet images on its photograph to see which layer holds which decision: a hidden drawing, a changed pose, a later repaint. The viewer's presets (<em>Infrared view</em>, <em>X-ray view</em>, <em>Under the varnish</em>) recombine the sheets into those ways of seeing.</p></div></details>
+        </article>
+        <article>
+          <p class="cap dim">iv.</p>
           <h3>Seeing the invisible</h3>
-          <p>Technical art history also depends on light, just at wavelengths we can't see. X-rays (Röntgen, 1895) show dense lead white. Infrared passes through paint and is absorbed by carbon drawing. Ultraviolet makes aged varnish fluoresce. Every instrument in the Method list is a different kind of lamp.</p>
-        </div>
+          <p>Every instrument in the Method is a different kind of lamp.</p>
+          <details class="more"><summary class="chip-btn">Read more</summary><div class="more-body"><p>X-rays (Röntgen, 1895) show dense lead white. Infrared passes through paint and is absorbed by carbon drawing. Ultraviolet makes aged varnish fluoresce.</p></div></details>
+        </article>
       </div>
     </section>
-
-    <footer class="foot">
-      <p>Data and images: <a href="https://harvardartmuseums.org/collections/api" target="_blank" rel="noopener">Harvard Art Museums API</a>. Images © President and Fellows of Harvard College, shown for non-commercial educational use.</p>
-      <p class="mono">Lumen-Strata · CS 85 · <a href="https://github.com/Dash0077/Lumen-Strata" target="_blank" rel="noopener">source on GitHub</a></p>
-    </footer>
   </main>
 
   <!-- ======================= VIEWER ======================= -->
   <section id="viewer" hidden>
     <div class="track" id="track">
-      <div class="stage" id="stage">
+      <div class="stage" id="stage" role="img" aria-label="">
         <div class="world" id="world">
+          <div class="floor" id="floor"></div>
           <div class="wall" id="wall">
             <div class="wall-glow"></div>
-            <img id="wall-img" alt="" crossorigin="anonymous" />
+            <div class="projection" id="projection">
+              <img id="wall-img" alt="" />
+              <canvas id="wall-canvas" aria-hidden="true"></canvas>
+            </div>
           </div>
           <div class="beam" id="beam"></div>
           <div class="sheets" id="sheets"></div>
+          <div class="projector" id="projector" aria-hidden="true">
+            <div class="pf front"><span class="lens"></span></div>
+            <div class="pf back"></div>
+            <div class="pf left"></div>
+            <div class="pf right"></div>
+            <div class="pf top"></div>
+            <div class="pf bottom"></div>
+            <div class="barrel"><i></i><i></i><i></i><i></i></div>
+            <div class="stand"><i></i><i></i></div>
+          </div>
           <div class="lamp" id="lamp"><span></span></div>
         </div>
 
-        <div class="hud hud-top">
-          <a class="back mono" href="#/collection">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Collection
-          </a>
-          <div class="nowshowing">
-            <span class="mono" id="v-rank"></span>
-            <span id="v-title"></span>
-          </div>
-          <div class="pager">
-            <button class="icon-btn" id="prev" aria-label="Previous painting"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button class="icon-btn" id="next" aria-label="Next painting"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          </div>
-        </div>
-
         <div class="intro-card" id="intro-card">
-          <p class="eyebrow mono" id="v-meta"></p>
+          <p class="cap dim" id="v-meta"></p>
           <h1 id="v-h1"></h1>
           <p class="artist" id="v-artist"></p>
-          <p class="hint mono"><span class="mouse"></span>Scroll to dissect</p>
+          <p class="hint cap"><span class="mouse"></span>Scroll to dissect</p>
         </div>
 
-        <ol class="layer-index mono" id="layer-index" aria-label="Layers"></ol>
-
         <aside class="note" id="note" aria-live="polite">
-          <p class="note-num mono" id="note-num"></p>
+          <p class="note-num cap" id="note-num"></p>
           <h2 id="note-title"></h2>
-          <p class="note-sub mono" id="note-sub"></p>
-          <p id="note-body"></p>
-          <div class="note-instr">
-            <p class="mono label">How conservators see it</p>
-            <p id="note-instr"></p>
+          <p class="note-short" id="note-short"></p>
+          <p class="note-tool cap" id="note-tool"></p>
+          <div class="note-actions">
+            <button class="chip-btn" id="note-inspect" type="button">View sheet <i>⤢</i></button>
+            <details class="more" id="note-more">
+              <summary class="chip-btn">Read more</summary>
+              <div class="more-body">
+                <p id="note-body"></p>
+                <p id="note-instr"></p>
+                <p class="note-how" id="note-how"></p>
+              </div>
+            </details>
           </div>
-          <p class="note-how mono" id="note-how"></p>
         </aside>
 
         <div class="light-caption" id="light-caption">
-          <p class="mono" id="light-mode"></p>
+          <p class="cap" id="light-mode"></p>
           <p id="light-text"></p>
         </div>
 
-        <div class="hud hud-bottom">
-          <div class="progress"><span id="progress-bar"></span></div>
+        <p class="stage-hint cap" id="stage-hint"></p>
+
+        <div class="hud-bottom">
+          <ol class="rail" id="rail" aria-label="Strata"></ol>
           <div class="controls">
-            <button class="lens" id="lens" aria-pressed="false" title="Flip the projection like a camera obscura">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
-              <span>Obscura</span>
-            </button>
-            <button class="light-toggle" id="light" aria-pressed="false">
-              <span class="bulb" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-              </span>
-              <span class="lt-label">Light <b id="light-state">off</b></span>
-            </button>
+            <div class="table" id="table" aria-label="Light table: choose which sheets stay in the beam">
+              <div class="presets cap" id="presets"></div>
+            </div>
+            <div class="controls-right">
+              <button class="lens-btn" id="lens" aria-pressed="false" title="Flip the projection like a camera obscura (O)">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+                <span class="cap">Obscura</span>
+              </button>
+              <button class="light-toggle" id="light-btn" aria-pressed="false" title="Toggle the projector (L)">
+                <span class="bulb" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="cap">Light <b id="light-state">off</b></span>
+              </button>
+            </div>
           </div>
         </div>
 
         <div class="loader" id="loader">
           <div class="loader-stack"><i></i><i></i><i></i><i></i></div>
-          <p class="mono" id="loader-text">Separating strata…</p>
+          <p class="cap" id="loader-text">Separating strata…</p>
+          <button class="link-cta" id="retry" hidden><span class="roll" data-text="Try again"><span>Try again</span></span><i>↻</i></button>
         </div>
       </div>
+    </div>
+
+    <div class="inspect" id="inspect" role="dialog" aria-modal="true" aria-labelledby="ins-title" hidden>
+      <div class="ins-top">
+        <p class="cap"><span id="ins-num"></span></p>
+        <h2 id="ins-title"></h2>
+        <button class="icon-btn ins-close" id="ins-close" aria-label="Close sheet viewer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
+      <div class="ins-body">
+        <button class="icon-btn ins-nav" id="ins-prev" aria-label="Previous sheet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="compare" id="compare" style="--x: 50%">
+          <div class="cmp-base" id="cmp-base"></div>
+          <div class="cmp-top" id="cmp-top"></div>
+          <div class="cmp-handle" aria-hidden="true"><span>⟷</span></div>
+          <input class="cmp-range" id="cmp-range" type="range" min="0" max="100" value="50" aria-label="Reveal the original painting" />
+          <span class="cmp-label l cap" id="cmp-l"></span>
+          <span class="cmp-label r cap">Original</span>
+        </div>
+        <button class="icon-btn ins-nav" id="ins-next" aria-label="Next sheet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <div class="ins-foot">
+        <p id="ins-short"></p>
+        <p class="cap dim" id="ins-tool"></p>
+        <details class="more">
+          <summary class="chip-btn">Read more</summary>
+          <div class="more-body"><p id="ins-body"></p><p id="ins-instr"></p></div>
+        </details>
+      </div>
+      <div class="ins-strip" id="ins-strip" role="tablist" aria-label="Sheets"></div>
     </div>
 
     <article class="dossier" id="dossier">
       <div class="dossier-img"><img id="d-img" alt="" /></div>
       <div class="dossier-body">
-        <p class="eyebrow mono" id="d-eyebrow"></p>
+        <p class="cap dim" id="d-eyebrow"></p>
         <h2 id="d-title"></h2>
         <p class="artist" id="d-artist"></p>
         <dl class="facts" id="d-facts"></dl>
-        <div class="d-text" id="d-text"></div>
         <div class="palette">
-          <p class="mono label">Palette measured by the Harvard Art Museums API</p>
+          <p class="cap dim">Palette measured by the Harvard Art Museums API</p>
           <div class="swatches" id="d-swatches"></div>
         </div>
+        <details class="more d-more">
+          <summary class="chip-btn">Museum label</summary>
+          <div class="more-body d-text" id="d-text"></div>
+        </details>
         <div class="dossier-actions">
-          <a class="btn primary" id="d-link" target="_blank" rel="noopener">View at Harvard Art Museums ↗</a>
-          <button class="btn ghost" id="d-top">Dissect again ↑</button>
+          <a class="link-cta" id="d-link" target="_blank" rel="noopener"><span class="roll" data-text="View at Harvard Art Museums"><span>View at Harvard Art Museums</span></span><i>↗</i></a>
+          <button class="link-cta" id="d-top"><span class="roll" data-text="Dissect again"><span>Dissect again</span></span><i>↑</i></button>
         </div>
       </div>
     </article>
+    <nav class="next-up" id="next-up" aria-label="Next painting"></nav>
   </section>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="foot" id="foot">
+    <div class="foot-top">
+      <p class="foot-tag">Light, layered.</p>
+      <div class="foot-cols">
+        <div>
+          <p class="cap dim">Explore</p>
+          <a href="#/collection"><span class="roll" data-text="Collection"><span>Collection</span></span></a>
+          <a href="#/method"><span class="roll" data-text="Method"><span>Method</span></span></a>
+          <a href="#/light"><span class="roll" data-text="Light"><span>Light</span></span></a>
+        </div>
+        <div>
+          <p class="cap dim">Source</p>
+          <a href="https://github.com/Dash0077/Lumen-Strata" target="_blank" rel="noopener"><span class="roll" data-text="GitHub"><span>GitHub</span></span></a>
+          <a href="https://harvardartmuseums.org/collections/api" target="_blank" rel="noopener"><span class="roll" data-text="Museum API"><span>Museum API</span></span></a>
+          <a href="https://harvardartmuseums.org/" target="_blank" rel="noopener"><span class="roll" data-text="Harvard Art Museums"><span>Harvard Art Museums</span></span></a>
+        </div>
+      </div>
+    </div>
+    <p class="foot-word" aria-hidden="true">Lumen / Strata</p>
+    <div class="foot-bottom cap">
+      <span>CS 85 · Harvard</span>
+      <span class="dim">Images © President and Fellows of Harvard College · educational use</span>
+      <button class="link-cta" id="to-top"><span class="roll" data-text="Back to top"><span>Back to top</span></span><i>↑</i></button>
+    </div>
+  </footer>
 
   <script type="module" src="js/main.js"></script>
 </body>

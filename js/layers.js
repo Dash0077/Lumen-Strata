@@ -11,6 +11,8 @@ export const LAYERS = [
   {
     key: "support",
     name: "Support",
+    short: "The physical object: cloth, wood or wall.",
+    tool: "Thread counting · tree-ring dating",
     sub: (p) => ({ canvas: "Woven canvas", panel: "Wood panel", paper: "Paper or board", silk: "Silk", plaster: "Clay & plaster wall" })[p.support],
     body: (p) =>
       p.support === "panel"
@@ -27,6 +29,8 @@ export const LAYERS = [
   {
     key: "ground",
     name: "Ground",
+    short: "A primer that seals the support and sets the tone.",
+    tool: "Cross-sections",
     sub: (p) => groundFor(p).label,
     body: (p) =>
       `A layer of glue size and then a ground seals the support and gives the paint something to hold. Its colour sets the temperature of every layer above. ${groundFor(p).why}`,
@@ -37,6 +41,8 @@ export const LAYERS = [
   {
     key: "drawing",
     name: "Underdrawing",
+    short: "The composition, sketched in carbon.",
+    tool: "Infrared reflectography",
     sub: () => "Contours & hatching",
     body: () =>
       "Contours, then hatching for the shadows, in charcoal, chalk or thin dark paint. Painters often changed their minds. Those revisions are called <i>pentimenti</i>, from the Italian for \"repentances\".",
@@ -47,6 +53,8 @@ export const LAYERS = [
   {
     key: "value",
     name: "Dead colouring",
+    short: "Light and shadow, blocked in monochrome.",
+    tool: "X-radiography",
     sub: () => "Light & shadow in monochrome",
     body: () =>
       "Old masters often modelled the whole design in browns and greys first, a grisaille or <i>dead colouring</i>. This fixed the chiaroscuro, the fall of light and shadow, before any colour went on.",
@@ -57,6 +65,8 @@ export const LAYERS = [
   {
     key: "colour",
     name: "Colour lay-in",
+    short: "Flat fields of local colour.",
+    tool: "X-ray fluorescence",
     sub: (p) => `${p.colors.length} measured colours`,
     body: () =>
       "Local colour is laid into each zone as flat, opaque fields: the blue of a coat, the green of a wall. Here every pixel snaps to the nearest colour in the palette the museum's API measured for this painting.",
@@ -67,6 +77,8 @@ export const LAYERS = [
   {
     key: "glaze",
     name: "Glazes & highlights",
+    short: "Translucent films and thick highlights.",
+    tool: "Raking light",
     sub: () => "Translucent films, impasto",
     body: () =>
       "Last come thin, translucent glazes that deepen shadows and saturate colour, and thick touches of impasto for the highlights. Light passes through a glaze, reflects off the layers below and comes back tinted. This is where oil painting gets its glow.",
@@ -77,6 +89,8 @@ export const LAYERS = [
   {
     key: "surface",
     name: "Varnish & surface",
+    short: "The picture as we see it, under varnish.",
+    tool: "Ultraviolet fluorescence",
     sub: () => "The picture as we see it",
     body: () =>
       "A clear resin varnish saturates the colours and protects the paint. Natural varnishes yellow over decades, which is why cleaning a painting can change it so much. This top sheet is the museum's photograph.",
@@ -308,11 +322,30 @@ function glazeSheet(R, G, B, L, w, h) {
   });
 }
 
+// A scaled copy of a sheet, for when the same strata appear in more than one
+// place at once (a canvas element can only live in one spot in the DOM).
+export function copySheet(src, maxSide = 640) {
+  const s = Math.min(1, maxSide / Math.max(src.width, src.height));
+  const c = makeCanvas(Math.round(src.width * s), Math.round(src.height * s));
+  c.getContext("2d").drawImage(src, 0, 0, c.width, c.height);
+  c.setAttribute("aria-hidden", "true");
+  return c;
+}
+
 const cache = new Map();
 
-// Returns { image, w, h, sheets: { key: canvas } }.
-export async function dissect(p, onProgress = () => {}) {
-  if (cache.has(p.id)) return cache.get(p.id);
+// Returns a promise of { image, w, h, sheets: { key: canvas } }. The promise is
+// cached, so concurrent callers share one dissection; failures are not cached.
+export function dissect(p, onProgress = () => {}) {
+  if (!cache.has(p.id)) {
+    const job = run(p, onProgress);
+    cache.set(p.id, job);
+    job.catch(() => cache.delete(p.id));
+  }
+  return cache.get(p.id);
+}
+
+async function run(p, onProgress) {
   onProgress(0, "Fetching photograph");
   const image = await loadImage(imageUrl(p));
   const scale = Math.min(1, MAX_SIDE / Math.max(image.naturalWidth, image.naturalHeight));
@@ -344,7 +377,5 @@ export async function dissect(p, onProgress = () => {}) {
     await tick();
     sheets[key] = make();
   }
-  const result = { image, w, h, sheets };
-  cache.set(p.id, result);
-  return result;
+  return { image, w, h, sheets };
 }
