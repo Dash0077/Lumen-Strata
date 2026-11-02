@@ -1,0 +1,4116 @@
+{
+ "built": "2026-11-02T19:45:00.429Z",
+ "source": "Harvard Art Museums API",
+ "paintings": [
+  {
+   "id": 299843,
+   "objectnumber": "1951.65",
+   "title": "Self-Portrait Dedicated to Paul Gauguin",
+   "artist": "Vincent van Gogh",
+   "artistDates": "1853 - 1890",
+   "dated": "1888",
+   "year": 1888,
+   "century": "19th century",
+   "culture": "Dutch",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "61.5 x 50.3 cm (24 3/16 x 19 13/16 in.)",
+   "image": "https://nrs.harvard.edu/URN-3:HUAM:828557",
+   "width": 7609,
+   "height": 9304,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#64af7d",
+     "hue": "Green",
+     "percent": 0.5472
+    },
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.1386
+    },
+    {
+     "hex": "#4b4b19",
+     "hue": "Green",
+     "percent": 0.1086
+    },
+    {
+     "hex": "#7d7d4b",
+     "hue": "Green",
+     "percent": 0.0883
+    },
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.0429
+    },
+    {
+     "hex": "#afaf64",
+     "hue": "Green",
+     "percent": 0.0316
+    },
+    {
+     "hex": "#969664",
+     "hue": "Green",
+     "percent": 0.0291
+    },
+    {
+     "hex": "#c8c87d",
+     "hue": "Green",
+     "percent": 0.0116
+    },
+    {
+     "hex": "#32647d",
+     "hue": "Blue",
+     "percent": 0.0013
+    },
+    {
+     "hex": "#fae1af",
+     "hue": "Yellow",
+     "percent": 0.0005
+    },
+    {
+     "hex": "#00644b",
+     "hue": "Green",
+     "percent": 0.0002
+    },
+    {
+     "hex": "#4be1af",
+     "hue": "Blue",
+     "percent": 0.0002
+    }
+   ],
+   "text": "In early 1888, Van Gogh moved to Arles in the south of France, where he hoped to establish an art colony. Believing that painting could be reinvented through the genre of portraiture, he encouraged his fellow artists to paint themselves, and then to exchange the canvases. After receiving self-portraits from Emile Bernard and Gauguin, who were working together in Brittany at the time, Van Gogh inscribed this painting “To my friend Paul Gauguin,” and sent it to him. He described the process of creating his arresting likeness in several letters to his brother Theo, an art dealer in Paris, explaining how he manipulated his features in response to Japanese prints, changed the contours of his jacket for coloristic effect, and painted the background “pale veronese green” without any shadows. Shortly after he sent the work to Gauguin, however, their friendship deteriorated, and Gauguin sold it for three hundred francs.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest from the Collection of Maurice Wertheim, Class of 1906",
+   "url": "https://www.harvardartmuseums.org/collections/object/299843",
+   "views": 70475
+  },
+  {
+   "id": 228649,
+   "objectnumber": "1951.53",
+   "title": "The Gare Saint-Lazare: Arrival of a Train",
+   "artist": "Claude Monet",
+   "artistDates": "1840 - 1926",
+   "dated": "1877",
+   "year": 1877,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "83 x 101.3 cm (32 11/16 x 39 7/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC231456_dynmc",
+   "width": 2550,
+   "height": 2074,
+   "alt": "Dramatic painting of two locomotives spewing steam at the entrance of a glass roof station.",
+   "colors": [
+    {
+     "hex": "#7d96af",
+     "hue": "Blue",
+     "percent": 0.1981
+    },
+    {
+     "hex": "#4b647d",
+     "hue": "Blue",
+     "percent": 0.188
+    },
+    {
+     "hex": "#96afaf",
+     "hue": "Blue",
+     "percent": 0.1559
+    },
+    {
+     "hex": "#193232",
+     "hue": "Green",
+     "percent": 0.1317
+    },
+    {
+     "hex": "#647d96",
+     "hue": "Blue",
+     "percent": 0.1113
+    },
+    {
+     "hex": "#afafc8",
+     "hue": "Blue",
+     "percent": 0.1014
+    },
+    {
+     "hex": "#4b4b4b",
+     "hue": "Grey",
+     "percent": 0.0585
+    },
+    {
+     "hex": "#324b64",
+     "hue": "Blue",
+     "percent": 0.0551
+    }
+   ],
+   "text": "This is the largest in Monet’s series of twelve paintings of the Saint-Lazare train station in Paris, a subject favored by many impressionist painters. While completing the series, Monet relocated from the town of Argenteuil to an apartment near the station in Paris. He worked on all the paintings at the same time, and sometimes he leaned the stretched canvases against each other while the paint was still wet. This caused the cork spacers on the backs of the stretchers to be pressed into the adjacent paintings, creating circular indentations in the surface that are visible along the top edge of this work. Monet’s thick build-up of pigments here is a virtuosic example of his approach to painting during this period, when he juxtaposed multitudinous hues in mounds of impasto that would blend into a coherent whole only when viewed from a distance. This technique reportedly led Cézanne to declare, “Monet is only an eye, but my God what an eye!”",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest from the Collection of Maurice Wertheim, Class of 1906",
+   "url": "https://www.harvardartmuseums.org/collections/object/228649",
+   "views": 43547
+  },
+  {
+   "id": 299806,
+   "objectnumber": "1943.251",
+   "title": "Odalisque, Enslaved Woman, and Eunuch",
+   "artist": "Jean-Auguste-Dominique Ingres",
+   "artistDates": "1780 - 1867",
+   "dated": "1839-1840",
+   "year": 1839,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "72.1 x 100.3 cm (28 3/8 x 39 1/2 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:51355_dynmc",
+   "width": 2550,
+   "height": 1843,
+   "alt": "A nude woman reclines on the floor of an ornate room, while servants attend her",
+   "colors": [
+    {
+     "hex": "#000000",
+     "hue": "Black",
+     "percent": 1
+    }
+   ],
+   "text": "The central figure of the odalisque (a concubine in a harem) represents Ingres’s reinterpretation of the Western classical tradition of the female nude in the modern context of the Middle Eastern “other.” Though Ingres had never traveled outside Europe, he became fascinated by writings about Turkish society, mixing details from travel writing with his own fantasies. Period critics admired the way Ingres depicted the skin of the three different figures, praising how “the variety and nature of the races has been understood and expressed by the artist.” One commentator sorted the figures by skin type, contrasting the “white favorite” prone at the center of the painting, the “young Abyssinian slave . . . tawny like bronze” playing music at her side, and the “black eunuch” in the background. With her languid, available pose and state of undress, the white odalisque is offered as the sexual prize for the presumed male proprietor of this lavish interior—and by proxy, the viewer.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/299806",
+   "views": 36676
+  },
+  {
+   "id": 303561,
+   "objectnumber": "1966.47",
+   "title": "Pompadour at Her Toilette",
+   "artist": "François Boucher",
+   "artistDates": "1703 - 1770",
+   "dated": "1750, with later additions",
+   "year": 1750,
+   "century": "18th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "81.2 × 64.9 cm (31 15/16 × 25 9/16 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:771578",
+   "width": 2064,
+   "height": 2550,
+   "alt": "A painted portrait of an extravagantly dressed woman seated at a table, applying pink powder blush to her cheeks. ",
+   "colors": [
+    {
+     "hex": "#969696",
+     "hue": "Grey",
+     "percent": 0.3618
+    },
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.2526
+    },
+    {
+     "hex": "#4b4b32",
+     "hue": "Green",
+     "percent": 0.2144
+    },
+    {
+     "hex": "#64644b",
+     "hue": "Green",
+     "percent": 0.1233
+    },
+    {
+     "hex": "#7d7d7d",
+     "hue": "Grey",
+     "percent": 0.0435
+    },
+    {
+     "hex": "#324b64",
+     "hue": "Blue",
+     "percent": 0.0036
+    },
+    {
+     "hex": "#7d6419",
+     "hue": "Yellow",
+     "percent": 0.0009
+    }
+   ],
+   "text": "Jeanne-Antoinette Poisson, Marquise de Pompadour (1721–1764), became the official mistress of Louis XV in 1745. Numerous portraits of her were subsequently commissioned; this oval painting is one of the most unusual. In its early decades, the work was reshaped multiple times, modifications that are recorded in the X-radiograph below. The painting was initially a rectangular bust-length portrait—its original size is outlined in dotted line in the image. Seams indicating its first dimensions are also visible on the surface of the painting.\nSome years later, Boucher enlarged the rectangular portrait by adding strips of canvas on all four sides. These new dimensions, outlined in solid line in the radiograph, enabled the artist to transform the painting from a bust-length portrait to a larger toilette scene. Boucher prepared these additional strips of canvas with a lead white–based priming, which appears bright white on the radiograph because it is dense and more opaque. In contrast, the low-density earth pigments used to prepare the original, smaller canvas are darker.\nThe painting underwent a final modification in the last decades of the 18th century. Reconfiguring it to its current oval form—outlined in dashed line, below—involved cutting away its four corners and adding curved canvas pieces to its top, bottom, and right edges. The curved additions appear dark on the radiograph, which again indicates that these pieces were primed with low-density earth pigments. The difference in materials between the first alteration and the second speaks to a shift in painting techniques and artists’ preferences over the course of the 18th century.\n[image of x-radiograph]",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Charles E. Dunlap",
+   "url": "https://www.harvardartmuseums.org/collections/object/303561",
+   "views": 35184
+  },
+  {
+   "id": 228650,
+   "objectnumber": "1951.54",
+   "title": "Red Boats, Argenteuil",
+   "artist": "Claude Monet",
+   "artistDates": "1840 - 1926",
+   "dated": "1875",
+   "year": 1875,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "61.8 x 82.5 cm (24 5/16 x 32 1/2 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC231457_dynmc",
+   "width": 2550,
+   "height": 1887,
+   "alt": "Painting of a sublime placid sunny scene of small sail boats on the water near green land on the left.",
+   "colors": [
+    {
+     "hex": "#96afaf",
+     "hue": "Blue",
+     "percent": 0.3339
+    },
+    {
+     "hex": "#647d7d",
+     "hue": "Blue",
+     "percent": 0.2709
+    },
+    {
+     "hex": "#7d9696",
+     "hue": "Green",
+     "percent": 0.2019
+    },
+    {
+     "hex": "#4b647d",
+     "hue": "Blue",
+     "percent": 0.1123
+    },
+    {
+     "hex": "#afc8c8",
+     "hue": "Green",
+     "percent": 0.0335
+    },
+    {
+     "hex": "#64644b",
+     "hue": "Green",
+     "percent": 0.0285
+    },
+    {
+     "hex": "#324b4b",
+     "hue": "Grey",
+     "percent": 0.0159
+    },
+    {
+     "hex": "#af6432",
+     "hue": "Orange",
+     "percent": 0.003
+    },
+    {
+     "hex": "#193264",
+     "hue": "Blue",
+     "percent": 0.0002
+    }
+   ],
+   "text": "For most of the 1870s, Monet lived in Argenteuil, a town on the Seine only seventeen miles from Paris and accessible to the city by train. He often worked outdoors in his own boat and painted this basin several times, though the lower vantage point of this scene suggests a perspective from the shoreline. Eliminating the factory smokestacks that were in fact visible at this location, Monet instead highlights the area’s picturesque and recreational aspects, including the boat rental area on the left.\nImpressionist painters like Monet deliberately eschewed the finished structure and line of academic painting, but the irresolution of this painting has led to its occasional categorization as a “study.” As revealed in x-radiographs, the artist reworked the composition in several areas, removing a sixth paddling duck on the left, for example, by painting over it. The band of lavender brushstrokes along the horizon line is the site of a similar revision.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest from the Collection of Maurice Wertheim, Class of 1906",
+   "url": "https://www.harvardartmuseums.org/collections/object/228650",
+   "views": 27331
+  },
+  {
+   "id": 299926,
+   "objectnumber": "1943.268",
+   "title": "The Apparition",
+   "artist": "Gustave Moreau",
+   "artistDates": "1826 - 1898",
+   "dated": "1876-1877",
+   "year": 1876,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "55.9 x 46.7 cm (22 x 18 3/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:21204_dynmc",
+   "width": 2137,
+   "height": 2550,
+   "alt": "Inside a palace, before a king and queen on a throne, a woman stands pointing at a vision of a disembodied head",
+   "colors": [
+    {
+     "hex": "#4b3219",
+     "hue": "Brown",
+     "percent": 0.3884
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.2692
+    },
+    {
+     "hex": "#7d6432",
+     "hue": "Yellow",
+     "percent": 0.1711
+    },
+    {
+     "hex": "#7d7d4b",
+     "hue": "Green",
+     "percent": 0.0918
+    },
+    {
+     "hex": "#969664",
+     "hue": "Green",
+     "percent": 0.0451
+    },
+    {
+     "hex": "#afaf7d",
+     "hue": "Green",
+     "percent": 0.0295
+    },
+    {
+     "hex": "#e1c896",
+     "hue": "Yellow",
+     "percent": 0.0048
+    },
+    {
+     "hex": "#e1e1af",
+     "hue": "Green",
+     "percent": 0.0001
+    }
+   ],
+   "text": "Seduced by the erotic dancing of his stepdaughter, Salome, the biblical ruler Herod promised to grant her a wish. Prompted by her mother, Herodias, whose marriage to Herod had been denounced by John the Baptist, Salome requested the saint’s head on a platter. In Moreau’s ornate vision, the dancer appears to have conjured the head of the ascetic prophet, whose radiance overshadows her richly dressed form. The psychologically and narratively ambiguous scene is enacted in front of the enthroned king and his wife as well as the executioner, his sword still wet with blood. A version of this painting was described by French writer Joris-Karl Huysmans in his decadent novel of 1884, À rebours (Against Nature). Huysmans, like many late 19th-century writers and artists, considered Salome the ultimate example of a femme fatale: \"[S]he awakened more energetically the lethargic senses of man, she bewitched and tamed his will more confidently with her charm, that of a large venereal flower, grown in hotbeds of sacrilege, raised in impious greenhouses.\"",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/299926",
+   "views": 26192
+  },
+  {
+   "id": 299993,
+   "objectnumber": "1951.57",
+   "title": "Mother and Child",
+   "artist": "Pablo Ruiz Picasso",
+   "artistDates": "1881 - 1973",
+   "dated": "c. 1901",
+   "year": 1896,
+   "century": "19th-20th century",
+   "culture": "Spanish",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "112 x 97.5 cm (44 1/8 x 38 3/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC231461_dynmc",
+   "width": 2123,
+   "height": 2450,
+   "alt": "A painting of a woman, seated, holding an infant to her chest.",
+   "colors": [
+    {
+     "hex": "#19324b",
+     "hue": "Blue",
+     "percent": 0.3011
+    },
+    {
+     "hex": "#32647d",
+     "hue": "Blue",
+     "percent": 0.2081
+    },
+    {
+     "hex": "#4b7d96",
+     "hue": "Blue",
+     "percent": 0.1071
+    },
+    {
+     "hex": "#004b64",
+     "hue": "Green",
+     "percent": 0.0927
+    },
+    {
+     "hex": "#647d7d",
+     "hue": "Blue",
+     "percent": 0.0669
+    },
+    {
+     "hex": "#191932",
+     "hue": "Blue",
+     "percent": 0.048
+    },
+    {
+     "hex": "#324b64",
+     "hue": "Blue",
+     "percent": 0.0476
+    },
+    {
+     "hex": "#649696",
+     "hue": "Blue",
+     "percent": 0.0439
+    },
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.0314
+    },
+    {
+     "hex": "#4b4b4b",
+     "hue": "Grey",
+     "percent": 0.0272
+    }
+   ],
+   "text": "Following his visit to the Saint-Lazare prison-hospital, an institution for Parisian prostitutes with venereal disease, Picasso produced a number of paintings of destitute mothers embracing their small children. This is the largest of this group of works dating from the artist’s “Blue Period” (1901–4); they unite contemporary social concerns with an iconic Christian theme. The mother’s attenuated limbs speak to Picasso’s close study of the work of earlier artists, particularly El Greco.\nLike many paintings in this gallery, this one was executed on a reused canvas, and another composition lies beneath this scene. That painting is a portrait of Picasso’s friend, the poet Max Jacob, who sits in his study surrounded by books. Some evidence of the image is still visible, particularly the contours of the face, which is roughly the same size as the mother’s head and is located above her knees.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest from the Collection of Maurice Wertheim, Class of 1906",
+   "url": "https://www.harvardartmuseums.org/collections/object/299993",
+   "views": 24029
+  },
+  {
+   "id": 303496,
+   "objectnumber": "1951.47",
+   "title": "The Rehearsal",
+   "artist": "Hilaire-Germain-Edgar Degas",
+   "artistDates": "1834 - 1917",
+   "dated": "c. 1873-1878",
+   "year": 1873,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "47.2 x 61.5 cm (18 9/16 x 24 3/16 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC252086_dynmc",
+   "width": 2550,
+   "height": 1950,
+   "alt": "A ballet dance studio with several young girls in white tutus are gathered on the left.",
+   "colors": [
+    {
+     "hex": "#4b4b32",
+     "hue": "Green",
+     "percent": 0.4747
+    },
+    {
+     "hex": "#644b4b",
+     "hue": "Brown",
+     "percent": 0.3035
+    },
+    {
+     "hex": "#7d7d64",
+     "hue": "Yellow",
+     "percent": 0.1117
+    },
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.0524
+    },
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.0365
+    },
+    {
+     "hex": "#afaf96",
+     "hue": "Green",
+     "percent": 0.0129
+    },
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.0043
+    },
+    {
+     "hex": "#e1e1e1",
+     "hue": "Grey",
+     "percent": 0.0036
+    },
+    {
+     "hex": "#7dafaf",
+     "hue": "Green",
+     "percent": 0.0004
+    },
+    {
+     "hex": "#fafae1",
+     "hue": "Green",
+     "percent": 0.0001
+    }
+   ],
+   "text": "This is one of Degas’s earliest paintings of dancers, a subject which he depicted in many media throughout his career. A close look at this canvas reveals a grid underneath the paint layer that he used as part of the preparatory process to record preliminary ideas. Degas later reworked this painting, taking out a stairwell and repositioning some of the figures to add to the rhythmic line of the rehearsing dancers.\nWhen Edmond de Goncourt, the renowned artist, critic, and writer, visited Degas’s studio in 1874, he wrote: “After a great many essays and experiments and trial shoots in all directions, he has fallen in love with modern life, and out of all the subjects of modern life he has chosen washerwomen and ballet dancers. . . . It is a world of pink and white, of female flesh in lawn and gauze, the most delightful of pretexts for using pale, soft tints.”",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest from the Collection of Maurice Wertheim, Class of 1906",
+   "url": "https://www.harvardartmuseums.org/collections/object/303496",
+   "views": 20652
+  },
+  {
+   "id": 303729,
+   "objectnumber": "1943.277",
+   "title": "Spring Bouquet",
+   "artist": "Pierre-Auguste Renoir",
+   "artistDates": "1841 - 1919",
+   "dated": "1866",
+   "year": 1866,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "104.8 x 80.3 cm (41 1/4 x 31 5/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:50587_dynmc",
+   "width": 1950,
+   "height": 2550,
+   "alt": "A large bouquet of white, blue and yellow flowers in a blue and white vase",
+   "colors": [
+    {
+     "hex": "#64644b",
+     "hue": "Green",
+     "percent": 0.3792
+    },
+    {
+     "hex": "#7d7d64",
+     "hue": "Yellow",
+     "percent": 0.2164
+    },
+    {
+     "hex": "#4b4b4b",
+     "hue": "Grey",
+     "percent": 0.1506
+    },
+    {
+     "hex": "#969696",
+     "hue": "Grey",
+     "percent": 0.1102
+    },
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.0651
+    },
+    {
+     "hex": "#afaf96",
+     "hue": "Green",
+     "percent": 0.0528
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.0235
+    },
+    {
+     "hex": "#afaf64",
+     "hue": "Green",
+     "percent": 0.0012
+    },
+    {
+     "hex": "#af964b",
+     "hue": "Yellow",
+     "percent": 0.001
+    }
+   ],
+   "text": "For many French artists during the 1860s, the floral still life persisted as a test of pure painterly ability. This exuberant bouquet in a Japanese vase from early in Renoir’s career attests to the artist’s engagement with past art historical traditions. He addresses the ennobled Dutch practice of still life through the large scale of his canvas, while his attention to the textures and colors of the arrangement evokes the work of early eighteenth-century French painters like Antoine Watteau and François Boucher— artists he had studied as a teenager while working as a porcelain painter. The painting also demonstrates Renoir’s development as an artist. Instead of applying the paint with a palette knife— a technique he borrowed from artists such as Courbet— Renoir adopted a freer and thinner stroke using solely a brush.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/303729",
+   "views": 19849
+  },
+  {
+   "id": 299794,
+   "objectnumber": "1943.150",
+   "title": "The Breakfast Table",
+   "artist": "John Singer Sargent",
+   "artistDates": "1856 - 1925",
+   "dated": "1883 - 1884",
+   "year": 1883,
+   "century": "19th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "54 x 45 cm (21 1/4 x 17 11/16 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:51172_dynmc",
+   "width": 2132,
+   "height": 2550,
+   "alt": "A young woman sits at a fancy table with white tablecloth holding an apple reading a book inside a room. ",
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.244
+    },
+    {
+     "hex": "#4b3232",
+     "hue": "Red",
+     "percent": 0.1862
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.0913
+    },
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.0729
+    },
+    {
+     "hex": "#646464",
+     "hue": "Grey",
+     "percent": 0.0724
+    },
+    {
+     "hex": "#afafaf",
+     "hue": "Grey",
+     "percent": 0.0676
+    },
+    {
+     "hex": "#4b4b4b",
+     "hue": "Grey",
+     "percent": 0.063
+    },
+    {
+     "hex": "#7d7d7d",
+     "hue": "Grey",
+     "percent": 0.0601
+    },
+    {
+     "hex": "#e1e1e1",
+     "hue": "Grey",
+     "percent": 0.054
+    },
+    {
+     "hex": "#c8af96",
+     "hue": "Brown",
+     "percent": 0.0318
+    }
+   ],
+   "text": "Sargent told friends he wished to “cultivate an ever continuous power of observation.” His perceptive gifts are on display in this private domestic scene in which a young woman (the artist’s sister) peels an orange while reading a book. Through loose brushwork punctuated with short daubs of pink and yellow, Sargent depicts Violet at a breakfast table laden with the gleaming shapes and surfaces of fine, Victorian-era tableware, including ceramics, crystal, crisp white linens, and shimmering, reflective silver. The condensed composition and Violet’s turned gaze suggest morning light may be the true subject of the painting. As such, Sargent’s work exists in conversation with contemporaneous paintings of interior arrangements by Degas, Manet, Monet, and Whistler, exemplifying his friendship with, and regard for, the formal innovations of these “impressionist” artists. This painting also reflects conversations he had with artist Albert Besnard, to whom the painting is dedicated, about how best to capture light in the moment.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/299794",
+   "views": 18747
+  },
+  {
+   "id": 304344,
+   "objectnumber": "BR41.37",
+   "title": "Self-Portrait in Tuxedo",
+   "artist": "Max Beckmann",
+   "artistDates": "1884 - 1950",
+   "dated": "1927",
+   "year": 1927,
+   "century": "20th century",
+   "culture": "German",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "139.5 x 95.5 cm (54 15/16 x 37 5/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:78701_dynmc",
+   "width": 1722,
+   "height": 2550,
+   "alt": "A portrait of a standing man wearing a tuxedo.",
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.5171
+    },
+    {
+     "hex": "#afafaf",
+     "hue": "Grey",
+     "percent": 0.1265
+    },
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.0676
+    },
+    {
+     "hex": "#969696",
+     "hue": "Grey",
+     "percent": 0.0625
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.0547
+    },
+    {
+     "hex": "#7d4b32",
+     "hue": "Brown",
+     "percent": 0.0315
+    },
+    {
+     "hex": "#4b3219",
+     "hue": "Brown",
+     "percent": 0.029
+    },
+    {
+     "hex": "#7d7d7d",
+     "hue": "Grey",
+     "percent": 0.0285
+    },
+    {
+     "hex": "#966432",
+     "hue": "Orange",
+     "percent": 0.0232
+    },
+    {
+     "hex": "#646464",
+     "hue": "Grey",
+     "percent": 0.0162
+    }
+   ],
+   "text": "“The effect is brutal,” wrote one critic when this self-portrait by Beckmann debuted in Berlin in 1928, “but the work is surely in the spirit of the most recent art.” Since then, this now iconic painting has been understood as synonymous with the art and political uncertainty of the 1920s. It is also the work most closely associated with the Busch-Reisinger Museum, which acquiredthe portrait as its first modern painting in 1941.Half cast into deep shadow by an unseen light source, Beckmann’s face at close range resembles a mask, an effect underscored by the thick application of paint. The artist easily dons the elegant attire and “mask” of the bourgeoisie, but the question remains whether his likeness is a critique of the elite conservative circles he was known to frequent. Beckmann repeatedly refused to take an outright political stance on the artist’s role in society. “Afraid of nothing,” wrote one contemporary, “he refrains from taking up anyone position.”",
+   "credit": "Harvard Art Museums/Busch-Reisinger Museum, Association Fund",
+   "url": "https://www.harvardartmuseums.org/collections/object/304344",
+   "views": 18228
+  },
+  {
+   "id": 229060,
+   "objectnumber": "1951.63",
+   "title": "The Hangover (Suzanne Valadon)",
+   "artist": "Henri de Toulouse-Lautrec",
+   "artistDates": "1864 - 1901",
+   "dated": "1887-1889",
+   "year": 1887,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "47 x 55.3 cm (18 1/2 x 21 3/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC252007_dynmc",
+   "width": 2550,
+   "height": 2178,
+   "alt": "A woman facing right sits at a small table looking straight ahead with a wine bottle in front of her.　",
+   "colors": [
+    {
+     "hex": "#af967d",
+     "hue": "Brown",
+     "percent": 0.3598
+    },
+    {
+     "hex": "#c8af7d",
+     "hue": "Brown",
+     "percent": 0.2465
+    },
+    {
+     "hex": "#7d7d64",
+     "hue": "Yellow",
+     "percent": 0.1718
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.0962
+    },
+    {
+     "hex": "#e1c896",
+     "hue": "Yellow",
+     "percent": 0.0654
+    },
+    {
+     "hex": "#646464",
+     "hue": "Grey",
+     "percent": 0.0465
+    },
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.0138
+    },
+    {
+     "hex": "#7d3219",
+     "hue": "Orange",
+     "percent": 0.0001
+    }
+   ],
+   "text": "Aristide Bruant, a cabaret owner, singer, and songwriter who exhibited Toulouse-Lautrec’s work in his establishment, gave this painting its title. Bruant’s songs were often about the condition of the urban poor and the theme of excessive drinking. The model for the sitter in this composition is Suzanne Valadon, a former circus performer who was Toulouse-Lautrec’s mistress for two years. A decade after this painting was created, Valadon began making her own drawings, and later in life she was a well-known artist. Here, Valadon’s scowl, slumped pose, and darkened eyes befit Bruant’s title perfectly, while the single glass and half-empty bottle of wine on the table suggest she drinks alone. The sketchy application of paint, which was diluted with turpentine and then brushed over an underdrawing approximates the hazy, indistinct perception of the café that the inebriated sitter would have through her halfclosed eyes. Many of Toulouse-Lautrec’s contemporaries depicted the social phenomenon of alcoholism among women, which was a growing concern in medical circles.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest from the Collection of Maurice Wertheim, Class of 1906",
+   "url": "https://www.harvardartmuseums.org/collections/object/229060",
+   "views": 18022
+  },
+  {
+   "id": 228744,
+   "objectnumber": "1951.66",
+   "title": "Three Pairs of Shoes",
+   "artist": "Vincent van Gogh",
+   "artistDates": "1853 - 1890",
+   "dated": "1886-1887",
+   "year": 1886,
+   "century": "19th century",
+   "culture": "Dutch",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "49.8 x 72.5 cm (19 5/8 x 28 9/16 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC231470_dynmc",
+   "width": 2550,
+   "height": 1735,
+   "alt": "Still life of three pairs of worn black shoes sitting diagonally in a row on a white cloth.",
+   "colors": [
+    {
+     "hex": "#321919",
+     "hue": "Brown",
+     "percent": 0.2897
+    },
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.2815
+    },
+    {
+     "hex": "#64644b",
+     "hue": "Green",
+     "percent": 0.2
+    },
+    {
+     "hex": "#7d7d64",
+     "hue": "Yellow",
+     "percent": 0.131
+    },
+    {
+     "hex": "#af967d",
+     "hue": "Brown",
+     "percent": 0.0973
+    },
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.0005
+    }
+   ],
+   "text": "Made at a time when Van Gogh was deeply engaged with still life, this composition is painted over another image of a large bouquet of flowers in a vase. It is one of a series of five paintings of shoes by the artist. Their arrangement in a diagonal line lends the scene a sense of balance, while the playful individuality of each boot adds rhythmic movement to the composition. Placed on a white cloth, the shoes operate within the still life tradition, but the distinctive character of each one, and their recognizable identity as part of the attire of Parisian laborers, evokes comparisons to portraiture. The figural aspects of the shoes are enhanced by Van Gogh’s singular application of paint, notably the sculptural impasto, which gives vitality to details such as the nail heads in the heel of the central shoe.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest from the Collection of Maurice Wertheim, Class of 1906",
+   "url": "https://www.harvardartmuseums.org/collections/object/228744",
+   "views": 17490
+  },
+  {
+   "id": 299849,
+   "objectnumber": "BR66.4",
+   "title": "Pear Tree",
+   "artist": "Gustav Klimt",
+   "artistDates": "1862 - 1918",
+   "dated": "1903 (reworked by the artist 1903/1918)",
+   "year": 1903,
+   "century": "20th century",
+   "culture": "Austrian",
+   "period": null,
+   "medium": "Oil and casein on canvas",
+   "support": "canvas",
+   "dimensions": "101 x 101 cm (39 3/4 x 39 3/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:50920_dynmc",
+   "width": 2548,
+   "height": 2550,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#647d64",
+     "hue": "Green",
+     "percent": 0.9848
+    },
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.008
+    },
+    {
+     "hex": "#e1e1e1",
+     "hue": "Grey",
+     "percent": 0.0052
+    },
+    {
+     "hex": "#c8c864",
+     "hue": "Green",
+     "percent": 0.0016
+    },
+    {
+     "hex": "#c87d32",
+     "hue": "Brown",
+     "percent": 0.0002
+    },
+    {
+     "hex": "#c89619",
+     "hue": "Yellow",
+     "percent": 0.0002
+    },
+    {
+     "hex": "#e1e17d",
+     "hue": "Green",
+     "percent": 0.0001
+    }
+   ],
+   "text": "A pear tree in full bloom dominates this early landscape by Klimt, the leading proponent of modernist painting in Vienna at the turn of the last century, when the city’s artists and designers rejected the conservative attitudes of the academy and endeavored to create a new art free from historical influence. While a horizontal format is traditionally used for landscapes, Klimt chose a square canvas — a pure geometric shape that was also the Vienna Secession’s dominant decorative motif. In the flowering branches, each dab of paint indicates a single leaf, blossom, or piece of fruit. The flat, flickering field of color evokes both postimpressionist painting and Byzantine mosaics. The left side of the work has a noticeably denser application of paint than the center or the right side. Klimt continued to add to the painting, filling in these bare spots, even after giving it to Emilie Flöge, his muse and mistress, in 1903.",
+   "credit": "Harvard Art Museums/Busch-Reisinger Museum, Gift of Otto Kallir",
+   "url": "https://www.harvardartmuseums.org/collections/object/299849",
+   "views": 15959
+  },
+  {
+   "id": 299832,
+   "objectnumber": "1929.90",
+   "title": "Cotton Merchants in New Orleans",
+   "artist": "Hilaire-Germain-Edgar Degas",
+   "artistDates": "1834 - 1917",
+   "dated": "1873",
+   "year": 1873,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on linen",
+   "support": "canvas",
+   "dimensions": "58.7 × 71.8 cm (23 1/8 × 28 1/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:51644_dynmc",
+   "width": 2550,
+   "height": 2104,
+   "alt": "Loose brushstroke genre painting portrays three male figures standing in a room around a large display of raw cotton. ",
+   "colors": [
+    {
+     "hex": "#c8afaf",
+     "hue": "Red",
+     "percent": 0.2454
+    },
+    {
+     "hex": "#afaf96",
+     "hue": "Green",
+     "percent": 0.1998
+    },
+    {
+     "hex": "#af967d",
+     "hue": "Brown",
+     "percent": 0.1605
+    },
+    {
+     "hex": "#967d64",
+     "hue": "Brown",
+     "percent": 0.1048
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.0855
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.0726
+    },
+    {
+     "hex": "#4b3232",
+     "hue": "Red",
+     "percent": 0.054
+    },
+    {
+     "hex": "#e1c8c8",
+     "hue": "Orange",
+     "percent": 0.0453
+    },
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.0321
+    }
+   ],
+   "text": "From October 1872 until March of the following year, Degas was in New Orleans visiting his extended family with his brother René. He painted two compositions set in the office of his maternal uncle Michel Musson, a cotton buyer. The first of these, A Cotton Office in New Orleans, which Degas intended for the commercial market, depicts the business activities of the office within the framework of a group portrait. This painting, by contrast, is less concerned with narrative and likeness, concentrating instead on the construction of the enclosed space of the shop. Borrowing framing techniques from Japanese prints, Degas has created a planar space in which the figures and objects fluctuate between three- and two-dimensionality. The image of a framed seascape on the right edge of the canvas reinforces the perspectival shifts occurring in the rest of the scene.",
+   "credit": "Harvard Art Museums/Fogg Museum, Gift of Herbert N. Straus",
+   "url": "https://www.harvardartmuseums.org/collections/object/299832",
+   "views": 15654
+  },
+  {
+   "id": 303976,
+   "objectnumber": "1895.698",
+   "title": "Rocky Mountains, \"Lander's Peak\"",
+   "artist": "Albert Bierstadt",
+   "artistDates": "1830 - 1902",
+   "dated": "1863",
+   "year": 1863,
+   "century": "19th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on linen",
+   "support": "canvas",
+   "dimensions": "110.8 x 90.2 cm (43 5/8 x 35 1/2 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:52101_dynmc",
+   "width": 2007,
+   "height": 2450,
+   "alt": "Vertical landscape painting of mountains, a distant waterfall, and sunlight beaming through dramatic clouds into a valley in lower center.",
+   "colors": [
+    {
+     "hex": "#4b3219",
+     "hue": "Brown",
+     "percent": 0.3932
+    },
+    {
+     "hex": "#646464",
+     "hue": "Grey",
+     "percent": 0.1946
+    },
+    {
+     "hex": "#7d7d64",
+     "hue": "Yellow",
+     "percent": 0.1305
+    },
+    {
+     "hex": "#afaf96",
+     "hue": "Green",
+     "percent": 0.0879
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.0862
+    },
+    {
+     "hex": "#969696",
+     "hue": "Grey",
+     "percent": 0.0592
+    },
+    {
+     "hex": "#af967d",
+     "hue": "Brown",
+     "percent": 0.0439
+    },
+    {
+     "hex": "#e1c8c8",
+     "hue": "Orange",
+     "percent": 0.0044
+    }
+   ],
+   "text": "This painting is based on sketches that Bierstadt completed in 1859 while serving on a U.S. government survey expedition led by Frederic W. Lander. Upon his return to New York, Bierstadt painted the work, which presents a composite scene rather than an accurate topographical rendering. Notably absent from the landscape are the Eastern Shoshone people, who have lived in and around the depicted Wind River Mountain Range for thousands of years.\nThough the artist met and sketched Shoshone Tribe members during the survey, by omitting them from this landscape Bierstadt visually reinforced the false and harmful myth of the “vanishing Indian.” He presents the American West as a new Eden, bathed in rays of heavenly sunlight. This representation promoted the doctrine of Manifest Destiny, which was used to justify removal and genocide of Indigenous peoples in the name of divinely sanctioned westward expansion.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Mrs. William Hayes Fogg",
+   "url": "https://www.harvardartmuseums.org/collections/object/303976",
+   "views": 15575
+  },
+  {
+   "id": 299877,
+   "objectnumber": "H74",
+   "title": "John Adams (1735-1826)",
+   "artist": "John Singleton Copley",
+   "artistDates": "1738 - 1815",
+   "dated": "1783",
+   "year": 1783,
+   "century": "18th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "238.1 x 147 cm (93 3/4 x 57 7/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:50547_dynmc",
+   "width": 1563,
+   "height": 2550,
+   "alt": "Formal portrait of a middle-aged gentleman in eighteenth-century attire, stands next to a table with maps, looking at the viewer.",
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.4238
+    },
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.3977
+    },
+    {
+     "hex": "#64644b",
+     "hue": "Green",
+     "percent": 0.0481
+    },
+    {
+     "hex": "#7d7d64",
+     "hue": "Yellow",
+     "percent": 0.0405
+    },
+    {
+     "hex": "#969696",
+     "hue": "Grey",
+     "percent": 0.0284
+    },
+    {
+     "hex": "#afafaf",
+     "hue": "Grey",
+     "percent": 0.0283
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.0193
+    },
+    {
+     "hex": "#c8e1e1",
+     "hue": "Green",
+     "percent": 0.0108
+    },
+    {
+     "hex": "#19324b",
+     "hue": "Blue",
+     "percent": 0.003
+    }
+   ],
+   "text": "Before serving as the first vice president and the second president of the United States, Harvard alumnus John Adams served as the new nation’s first ambassador to Great Britain. Adams befriended Copley in London, and the two collaborated on this symbolic grand portrait that commemorates Adams’s role in securing peace through diplomacy during the Revolutionary War. Copley was delighted with how the work turned out and kept the work to promote his skills. At Copley’s death, the painting came to the Adams family farm. Abigail Adams praised the portrait of her husband as “a very good likeness,” whereas the president, embarrassed by his youthful bravado, deemed the work “a piece of vanity.”",
+   "credit": "Harvard University Portrait Collection, Bequest of Ward Nicholas Boylston to Harvard College, 1828",
+   "url": "https://www.harvardartmuseums.org/collections/object/299877",
+   "views": 15441
+  },
+  {
+   "id": 299805,
+   "objectnumber": "1943.202",
+   "title": "The Blessed Damozel",
+   "artist": "Dante Gabriel Rossetti",
+   "artistDates": "1828 - 1882",
+   "dated": "1871-1878",
+   "year": 1871,
+   "century": "19th century",
+   "culture": "British",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "136.8 x 96.5 cm (53 7/8 x 38 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:51827_dynmc",
+   "width": 1592,
+   "height": 2550,
+   "alt": "A woman holds a bouquet of lilies. Below her are three young girls and a smaller, separate image of a reclining man.",
+   "colors": [
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.457
+    },
+    {
+     "hex": "#7d6432",
+     "hue": "Yellow",
+     "percent": 0.1389
+    },
+    {
+     "hex": "#644b19",
+     "hue": "Orange",
+     "percent": 0.1072
+    },
+    {
+     "hex": "#967d4b",
+     "hue": "Brown",
+     "percent": 0.0978
+    },
+    {
+     "hex": "#e1c87d",
+     "hue": "Yellow",
+     "percent": 0.071
+    },
+    {
+     "hex": "#c8af64",
+     "hue": "Yellow",
+     "percent": 0.0665
+    },
+    {
+     "hex": "#af964b",
+     "hue": "Yellow",
+     "percent": 0.0479
+    },
+    {
+     "hex": "#fae196",
+     "hue": "Yellow",
+     "percent": 0.0136
+    }
+   ],
+   "text": "Rossetti was a poet as well as an artist. His poem “The Blessed Damozel” was first composed in 1847, when he was nineteen, and he continued to revise it until just before his death. William Graham, one of the artist’s most faithful patrons, commissioned a painting of its subject in 1871. The poem uses archaic language to describe the damozel, or damsel, leaning out of heaven — “the rampart of God’s house”— to behold her earthbound lover. The painting takes the form of a Renaissance altarpiece, with the damozel as a surrogate for the Virgin Mary. Graham, an avid collector of early Renaissance paintings, suggested that he add the predella (the panel or step traditionally found below the main part of an altarpiece) with the reclining lover in a terrestrial landscape. The two-part frame, designed by the artist, emphasizes the separation between heaven and earth — the “gold bar” described in the poem.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/299805",
+   "views": 14299
+  },
+  {
+   "id": 299838,
+   "objectnumber": "1943.176",
+   "title": "Nocturne in Blue and Silver",
+   "artist": "James Abbott McNeill Whistler",
+   "artistDates": "1834 - 1903",
+   "dated": "c. 1871-1872",
+   "year": 1871,
+   "century": "19th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on wood panel",
+   "support": "panel",
+   "dimensions": "44.5 x 61 cm (17 1/2 x 24 in.)",
+   "image": "https://nrs.harvard.edu/URN-3:HUAM:826015",
+   "width": 10968,
+   "height": 7902,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#7d9696",
+     "hue": "Green",
+     "percent": 0.4657
+    },
+    {
+     "hex": "#647d7d",
+     "hue": "Blue",
+     "percent": 0.412
+    },
+    {
+     "hex": "#4b6464",
+     "hue": "Blue",
+     "percent": 0.1123
+    },
+    {
+     "hex": "#4b4b4b",
+     "hue": "Grey",
+     "percent": 0.0099
+    },
+    {
+     "hex": "#4b3219",
+     "hue": "Brown",
+     "percent": 0.0001
+    }
+   ],
+   "text": "Nature contains the elements, in colour and form, of all pictures, as the keyboard contains the notes of all music. But the artist is born to pick, and choose . . . until he brings forth . . . glorious harmony. —J.A.M. Whistler, 1885Born near Boston, Whistler spent part of his childhood in Saint Petersburg, Russia. After being dismissed from the U.S. Military Academy at West Point for failing chemistry, Whistler moved to Paris to study art. He settled in London by 1860, becoming an influential member of the Aesthetic movement.It was in his studio near the Thames that Whistler crafted a distinctive style drawn from Japanese prints, photography, music theory, and commercial advertisements. With its legato brushwork and muted, harmonious palette conjuring mist and coal smoke, \"Nocturne in Blue and Silver\" exemplifies the artist’s radical assertion that works of art should compel an emotional response through suggestion rather than direct, figural representation.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/299838",
+   "views": 14187
+  },
+  {
+   "id": 299923,
+   "objectnumber": "1924.27",
+   "title": "Mystic Crucifixion",
+   "artist": "Sandro Botticelli (Alessandro Filipepi)",
+   "artistDates": "1444/45 - 1510",
+   "dated": "c. 1500",
+   "year": 1495,
+   "century": "15th-16th century",
+   "culture": "Italian",
+   "period": null,
+   "medium": "Tempera and oil on canvas (possibly transferred from panel)",
+   "support": "canvas",
+   "dimensions": "72.4 x 51.4 cm (28 1/2 x 20 1/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC252445_dynmc",
+   "width": 1760,
+   "height": 2550,
+   "alt": "A man hangs on a cross with two figures positioned below",
+   "colors": [
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.4737
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.142
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.0865
+    },
+    {
+     "hex": "#647d64",
+     "hue": "Green",
+     "percent": 0.0718
+    },
+    {
+     "hex": "#af3219",
+     "hue": "Red",
+     "percent": 0.0665
+    },
+    {
+     "hex": "#afaf7d",
+     "hue": "Green",
+     "percent": 0.0476
+    },
+    {
+     "hex": "#967d4b",
+     "hue": "Brown",
+     "percent": 0.0445
+    },
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.0408
+    },
+    {
+     "hex": "#af9664",
+     "hue": "Yellow",
+     "percent": 0.0267
+    }
+   ],
+   "text": "In the 1490s, Florence came under the sway of the magnetic Dominican preacher Girolamo Savonarola. The century had been one of unprecedented innovations in art and literature, but also of loosening social mores and rampant church corruption. Savonarola railed against immorality and unorthodoxy, warning that Judgment Day was imminent and that Florence would be punished for its sins.\nBotticelli’s brother was a follower of Savonarola, and the artist also came under his sway. In this painting, perhaps made for his own use, Botticelli incorporates themes from Savonarola’s incendiary sermons. Firebrands and weapons rain down from black storm clouds, and an angel of justice raises his sword to slay the marzocco, the small lion that is the emblem of Florence. The purified city is shown in the background, bathed in light emanating from God the Father, as white angels chase the clouds away. Mary Magdalene desperately clutches the foot of the cross, while a wolf, symbolizing clerical vice, flees from under her robe.",
+   "credit": "Harvard Art Museums/Fogg Museum, Friends of the Fogg Art Museum Fund",
+   "url": "https://www.harvardartmuseums.org/collections/object/299923",
+   "views": 13439
+  },
+  {
+   "id": 230640,
+   "objectnumber": "1937.78",
+   "title": "Summer Scene (Bathers)",
+   "artist": "Jean Frédéric Bazille",
+   "artistDates": "1841 - 1870",
+   "dated": "1869-1870",
+   "year": 1869,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "160 x 160.7 cm (63 x 63 1/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:VRS30109_dynmc",
+   "width": 2450,
+   "height": 2430,
+   "alt": "A group of young men swim in the water, relax in the grass, and wrestle.",
+   "colors": [
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.5784
+    },
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.1589
+    },
+    {
+     "hex": "#646464",
+     "hue": "Grey",
+     "percent": 0.0523
+    },
+    {
+     "hex": "#647d7d",
+     "hue": "Blue",
+     "percent": 0.0357
+    },
+    {
+     "hex": "#967d64",
+     "hue": "Brown",
+     "percent": 0.0282
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.0268
+    },
+    {
+     "hex": "#96c8fa",
+     "hue": "Blue",
+     "percent": 0.0242
+    },
+    {
+     "hex": "#6496e1",
+     "hue": "Blue",
+     "percent": 0.0213
+    },
+    {
+     "hex": "#7d964b",
+     "hue": "Green",
+     "percent": 0.0189
+    },
+    {
+     "hex": "#7dafe1",
+     "hue": "Blue",
+     "percent": 0.0186
+    }
+   ],
+   "text": "When this painting was first exhibited at the Salon of 1870, critic and artist Zacharie Astruc wrote of Bazille, “The sun inundates his canvases.” It appears that Bazille began this composition in his Paris studio but completed the details of the landscape after traveling to the south of France, where he painted a similar landscape of the river Lez. Although individual figures have been identified as derivations from Italian Renaissance sources, including Andrea Mantegna and Sebastiano del Piombo, the inspiration for the subject may have been the modernist novel Manette Salomon (1867), in which the Goncourt brothers describe a brilliantly lit scene of young men bathing. The artist, one of the most important and influential exponents of the “new painting” that gave rise to impressionism, died in the Franco-Prussian War, four years before the first impressionist exhibition was held.",
+   "credit": "Harvard Art Museums/Fogg Museum, Gift of Mr. and Mrs. F. Meynier de Salinelles",
+   "url": "https://www.harvardartmuseums.org/collections/object/230640",
+   "views": 13316
+  },
+  {
+   "id": 222353,
+   "objectnumber": "2014.301",
+   "title": "Grazing Horses IV",
+   "artist": "Franz Marc",
+   "artistDates": "1880 - 1916",
+   "dated": "1911",
+   "year": 1911,
+   "century": "20th century",
+   "culture": "German",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "121 x 183 cm (47 5/8 x 72 1/16 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:816478",
+   "width": 14614,
+   "height": 9998,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.3388
+    },
+    {
+     "hex": "#647d4b",
+     "hue": "Green",
+     "percent": 0.1649
+    },
+    {
+     "hex": "#964b32",
+     "hue": "Orange",
+     "percent": 0.1329
+    },
+    {
+     "hex": "#7d4b4b",
+     "hue": "Red",
+     "percent": 0.0997
+    },
+    {
+     "hex": "#4b6464",
+     "hue": "Blue",
+     "percent": 0.0863
+    },
+    {
+     "hex": "#963219",
+     "hue": "Brown",
+     "percent": 0.0552
+    },
+    {
+     "hex": "#4b4b4b",
+     "hue": "Grey",
+     "percent": 0.0503
+    },
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.042
+    },
+    {
+     "hex": "#afaf96",
+     "hue": "Green",
+     "percent": 0.0087
+    },
+    {
+     "hex": "#e1e1c8",
+     "hue": "Green",
+     "percent": 0.0078
+    },
+    {
+     "hex": "#c8af64",
+     "hue": "Yellow",
+     "percent": 0.0067
+    },
+    {
+     "hex": "#af964b",
+     "hue": "Yellow",
+     "percent": 0.0065
+    }
+   ],
+   "text": "In 1911, deep in discussions with other members of the expressionist group Der Blaue Reiter and preoccupied with questions of color, Marc began work on Grazing Horses IV. Wishing to give form to inner experience and to free himself from formal constraints imposed by the outside world, he aimed to detach color from its descriptive function and assigned each primary color a specific symbolic value. As this painting’s numeric title suggests, Marc returned repeatedly to the horse as a subject. He became well known for his preoccupation with animals, seeing them as the embodiment of a better, purer world, the bringers of spiritual renewal to western culture.Grazing Horses IV became the artist’s first work to enter a museum collection, the same year it was made. Like Kirchner’s self-portrait on view in the adjacent gallery, the painting first belonged to the Folkwang Museum in Hagen (later in Essen), which was at the vanguard of contemporary art collecting in Germany at the time. The painting was removed from the collection in 1937 as part of the National Socialist campaign to rid German museums of “degenerate art.”",
+   "credit": "Harvard Art Museums/Busch-Reisinger Museum, Bequest in memory of Paul E. and Gabriele B. Geier",
+   "url": "https://www.harvardartmuseums.org/collections/object/222353",
+   "views": 12453
+  },
+  {
+   "id": 231830,
+   "objectnumber": "1930.191",
+   "title": "Portrait of an Old Man",
+   "artist": "Rembrandt Harmensz. van Rijn",
+   "artistDates": "1606 - 1669",
+   "dated": "1632",
+   "year": 1632,
+   "century": "17th century",
+   "culture": "Dutch",
+   "period": null,
+   "medium": "Oil on oak panel",
+   "support": "panel",
+   "dimensions": "66.9 x 50.7 cm (26 5/16 x 19 15/16 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC252711_dynmc",
+   "width": 1928,
+   "height": 2550,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.554
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.1503
+    },
+    {
+     "hex": "#4b3232",
+     "hue": "Red",
+     "percent": 0.1474
+    },
+    {
+     "hex": "#64644b",
+     "hue": "Green",
+     "percent": 0.1333
+    },
+    {
+     "hex": "#af9664",
+     "hue": "Yellow",
+     "percent": 0.0099
+    },
+    {
+     "hex": "#c8967d",
+     "hue": "Grey",
+     "percent": 0.0052
+    }
+   ],
+   "text": "Not a formal portrait, but a study of a generic type and emotional expression, this painting dates to a period shortly after the artist left his native Leiden and settled in Amsterdam. It shows the dramatic lighting and painstaking description of detail and texture that inform his early work. Rembrandt and his contemporary Jan Lievens painted head studies of this kind — from male and female models, young and old — when both worked in Leiden, but Rembrandt continued to produce them throughout his career. In their informality, they acknowledge their derivation from a type of studio exercise, yet many are highly finished, signed and dated, and were sold to collectors. The signature, which Rembrandt used in this form only in 1632, consists of the monogram RHL — an abbreviation of Rembrandt Harmenszoon Leydensis (Rembrandt, son of Harmen, from Leiden) — followed by his surname.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Nettie G. Naumburg",
+   "url": "https://www.harvardartmuseums.org/collections/object/231830",
+   "views": 12222
+  },
+  {
+   "id": 305207,
+   "objectnumber": "L108",
+   "title": "Death and Victory",
+   "artist": "John Singer Sargent",
+   "artistDates": "1856 - 1925",
+   "dated": "1922",
+   "year": 1922,
+   "century": "20th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "439.4 x 186.7 cm (173 x 73 1/2 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:82246_dynmc",
+   "width": 810,
+   "height": 1024,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.1544
+    },
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.1418
+    },
+    {
+     "hex": "#4b4b32",
+     "hue": "Green",
+     "percent": 0.1295
+    },
+    {
+     "hex": "#64644b",
+     "hue": "Green",
+     "percent": 0.1265
+    },
+    {
+     "hex": "#967d64",
+     "hue": "Brown",
+     "percent": 0.114
+    },
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.1026
+    },
+    {
+     "hex": "#afaf96",
+     "hue": "Green",
+     "percent": 0.0912
+    },
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.0857
+    },
+    {
+     "hex": "#e1e1e1",
+     "hue": "Grey",
+     "percent": 0.0245
+    },
+    {
+     "hex": "#e1fafa",
+     "hue": "Blue",
+     "percent": 0.0167
+    }
+   ],
+   "text": "",
+   "credit": "Harvard University Portrait Collection, Anonymous gift to Harvard University",
+   "url": "https://www.harvardartmuseums.org/collections/object/305207",
+   "views": 11811
+  },
+  {
+   "id": 299807,
+   "objectnumber": "1943.252",
+   "title": "Raphael and the Fornarina",
+   "artist": "Jean-Auguste-Dominique Ingres",
+   "artistDates": "1780 - 1867",
+   "dated": "1814",
+   "year": 1814,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "64.8 x 53.3 cm (25 1/2 x 21 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:756693",
+   "width": 2120,
+   "height": 2550,
+   "alt": "Painting of embracing couple in room with paintings",
+   "colors": [
+    {
+     "hex": "#321919",
+     "hue": "Brown",
+     "percent": 0.7715
+    },
+    {
+     "hex": "#4b4b32",
+     "hue": "Green",
+     "percent": 0.0887
+    },
+    {
+     "hex": "#966432",
+     "hue": "Orange",
+     "percent": 0.0549
+    },
+    {
+     "hex": "#c89664",
+     "hue": "Brown",
+     "percent": 0.0288
+    },
+    {
+     "hex": "#af7d4b",
+     "hue": "Yellow",
+     "percent": 0.0269
+    },
+    {
+     "hex": "#af3219",
+     "hue": "Red",
+     "percent": 0.0067
+    },
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.0056
+    },
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.0045
+    },
+    {
+     "hex": "#e1af7d",
+     "hue": "Orange",
+     "percent": 0.0042
+    },
+    {
+     "hex": "#4b7dc8",
+     "hue": "Blue",
+     "percent": 0.0031
+    }
+   ],
+   "text": "This composition, the first of six versions, articulates Ingres’s conception of the art of painting. For him, the oeuvre of the Renaissance artist Raphael was the pinnacle of artistic achievement. Here Ingres draws on Raphael’s relationship with the woman known as “La Fornarina” (the Little Baker), which, according to the biographer Giorgio Vasari, led to the young artist’s death from an excess of lovemaking. Raphael has just sketched the famous portrait of her, and his beloved subject sits on his knee. But Raphael has eyes only for his own creation, which, like Ingres’s representation of its model, meets the viewer’s gaze. This triangle of glances is complicated by the presence of the Virgin in Raphael’s Madonna of the Chair, seen against the back wall, where she resembles the artist’s lover.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/299807",
+   "views": 11779
+  },
+  {
+   "id": 228385,
+   "objectnumber": "1961.26",
+   "title": "Saint Jerome in His Study",
+   "artist": "Joos van Cleve",
+   "artistDates": "c. 1485/1490 - 1540-1541",
+   "dated": "1521",
+   "year": 1521,
+   "century": "16th century",
+   "culture": "Netherlandish",
+   "period": null,
+   "medium": "Oil on panel",
+   "support": "panel",
+   "dimensions": "99.7 × 83.8 cm (39 1/4 × 33 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC254465_dynmc",
+   "width": 2123,
+   "height": 2550,
+   "alt": "Man sitting at a desk surrounded by many objects",
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.361
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.1201
+    },
+    {
+     "hex": "#967d64",
+     "hue": "Brown",
+     "percent": 0.1192
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.0939
+    },
+    {
+     "hex": "#4b3219",
+     "hue": "Brown",
+     "percent": 0.0833
+    },
+    {
+     "hex": "#966432",
+     "hue": "Orange",
+     "percent": 0.0558
+    },
+    {
+     "hex": "#af967d",
+     "hue": "Brown",
+     "percent": 0.0451
+    },
+    {
+     "hex": "#afaf96",
+     "hue": "Green",
+     "percent": 0.0269
+    },
+    {
+     "hex": "#e1e1e1",
+     "hue": "Grey",
+     "percent": 0.021
+    },
+    {
+     "hex": "#7d1919",
+     "hue": "Red",
+     "percent": 0.0193
+    }
+   ],
+   "text": "In 1521, while the German artist Albrecht Dürer was in Antwerp, he painted a picture of Saint Jerome in his study surrounded by objects symbolizing transience and death. The painting was a sensation, prefiguring the genre of memento mori, images that compelled contemplation of mortality. The type became a specialty of local workshops, including that of Joos van Cleve, who is associated with more than a dozen versions of this image.\nThe piece of paper tacked to the wall reads “Respice Finem” — consider the end. Grasping his head, Jerome points at a skull, whose craggy surface is rendered in detail. Beside him is a snuffed-out candle. Beyond such obvious symbols of death, the image is filled with subtler reminders of the passage of time. The crucifix, set above an Italianate ornamental frieze, casts a curved shadow on its niche, and next to it, a bird — possibly a finch, symbol of Christ’s Passion — is trapped in a cage.",
+   "credit": "Harvard Art Museums/Fogg Museum, Gift of Howland Warren, Dr. Richard P. Warren, and Mrs. Grayson M.P. Murphy",
+   "url": "https://www.harvardartmuseums.org/collections/object/228385",
+   "views": 11545
+  },
+  {
+   "id": 230417,
+   "objectnumber": "1943.172",
+   "title": "Nocturne in Grey and Gold: Chelsea Snow",
+   "artist": "James Abbott McNeill Whistler",
+   "artistDates": "1834 - 1903",
+   "dated": "1876",
+   "year": 1876,
+   "century": "19th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "47 x 62.2 cm (18 1/2 x 24 1/2 in.)",
+   "image": "https://nrs.harvard.edu/URN-3:HUAM:826011",
+   "width": 10986,
+   "height": 8216,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#4b4b32",
+     "hue": "Green",
+     "percent": 0.4848
+    },
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.4254
+    },
+    {
+     "hex": "#64644b",
+     "hue": "Green",
+     "percent": 0.0896
+    },
+    {
+     "hex": "#967d4b",
+     "hue": "Brown",
+     "percent": 0.0001
+    },
+    {
+     "hex": "#969696",
+     "hue": "Grey",
+     "percent": 0.0001
+    }
+   ],
+   "text": "Whistler’s most famous nocturnes, or night views, depict the River Thames in London. However, in the 1870s Whistler also painted street scenes of the area near his home and studio in Chelsea, a suburban locale that was quickly being engulfed by the largest city in the world. With thin washes of paint, Whistler built up this mysterious scene depicting a male figure wandering a snowy street. Color was central to Whistler’s paintings, as demonstrated in the title he chose for this work. The blacks and grays of night are contrasted with what Whistler referred to as  \"gold,” his name for the twinkling, yellowish glow cast by the gaslights that illuminated the streets of Chelsea. It is possible that this painting is now somewhat darker than Whistler intended because he used dark grounds (or preparatory layers) over his canvases. As the paint on top of these grounds becomes more transparent with age, the entire painting darkens.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/230417",
+   "views": 11320
+  },
+  {
+   "id": 99764,
+   "objectnumber": "2002.65",
+   "title": "Power of Death",
+   "artist": "William Holbrook Beard",
+   "artistDates": "1824 - 1900",
+   "dated": "c. 1889-1890",
+   "year": 1884,
+   "century": "19th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on board",
+   "support": "paper",
+   "dimensions": "53.7 x 44.1 cm (21 1/8 x 17 3/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:72811_dynmc",
+   "width": 2095,
+   "height": 2550,
+   "alt": "A figure with a skull-like face grips a tree and carries a tiger, surrounded by animal corpses.",
+   "colors": [
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.6853
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.1711
+    },
+    {
+     "hex": "#967d4b",
+     "hue": "Brown",
+     "percent": 0.0423
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.0301
+    },
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.03
+    },
+    {
+     "hex": "#afafaf",
+     "hue": "Grey",
+     "percent": 0.0189
+    },
+    {
+     "hex": "#c8af96",
+     "hue": "Brown",
+     "percent": 0.0141
+    },
+    {
+     "hex": "#af3232",
+     "hue": "Red",
+     "percent": 0.0046
+    },
+    {
+     "hex": "#e1e1c8",
+     "hue": "Green",
+     "percent": 0.0036
+    },
+    {
+     "hex": "#e1af4b",
+     "hue": "Yellow",
+     "percent": 0.0002
+    }
+   ],
+   "text": "Beard was active in Buffalo and in New York City, where he had a studio in the 1860s in the famous Tenth Street Building alongside painters including John La Farge. He specialized in animal paintings whose anthropomorphized subjects satirize human folly. Painted shortly before Beard’s death, this work is his most macabre. Death, an animated corpse wearing a shroud, grips a withered tree and strangles a tiger with his bare hand. The bodies of other exotic animals — a lion, a camel, and an elephant — are strewn around a dark and desiccated wilderness. A red sun gleams eerily on the horizon. Beard likely studied the animals in what began as a menagerie in New York’s Central Park, or in P. T. Barnum’s American Museum on lower Broadway. He may have been inspired by notorious circus disasters of the time, including the death of Barnum’s prize elephant, Jumbo, who was struck by a train in 1885.",
+   "credit": "Harvard Art Museums/Fogg Museum, Purchase through the generosity of Howard E. Cox, Elizabeth Gosnell Miller, Mrs. John S. Hamlen, Lawrence J. Lasser, George Lewis, Michael Maher, James W. McGlothlin, Robert H. and Dale Mnookin, Thomas R. and Ann Schwarz, Charles O. Wood, III and Miriam M. Wood, and other friends in honor of James Cuno",
+   "url": "https://www.harvardartmuseums.org/collections/object/99764",
+   "views": 10938
+  },
+  {
+   "id": 304349,
+   "objectnumber": "1943.106",
+   "title": "Piazza San Marco, Venice",
+   "artist": "Giovanni Antonio Canal, called Canaletto",
+   "artistDates": "1697 - 1768",
+   "dated": "c. 1730-1734",
+   "year": 1725,
+   "century": "18th century",
+   "culture": "Italian",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "76.2 x 118.8 cm (30 x 46 3/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:51173_dynmc",
+   "width": 2550,
+   "height": 1630,
+   "alt": "A large open plaza, in front of a cathedral, and flanked by colonnaded three storey buildings on either side",
+   "colors": [
+    {
+     "hex": "#4b4b32",
+     "hue": "Green",
+     "percent": 0.2279
+    },
+    {
+     "hex": "#7d9696",
+     "hue": "Green",
+     "percent": 0.1691
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.1614
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.1275
+    },
+    {
+     "hex": "#afafaf",
+     "hue": "Grey",
+     "percent": 0.1031
+    },
+    {
+     "hex": "#96af96",
+     "hue": "Green",
+     "percent": 0.0762
+    },
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.0695
+    },
+    {
+     "hex": "#967d64",
+     "hue": "Brown",
+     "percent": 0.0541
+    },
+    {
+     "hex": "#e1e1c8",
+     "hue": "Green",
+     "percent": 0.0108
+    },
+    {
+     "hex": "#641919",
+     "hue": "Red",
+     "percent": 0.0002
+    }
+   ],
+   "text": "Canaletto, celebrated for his views of Venice (vedute), depicts the city’s principal square of San Marco, which was described by Napoleon as “the finest drawing room in Europe.” The Basilica of Saint Mark, with its Byzantine architecture, and the imposing bell tower dominate the scene as symbols of the rich history of the Venetian Republic. Canaletto adjusts for the trapezoidal shape of the piazza by reinforcing the perspective created by the ornamental marble pattern of stone pavement that had recently been laid. This painting represents a timeless view of Venice while also capturing a slice of eighteenth-century daily life.\nAmong Canaletto’s most important patrons were English aristocrats who visited the city on the Grand Tour, often bringing home as souvenirs contemporary depictions of the cities they visited. This painting was bought by the fourth Duke of Leeds after he visited Venice in 1734. When the duke returned to England, he had the painting placed within this type of Scotch pine frame that he favored for works in his collection.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/304349",
+   "views": 10856
+  },
+  {
+   "id": 299949,
+   "objectnumber": "H90",
+   "title": "Nicholas Boylston (1716-1771)",
+   "artist": "John Singleton Copley",
+   "artistDates": "1738 - 1815",
+   "dated": "1767",
+   "year": 1767,
+   "century": "18th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "127.3 x 101.1 cm (50 1/8 x 39 13/16 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC104940_dynmc",
+   "width": 2051,
+   "height": 2550,
+   "alt": "Portrait of a seated man in eighteenth century dress.",
+   "colors": [
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.2464
+    },
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.1907
+    },
+    {
+     "hex": "#321900",
+     "hue": "Brown",
+     "percent": 0.1267
+    },
+    {
+     "hex": "#324b4b",
+     "hue": "Grey",
+     "percent": 0.1168
+    },
+    {
+     "hex": "#000000",
+     "hue": "Black",
+     "percent": 0.1101
+    },
+    {
+     "hex": "#4b644b",
+     "hue": "Green",
+     "percent": 0.0807
+    },
+    {
+     "hex": "#190000",
+     "hue": "Black",
+     "percent": 0.0492
+    },
+    {
+     "hex": "#641919",
+     "hue": "Red",
+     "percent": 0.024
+    },
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.0135
+    },
+    {
+     "hex": "#966464",
+     "hue": "Violet",
+     "percent": 0.0116
+    }
+   ],
+   "text": "John Singleton Copley began his extraordinary transnational painting career in his late teens. Before he and his family left for London in 1775, Copley created luxurious likenesses of prominent Anglo-colonials in Boston. He combined detailed renderings of faces and garments with invented settings to aggrandize the wealth and status of the sitters’ families.\nIn 1766, Copley was commissioned to paint portraits of the Boylston family. In this portrait of Nicholas Boylston, the sitter is shown wearing a satin negligee cap and a sumptuous, silk brocade “banyan”—a kimono-inspired garment that conveyed cosmopolitan tastes and access to global markets.\nThe Boylstons had amassed a fortune by trading enslaved Africans, Asian ceramics and textiles, and Peruvian silver to and from London markets and the ports in the empire, through the Boylston and Green Shipping Company. The large ledgers on the table and the company ship in the background allude to the source of the family’s wealth while obscuring the systems of exploitation on which that wealth accrued.",
+   "credit": "Harvard University Portrait Collection, Bequest of Ward Nicholas Boylston to Harvard College, 1828",
+   "url": "https://www.harvardartmuseums.org/collections/object/299949",
+   "views": 10334
+  },
+  {
+   "id": 222214,
+   "objectnumber": "1979.329",
+   "title": "Charing Cross Bridge:  Fog on the Thames",
+   "artist": "Claude Monet",
+   "artistDates": "1840 - 1926",
+   "dated": "1903",
+   "year": 1903,
+   "century": "20th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "73.7 x 92.4 cm (29 x 36 3/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:787382",
+   "width": 2550,
+   "height": 2018,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#7d96af",
+     "hue": "Blue",
+     "percent": 0.8773
+    },
+    {
+     "hex": "#647d7d",
+     "hue": "Blue",
+     "percent": 0.1218
+    },
+    {
+     "hex": "#af7d7d",
+     "hue": "Red",
+     "percent": 0.0009
+    }
+   ],
+   "text": "Between 1899 and 1901, Monet visited London three times, for a total of more than seven months. He rented the same room on the sixth floor of the Savoy Hotel on the Victoria Embankment and painted the view from his window of south London and the Thames. The resultant works — more than a hundred paintings and twenty pastels — formed the largest series he had produced to that date. Here, as in other works, he layers blue, green, and pink tones on a cool backdrop, offering an atmospheric view of the riverfront. This oil was included in an exhibition of his views of the Thames at the Galerie Durand-Ruel in Paris in 1904. René Gimpel, a prominent art dealer in Paris, visited Monet at his home years later and quoted him in his diary as having said: “I adore London; it’s a mass, a whole, and it’s so simple. But what I love more than anything in London is the fog.”",
+   "credit": "Harvard Art Museums/Fogg Museum, Gift of Mrs. Henry Lyman",
+   "url": "https://www.harvardartmuseums.org/collections/object/222214",
+   "views": 9096
+  },
+  {
+   "id": 231904,
+   "objectnumber": "1895.695",
+   "title": "Rock of Ages",
+   "artist": "Johannes Adam Simon Oertel",
+   "artistDates": "1823 - 1909",
+   "dated": "1876",
+   "year": 1876,
+   "century": "19th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "123.3 x 70.5 cm (48 9/16 x 27 3/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC231914_dynmc",
+   "width": 584,
+   "height": 1024,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.4214
+    },
+    {
+     "hex": "#321919",
+     "hue": "Brown",
+     "percent": 0.1967
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.1944
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.0933
+    },
+    {
+     "hex": "#967d4b",
+     "hue": "Brown",
+     "percent": 0.0642
+    },
+    {
+     "hex": "#af9664",
+     "hue": "Yellow",
+     "percent": 0.0228
+    },
+    {
+     "hex": "#c8af7d",
+     "hue": "Brown",
+     "percent": 0.0071
+    }
+   ],
+   "text": "",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Mrs. William Hayes Fogg",
+   "url": "https://www.harvardartmuseums.org/collections/object/231904",
+   "views": 8888
+  },
+  {
+   "id": 299815,
+   "objectnumber": "H47",
+   "title": "Benjamin Franklin (1706-1790)",
+   "artist": "Robert Feke",
+   "artistDates": "c. 1707 - c. 1752",
+   "dated": "c. 1746",
+   "year": 1741,
+   "century": "18th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "127 x 102 cm (50 x 40 3/16 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:21498_dynmc",
+   "width": 2029,
+   "height": 2550,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#321919",
+     "hue": "Brown",
+     "percent": 0.4829
+    },
+    {
+     "hex": "#4b3219",
+     "hue": "Brown",
+     "percent": 0.2527
+    },
+    {
+     "hex": "#967d64",
+     "hue": "Brown",
+     "percent": 0.0987
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.0599
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.0592
+    },
+    {
+     "hex": "#af967d",
+     "hue": "Brown",
+     "percent": 0.0196
+    },
+    {
+     "hex": "#c89664",
+     "hue": "Brown",
+     "percent": 0.0082
+    },
+    {
+     "hex": "#e1c8af",
+     "hue": "Orange",
+     "percent": 0.006
+    },
+    {
+     "hex": "#c8af96",
+     "hue": "Brown",
+     "percent": 0.0049
+    },
+    {
+     "hex": "#e1af7d",
+     "hue": "Orange",
+     "percent": 0.0039
+    }
+   ],
+   "text": "",
+   "credit": "Harvard University Portrait Collection, Bequest of Dr. John Collins Warren, 1856",
+   "url": "https://www.harvardartmuseums.org/collections/object/299815",
+   "views": 8863
+  },
+  {
+   "id": 230163,
+   "objectnumber": "1943.224",
+   "title": "Romans of the Decadence",
+   "artist": "Thomas Couture",
+   "artistDates": "1815 - 1879",
+   "dated": "1847",
+   "year": 1847,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "sight: 59.37 x 91.12 cm (23 3/8 x 35 7/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC231389_dynmc",
+   "width": 2550,
+   "height": 1650,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.2346
+    },
+    {
+     "hex": "#4b3232",
+     "hue": "Red",
+     "percent": 0.2307
+    },
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.1898
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.1865
+    },
+    {
+     "hex": "#967d64",
+     "hue": "Brown",
+     "percent": 0.0977
+    },
+    {
+     "hex": "#af967d",
+     "hue": "Brown",
+     "percent": 0.0412
+    },
+    {
+     "hex": "#afaf96",
+     "hue": "Green",
+     "percent": 0.0126
+    },
+    {
+     "hex": "#e1c8af",
+     "hue": "Orange",
+     "percent": 0.0037
+    },
+    {
+     "hex": "#324b4b",
+     "hue": "Grey",
+     "percent": 0.0032
+    }
+   ],
+   "text": "More savage than war, luxury burdened (Rome)\nand avenged the conquered world.\n — Juvenal, Satire 6\nA trope of Roman literature was to lament the decay of moral standards, comparing the noble past with the debauched present, often using the excesses of banqueting to illustrate the point. Inspired by the first-to-second-century CE satirist Juvenal, Couture contrasted the orgy in the foreground with the dignified sculptures in the background as an allegory for the degeneration of his own time. Based on real sculptures of famous Romans, the statues look scornfully down on the proceedings, their heroic nudity contrasting with that of the revelers, which is anything but. Some of the celebrants recline, as was common at Roman dinner parties; others mirror the statues’ poses or offer toasts to them. Symbols of the wine god Bacchus in the scene connect the proceedings to wild Bacchanalia, while the two philosophers at the right convey the disapproval of civilized society.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/230163",
+   "views": 8838
+  },
+  {
+   "id": 227899,
+   "objectnumber": "1969.83",
+   "title": "Woman at her Basin",
+   "artist": "Jan van Eyck",
+   "artistDates": "c. 1390 - 1441",
+   "dated": "early 16th century",
+   "year": 1500,
+   "century": "16th century",
+   "culture": "Netherlandish",
+   "period": null,
+   "medium": "Oil on oak panel",
+   "support": "panel",
+   "dimensions": "27.2 x 16.3 x 0.7 cm (10 11/16 x 6 7/16 x 1/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC245087_dynmc",
+   "width": 1534,
+   "height": 2550,
+   "alt": "In front of a wash basin, a nude woman stands next to a woman in a red dress.",
+   "colors": [
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.6162
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.1985
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.0686
+    },
+    {
+     "hex": "#af9664",
+     "hue": "Yellow",
+     "percent": 0.032
+    },
+    {
+     "hex": "#afafaf",
+     "hue": "Grey",
+     "percent": 0.0258
+    },
+    {
+     "hex": "#966432",
+     "hue": "Orange",
+     "percent": 0.0179
+    },
+    {
+     "hex": "#c8967d",
+     "hue": "Grey",
+     "percent": 0.0178
+    },
+    {
+     "hex": "#c8af96",
+     "hue": "Brown",
+     "percent": 0.0133
+    },
+    {
+     "hex": "#969696",
+     "hue": "Grey",
+     "percent": 0.009
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.001
+    }
+   ],
+   "text": "A contemporary of Jan van Eyck claimed that the artist painted a number of pictures of women bathing. Although these paintings are now lost, this panel, dating to the early sixteenth century, is believed to be a copy after one such work and, because of compositional similarities, has often been associated with van Eyck’s celebrated Arnolfini portrait.\nThe painting depicts a nude woman washing herself at her basin. Beside her is a fully clothed maid, who gazes toward a mirror in which both figures are reflected, their positions slightly distorted by the convex glass. Despite its contemporary setting, scenes like this often had allegorical or moral meanings, and scholars have suggested a number of identifications for the female figure, including Bathsheba, Venus, Eve, Luxuria and Vanitas. The painting’s enigmatic quality, however, was likely always part of its appeal.",
+   "credit": "Harvard Art Museums/Fogg Museum, Francis H. Burr, Louise Haskell Daly, Alpheus Hyatt Purchasing and William M. Prichard Funds",
+   "url": "https://www.harvardartmuseums.org/collections/object/227899",
+   "views": 8762
+  },
+  {
+   "id": 230108,
+   "objectnumber": "1943.247",
+   "title": "The Golden Age",
+   "artist": "Jean-Auguste-Dominique Ingres",
+   "artistDates": "1780 - 1867",
+   "dated": "1862",
+   "year": 1862,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on paper mounted on panel",
+   "support": "panel",
+   "dimensions": "sight: 46.4 x 61.9 cm (18 1/4 x 24 3/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:51336_dynmc",
+   "width": 2550,
+   "height": 1924,
+   "alt": "Semicircle-shaped painting of crowd of nude figures surrounded by trees",
+   "colors": [
+    {
+     "hex": "#7d6432",
+     "hue": "Yellow",
+     "percent": 0.2134
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.1869
+    },
+    {
+     "hex": "#967d64",
+     "hue": "Brown",
+     "percent": 0.092
+    },
+    {
+     "hex": "#c8964b",
+     "hue": "Yellow",
+     "percent": 0.0888
+    },
+    {
+     "hex": "#4b3219",
+     "hue": "Brown",
+     "percent": 0.0865
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.0725
+    },
+    {
+     "hex": "#af967d",
+     "hue": "Brown",
+     "percent": 0.0684
+    },
+    {
+     "hex": "#afafaf",
+     "hue": "Grey",
+     "percent": 0.0529
+    },
+    {
+     "hex": "#e1e1e1",
+     "hue": "Grey",
+     "percent": 0.0512
+    },
+    {
+     "hex": "#c8af64",
+     "hue": "Yellow",
+     "percent": 0.051
+    }
+   ],
+   "text": "This is a reduced version, with some variations, of one of two large mural paintings that Ingres completed for the Duc de Luynes’s castle in Dampierre between 1843 and 1847. Depicting the Golden Age, it refers to the mythical past described by ancient poets as the utopian existence humans first enjoyed after being created by the gods. Ingres outlined the iconography of his composition in a letter: “A heap of beautiful sloths! . . . The men of this generation knew nothing of old age. They lived for a long time and [were] always beautiful. . . . All this in a very varied nature, à la Raphael.” Ingres further invoked Raphael through some of the figures’ poses, in the arched shape of his picture, and by painting the mural on plaster, thereby inviting the comparison between his own work and Raphael’s famous frescoed murals in the papal apartments of the Vatican.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/230108",
+   "views": 8710
+  },
+  {
+   "id": 230057,
+   "objectnumber": "1943.228",
+   "title": "Emperor Napoleon I (1769-1821)",
+   "artist": "Jacques-Louis David",
+   "artistDates": "1748 - 1825",
+   "dated": "c. 1807",
+   "year": 1802,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on panel",
+   "support": "panel",
+   "dimensions": "88.3 x 59.4 cm (34 3/4 x 23 3/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:51180_dynmc",
+   "width": 1702,
+   "height": 2550,
+   "alt": "Painting of crowned man in elaborate robes holding scepter",
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.6064
+    },
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.2127
+    },
+    {
+     "hex": "#964b32",
+     "hue": "Orange",
+     "percent": 0.0365
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.0276
+    },
+    {
+     "hex": "#af967d",
+     "hue": "Brown",
+     "percent": 0.0275
+    },
+    {
+     "hex": "#e1c8af",
+     "hue": "Orange",
+     "percent": 0.0235
+    },
+    {
+     "hex": "#c8af96",
+     "hue": "Brown",
+     "percent": 0.0227
+    },
+    {
+     "hex": "#e1e1c8",
+     "hue": "Green",
+     "percent": 0.0205
+    },
+    {
+     "hex": "#967d64",
+     "hue": "Brown",
+     "percent": 0.0195
+    },
+    {
+     "hex": "#190000",
+     "hue": "Black",
+     "percent": 0.0031
+    }
+   ],
+   "text": "This portrait of Napoleon is believed to be the model for a larger composition, now lost. After his coronation in the Cathedral of Notre Dame on December 2, 1804, portraits like this one of the emperor in his ceremonial garb were commissioned and disseminated throughout Europe. Their main purpose was to establish an iconography of the emperor’s reign, which relied on royal conventions of sovereignty stretching back to Charlemagne. These customs were known intimately to David and his students, as David had attended the coronation and composed a large-scale painting of the event over a three-year period. Though this is a study, details that are typical of David’s portraits abound here; they include the reflections in the golden orb in the emperor’s left hand and the exquisite depictions of the contrasting textures of fur, velvet, and brocade in his robe.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/230057",
+   "views": 8588
+  },
+  {
+   "id": 299841,
+   "objectnumber": "1951.46",
+   "title": "Still Life with Commode",
+   "artist": "Paul Cézanne",
+   "artistDates": "1839 - 1906",
+   "dated": "1887-1888",
+   "year": 1887,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "63.8 x 79.9 cm (25 1/8 x 31 7/16 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC251910_dynmc",
+   "width": 2550,
+   "height": 2045,
+   "alt": "Still life of a bowl of fruit sits on a wooden table with three ceramic containers of various sizes.",
+   "colors": [
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.5721
+    },
+    {
+     "hex": "#7d6432",
+     "hue": "Yellow",
+     "percent": 0.0814
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.0724
+    },
+    {
+     "hex": "#7d7d64",
+     "hue": "Yellow",
+     "percent": 0.0691
+    },
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.0631
+    },
+    {
+     "hex": "#96af96",
+     "hue": "Green",
+     "percent": 0.0542
+    },
+    {
+     "hex": "#7d967d",
+     "hue": "Green",
+     "percent": 0.0492
+    },
+    {
+     "hex": "#4b6464",
+     "hue": "Blue",
+     "percent": 0.0217
+    },
+    {
+     "hex": "#af9632",
+     "hue": "Yellow",
+     "percent": 0.0097
+    },
+    {
+     "hex": "#c8af32",
+     "hue": "Yellow",
+     "percent": 0.0068
+    }
+   ],
+   "text": "Many artists of the twentieth century credited Cézanne with revolutionizing painting through his unique style and complex manipulation of perspective, both of which are exemplified in this work. Executed in his hallmark short, small groups of brushstrokes, this scene features an interior in which three-dimensional consistency has been destroyed. This play of impossibility is epitomized in the tablecloth, of which the scholar Meyer Schapiro wrote, “It is like a mountain, a rocky creviced mass, or like some human figure, twisting and turning, with an inner balance of directions.”\nOf the many still lifes Cézanne painted, he only repeated the same composition twice. This work is a cropped variation of a canvas now in Munich, showing less of the wallpaper on the left and the tablecloth on the right. Cézanne began both paintings by drawing the composition on the canvas, indicating that the arrangement of the scene was the result of careful and deliberate consideration.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest from the Collection of Maurice Wertheim, Class of 1906",
+   "url": "https://www.harvardartmuseums.org/collections/object/299841",
+   "views": 8485
+  },
+  {
+   "id": 230160,
+   "objectnumber": "1943.209",
+   "title": "Sir Galahad",
+   "artist": "George Frederic Watts",
+   "artistDates": "1817 - 1904",
+   "dated": "1860-1862",
+   "year": 1860,
+   "century": "19th century",
+   "culture": "British",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "191.8 x 107 cm (75 1/2 x 42 1/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:70764_dynmc",
+   "width": 561,
+   "height": 1024,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#4b3219",
+     "hue": "Brown",
+     "percent": 0.3191
+    },
+    {
+     "hex": "#321919",
+     "hue": "Brown",
+     "percent": 0.2178
+    },
+    {
+     "hex": "#321900",
+     "hue": "Brown",
+     "percent": 0.2039
+    },
+    {
+     "hex": "#644b19",
+     "hue": "Orange",
+     "percent": 0.1525
+    },
+    {
+     "hex": "#7d6432",
+     "hue": "Yellow",
+     "percent": 0.0331
+    },
+    {
+     "hex": "#967d4b",
+     "hue": "Brown",
+     "percent": 0.0288
+    },
+    {
+     "hex": "#64644b",
+     "hue": "Green",
+     "percent": 0.0185
+    },
+    {
+     "hex": "#af9664",
+     "hue": "Yellow",
+     "percent": 0.0158
+    },
+    {
+     "hex": "#c8af7d",
+     "hue": "Brown",
+     "percent": 0.0101
+    },
+    {
+     "hex": "#e1c896",
+     "hue": "Yellow",
+     "percent": 0.0004
+    }
+   ],
+   "text": "",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/230160",
+   "views": 8131
+  },
+  {
+   "id": 231994,
+   "objectnumber": "1916.496",
+   "title": "Lake O'Hara",
+   "artist": "John Singer Sargent",
+   "artistDates": "1856 - 1925",
+   "dated": "1916",
+   "year": 1916,
+   "century": "20th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "97.5 x 116.2 cm (38 3/8 x 45 3/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC252689_dynmc",
+   "width": 2450,
+   "height": 2038,
+   "alt": "Still, blue-green water sits at the base of rocky mountain ledges.",
+   "colors": [
+    {
+     "hex": "#4b4b4b",
+     "hue": "Grey",
+     "percent": 0.4517
+    },
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.2574
+    },
+    {
+     "hex": "#194b4b",
+     "hue": "Green",
+     "percent": 0.0669
+    },
+    {
+     "hex": "#7d7d7d",
+     "hue": "Grey",
+     "percent": 0.0562
+    },
+    {
+     "hex": "#969696",
+     "hue": "Grey",
+     "percent": 0.0533
+    },
+    {
+     "hex": "#96afaf",
+     "hue": "Blue",
+     "percent": 0.0488
+    },
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.0337
+    },
+    {
+     "hex": "#e1e1e1",
+     "hue": "Grey",
+     "percent": 0.0124
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.0109
+    },
+    {
+     "hex": "#af967d",
+     "hue": "Brown",
+     "percent": 0.0088
+    }
+   ],
+   "text": "In this closely cropped view of the Canadian Rockies, John Singer Sargent explored the materiality of paint. With its rough, gestural brushwork, thick layers of pigment, and thin washes, Lake O’Hara exemplifies the artist’s late style. The painting verges on abstraction, and is in stark contrast to the work of earlier painters who freighted their images of the Rockies with symbolism.\nLake O’Hara occupies an important position in the history of the Fogg Museum. When it was acquired in 1916, the painting was the first work by a living artist to enter the museum’s collection. Edward W. Forbes, the Fogg’s director, arranged for the purchase of Lake O’Hara despite his uncertainty about the quality of contemporary painting: “In the past, the policy of the Fogg Museum has been to exhibit the work of men who are dead.” But “Mr. Sargent is usually considered to be the greatest living American painter, and one or two of the greatest if not the greatest of any nationality.”",
+   "credit": "Harvard Art Museums/Fogg Museum, Louise E. Bettens Fund",
+   "url": "https://www.harvardartmuseums.org/collections/object/231994",
+   "views": 8006
+  },
+  {
+   "id": 299846,
+   "objectnumber": "1933.97",
+   "title": "Upper Deck",
+   "artist": "Charles Sheeler",
+   "artistDates": "1883 - 1965",
+   "dated": "1929",
+   "year": 1929,
+   "century": "19th-20th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "73 x 55.3 cm (28 3/4 x 21 3/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:30680_dynmc",
+   "width": 1936,
+   "height": 2550,
+   "alt": "A painting of a portion of the upper deck of a ship.",
+   "colors": [
+    {
+     "hex": "#c8afaf",
+     "hue": "Red",
+     "percent": 0.4739
+    },
+    {
+     "hex": "#969696",
+     "hue": "Grey",
+     "percent": 0.1255
+    },
+    {
+     "hex": "#fae1e1",
+     "hue": "Red",
+     "percent": 0.1185
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.1074
+    },
+    {
+     "hex": "#7d7d7d",
+     "hue": "Grey",
+     "percent": 0.0779
+    },
+    {
+     "hex": "#7d6464",
+     "hue": "Brown",
+     "percent": 0.0439
+    },
+    {
+     "hex": "#4b4b4b",
+     "hue": "Grey",
+     "percent": 0.0255
+    },
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.0122
+    },
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.0117
+    },
+    {
+     "hex": "#fafafa",
+     "hue": "White",
+     "percent": 0.0035
+    }
+   ],
+   "text": "Combining the reductive geometry of cubism with the crisply delineated and simplified forms of the ocean liner’s motors, ventilator stacks, and exhaust fans, Upper Deck is a quintessential work of the American precisionist movement. Indeed, this machine age–inspired painting streamlines even the heightened realism of Sheeler’s photograph that was its source. In the painting, the artist has stripped away every detail that would situate the scene in the working world, erasing the rivets, workers, steam, even the orientation of a horizon line. The resulting scene is uncannily devoid of human presence. Sheeler denied affiliation with either cubism or surrealism, and yet his realization that “a picture could have incorporated in it the structural design implied in abstraction and be presented in a wholly realistic manner” demonstrates the unavoidable influence of these artistic movements.",
+   "credit": "Harvard Art Museums/Fogg Museum, Louise E. Bettens Fund",
+   "url": "https://www.harvardartmuseums.org/collections/object/299846",
+   "views": 7903
+  },
+  {
+   "id": 228046,
+   "objectnumber": "1961.166",
+   "title": "The First Steps",
+   "artist": "Jean-Honoré Fragonard",
+   "artistDates": "1732 - 1806",
+   "dated": "c. 1780-1785",
+   "year": 1775,
+   "century": "18th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "44.5 x 55.3 cm (17 1/2 x 21 3/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:770505",
+   "width": 2550,
+   "height": 2075,
+   "alt": "In a garden setting, several women watch as a child tentatively walks on a red blanket",
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.507
+    },
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.2686
+    },
+    {
+     "hex": "#4b4b32",
+     "hue": "Green",
+     "percent": 0.1208
+    },
+    {
+     "hex": "#967d4b",
+     "hue": "Brown",
+     "percent": 0.0523
+    },
+    {
+     "hex": "#969664",
+     "hue": "Green",
+     "percent": 0.0434
+    },
+    {
+     "hex": "#963200",
+     "hue": "Brown",
+     "percent": 0.0076
+    },
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.0002
+    }
+   ],
+   "text": "The First Steps and The Beloved Child date from a period of close collaboration between Fragonard and Marguerite Gérard, his pupil and sister-in-law. The tightness of the foliage and the figures, as well as the compositional structure, suggests Fragonard’s academic training, which is further evident in his drawing for The First Steps, also in the Harvard Art Museums’ collections. However, the sumptuous rendering of the fabrics and the refined brushwork of the mothers’ faces reveal the hand of his pupil, who emerged as a master in her own right by 1790. Both paintings celebrate the joys of maternity, a theme explored in the writings of Jean-Jacques Rousseau. During the French Revolution, motherhood was linked to the ideals of social regeneration, and in 1792 a reproductive print of The First Steps was dedicated to “good Mothers.”",
+   "credit": "Harvard Art Museums/Fogg Museum, Gift of Charles E. Dunlap",
+   "url": "https://www.harvardartmuseums.org/collections/object/228046",
+   "views": 7366
+  },
+  {
+   "id": 299842,
+   "objectnumber": "1951.50",
+   "title": "Skating",
+   "artist": "Edouard Manet",
+   "artistDates": "1832 - 1883",
+   "dated": "1877",
+   "year": 1877,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "92 x 71.7 cm (36 1/4 x 28 1/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC252083_dynmc",
+   "width": 2025,
+   "height": 2550,
+   "alt": "Three-quarter portrait of a well-dressed fair skinned lady in the center at an outdoor skating rink.",
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.3816
+    },
+    {
+     "hex": "#4b4b4b",
+     "hue": "Grey",
+     "percent": 0.1448
+    },
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.1437
+    },
+    {
+     "hex": "#646464",
+     "hue": "Grey",
+     "percent": 0.1387
+    },
+    {
+     "hex": "#7d7d7d",
+     "hue": "Grey",
+     "percent": 0.0782
+    },
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.0645
+    },
+    {
+     "hex": "#afaf96",
+     "hue": "Green",
+     "percent": 0.0316
+    },
+    {
+     "hex": "#e1c896",
+     "hue": "Yellow",
+     "percent": 0.0169
+    }
+   ],
+   "text": "Although he never exhibited with the impressionists, Manet had a formative influence on the group. He shared their commitment to depicting modern pastimes, as in this scene of a popular roller skating rink. The sport had exploded as a fashionable French pursuit in the 1870s, with five lavish rinks opening in Paris over a two-year period. The main figure here wears a chic outfit, which is displayed at its most alluring angle, accentuating its wearer’s curves. The dress contrasts starkly with the more typical all-black day dresses of the women in the middle ground. As he worked on this composition, Manet made the young child in the foreground increasingly indistinct, focusing the viewer’s attention almost exclusively on her stylish and attractive mother. The model for this figure, Henriette Hauser, was the mistress of the Prince of Orange and an aspiring actress. Manet painted her several times.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest from the Collection of Maurice Wertheim, Class of 1906",
+   "url": "https://www.harvardartmuseums.org/collections/object/299842",
+   "views": 7182
+  },
+  {
+   "id": 230340,
+   "objectnumber": "1943.144",
+   "title": "George Washington (1732-1799)",
+   "artist": "Charles Willson Peale",
+   "artistDates": "1741 - 1827",
+   "dated": "1784",
+   "year": 1784,
+   "century": "18th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "241.3 x 145.7 cm (95 x 57 3/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC251707_dynmc",
+   "width": 1585,
+   "height": 2550,
+   "alt": "A full length portrait of George Washington standing in a landscape with soldiers",
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.3857
+    },
+    {
+     "hex": "#4b3232",
+     "hue": "Red",
+     "percent": 0.1788
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.1605
+    },
+    {
+     "hex": "#646464",
+     "hue": "Grey",
+     "percent": 0.0553
+    },
+    {
+     "hex": "#7d7d7d",
+     "hue": "Grey",
+     "percent": 0.0374
+    },
+    {
+     "hex": "#af7d4b",
+     "hue": "Yellow",
+     "percent": 0.0371
+    },
+    {
+     "hex": "#969696",
+     "hue": "Grey",
+     "percent": 0.0338
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.0268
+    },
+    {
+     "hex": "#af9664",
+     "hue": "Yellow",
+     "percent": 0.0242
+    },
+    {
+     "hex": "#c8af7d",
+     "hue": "Brown",
+     "percent": 0.0234
+    }
+   ],
+   "text": "",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/230340",
+   "views": 7117
+  },
+  {
+   "id": 219603,
+   "objectnumber": "1981.19",
+   "title": "Portrait of an Old Woman",
+   "artist": "Christian Seybold",
+   "artistDates": "1690 or 1697 - 1768",
+   "dated": "1749-1750",
+   "year": 1749,
+   "century": "18th century",
+   "culture": "German",
+   "period": null,
+   "medium": "Oil on copper",
+   "support": "canvas",
+   "dimensions": "37.2 x 29.2 cm (14 5/8 x 11 1/2 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:761031",
+   "width": 1986,
+   "height": 2550,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.4683
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.1883
+    },
+    {
+     "hex": "#967d4b",
+     "hue": "Brown",
+     "percent": 0.1734
+    },
+    {
+     "hex": "#7d6432",
+     "hue": "Yellow",
+     "percent": 0.1547
+    },
+    {
+     "hex": "#af9664",
+     "hue": "Yellow",
+     "percent": 0.0152
+    }
+   ],
+   "text": "",
+   "credit": "Harvard Art Museums/Fogg Museum, Alfred Jaretzki Fund",
+   "url": "https://www.harvardartmuseums.org/collections/object/219603",
+   "views": 7002
+  },
+  {
+   "id": 302052,
+   "objectnumber": "H631",
+   "title": "George Washington (1732-1799)",
+   "artist": "Gilbert Stuart",
+   "artistDates": "1755 - 1828",
+   "dated": "c. 1795",
+   "year": 1790,
+   "century": "18th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "73.7 x 61 cm (29 x 24 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:huam:DDC112111_dynmc",
+   "width": 2086,
+   "height": 2550,
+   "alt": "Painting of the head and shoulders of an older man with powdered hair and a dark coat",
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.6945
+    },
+    {
+     "hex": "#4b3232",
+     "hue": "Red",
+     "percent": 0.1102
+    },
+    {
+     "hex": "#7d4b32",
+     "hue": "Brown",
+     "percent": 0.0494
+    },
+    {
+     "hex": "#c8967d",
+     "hue": "Grey",
+     "percent": 0.0232
+    },
+    {
+     "hex": "#c8af96",
+     "hue": "Brown",
+     "percent": 0.0206
+    },
+    {
+     "hex": "#af7d64",
+     "hue": "Brown",
+     "percent": 0.0185
+    },
+    {
+     "hex": "#969696",
+     "hue": "Grey",
+     "percent": 0.0172
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.0146
+    },
+    {
+     "hex": "#646464",
+     "hue": "Grey",
+     "percent": 0.0134
+    },
+    {
+     "hex": "#7d7d7d",
+     "hue": "Grey",
+     "percent": 0.0133
+    }
+   ],
+   "text": "Stuart created more than a hundred portraits of George Washington. Scholars group them into three types, named for their original owners: the unfinished “[Boston] Athenaeum” portraits, showing the left side of Washington’s face (such as the image on the U.S. dollar); the Samuel “Vaughan” portraits, which show the right side of Washington’s face; and the full-length “Lansdowne” portraits. In this example of the Vaughan type, the second-term president looks majestic and vigorous in his advanced years. He is positioned in three-quarter profile against a sweeping curtain that symbolizes state authority. His hair, styled in what’s called a soldier’s queue and tied with a sawtooth bow, appears freshly cut and powdered. The upturned collar of his velvet suitcoat projects height and wealth. The portrait represents Washington as an august actor on the world stage and suggests how gender, race, and visual scale can engage and inform ideologies of power.",
+   "credit": "Harvard University Portrait Collection, Gift of Sidney F. Tyler to the University, 1969",
+   "url": "https://www.harvardartmuseums.org/collections/object/302052",
+   "views": 6979
+  },
+  {
+   "id": 228652,
+   "objectnumber": "1951.68",
+   "title": "Singer with a Glove",
+   "artist": "Hilaire-Germain-Edgar Degas",
+   "artistDates": "1834 - 1917",
+   "dated": "c. 1878",
+   "year": 1873,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Pastel on canvas",
+   "support": "canvas",
+   "dimensions": "53.2 x 41 cm (20 15/16 x 16 1/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:77644_dynmc",
+   "width": 793,
+   "height": 1024,
+   "alt": "Dramatic portrait of a singing woman, in mid-note, raises her right hand wearing a long black glove.",
+   "colors": [
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.1704
+    },
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.168
+    },
+    {
+     "hex": "#7d7d64",
+     "hue": "Yellow",
+     "percent": 0.1578
+    },
+    {
+     "hex": "#afaf96",
+     "hue": "Green",
+     "percent": 0.147
+    },
+    {
+     "hex": "#4b4b4b",
+     "hue": "Grey",
+     "percent": 0.114
+    },
+    {
+     "hex": "#64644b",
+     "hue": "Green",
+     "percent": 0.0867
+    },
+    {
+     "hex": "#af644b",
+     "hue": "Orange",
+     "percent": 0.0654
+    },
+    {
+     "hex": "#967d4b",
+     "hue": "Brown",
+     "percent": 0.0472
+    },
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.0435
+    }
+   ],
+   "text": "Because pastel paints can fade, this extraordinary work can be exhibited only for short periods of time.The colors of pastels that Degas chose are surprising: areas of black on the glove are matched with blacks in the background, and the metallic gold elements of the stage decoration enhance this darkness. The pose of the singer is bold, with her mouth open in mid-song, and her gloved hand that hovers before it indicates the physical effort of her performance.\nDuring the late 1870s, Degas and his friend the American artist Mary Cassatt were both working on pastels that depicted scenes from theaters in Paris. These public sites of urban leisure embodied the values of France’s newly established Third Republic, including the importance of secular entertainment and capitalist consumption. Although French women did not gain the right to vote until 1945, they were more visible in society during the 1870s, as artists, performers, and members of the audience at musical events.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest from the Collection of Maurice Wertheim, Class of 1906",
+   "url": "https://www.harvardartmuseums.org/collections/object/228652",
+   "views": 6811
+  },
+  {
+   "id": 178555,
+   "objectnumber": "2000.199",
+   "title": "Hercules Strangling the Nemean Lion",
+   "artist": "Peter Paul Rubens",
+   "artistDates": "1577 - 1640",
+   "dated": "c. 1639",
+   "year": 1634,
+   "century": "17th century",
+   "culture": "Flemish",
+   "period": null,
+   "medium": "Oil with traces of red chalk on cradled panel",
+   "support": "panel",
+   "dimensions": "23 x 39.2 cm (9 1/16 x 15 7/16 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:776407",
+   "width": 2550,
+   "height": 1522,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#967d4b",
+     "hue": "Brown",
+     "percent": 0.4325
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.3524
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.0966
+    },
+    {
+     "hex": "#af9664",
+     "hue": "Yellow",
+     "percent": 0.043
+    },
+    {
+     "hex": "#e1e1e1",
+     "hue": "Grey",
+     "percent": 0.0363
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.0291
+    },
+    {
+     "hex": "#4b3232",
+     "hue": "Red",
+     "percent": 0.0101
+    }
+   ],
+   "text": "Rubens was a masterful painter of oil sketches, which he used to generate pictorial ideas and display them to his patrons and workshop assistants. This sketch may relate to a commission he received in 1639 for a series of hunting scenes for the Royal Palace in Madrid. It depicts the first of the twelve labors of Hercules: strangling the lion sent by the goddess Hera to menace the region of Nemea, in southern Greece. Hercules donned the impenetrable skin thereafter. In Rome, Rubens had drawn studies of the Farnese Hercules — one of the most famous sculptures of antiquity — and the muscular hero, a human who achieved immortality through his deeds, was a favorite subject.\nHere Rubens emphasizes the confrontation between man and beast. Aside from some impasto in the lion’s mane and in the torso of Hercules, Rubens painted thinly, leaving visible the ground layer, or imprimatura, whose horizontal streaks enhance the impression of swift movement and action.",
+   "credit": "Harvard Art Museums/Busch-Reisinger Museum, Gift of Dr. Charles and Nobuko Kuhn in honor of Charles L. Kuhn, Curator of the Busch-Reisinger Museum, 1930-1968",
+   "url": "https://www.harvardartmuseums.org/collections/object/178555",
+   "views": 6806
+  },
+  {
+   "id": 304462,
+   "objectnumber": "1929.234",
+   "title": "The Stigmatization of Saint Francis",
+   "artist": "Taddeo Gaddi",
+   "artistDates": "active c.1325 - 1366",
+   "dated": "c. 1325-1330",
+   "year": 1325,
+   "century": "14th century",
+   "culture": "Italian",
+   "period": null,
+   "medium": "Tempera and gold on panel transferred to modern panel",
+   "support": "panel",
+   "dimensions": "sight: 212.1 x 149.5 cm (83 1/2 x 58 7/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC104925_dynmc",
+   "width": 1893,
+   "height": 2550,
+   "alt": "https://harvardartmuseums.org/collections/object/304462?position=0",
+   "colors": [
+    {
+     "hex": "#644b4b",
+     "hue": "Brown",
+     "percent": 0.3962
+    },
+    {
+     "hex": "#4b4b32",
+     "hue": "Green",
+     "percent": 0.2453
+    },
+    {
+     "hex": "#967d64",
+     "hue": "Brown",
+     "percent": 0.163
+    },
+    {
+     "hex": "#fafafa",
+     "hue": "White",
+     "percent": 0.1014
+    },
+    {
+     "hex": "#af9664",
+     "hue": "Yellow",
+     "percent": 0.0597
+    },
+    {
+     "hex": "#e1e1e1",
+     "hue": "Grey",
+     "percent": 0.0079
+    },
+    {
+     "hex": "#963232",
+     "hue": "Red",
+     "percent": 0.0077
+    },
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.0075
+    },
+    {
+     "hex": "#af9696",
+     "hue": "Brown",
+     "percent": 0.0066
+    },
+    {
+     "hex": "#c8af7d",
+     "hue": "Brown",
+     "percent": 0.0047
+    }
+   ],
+   "text": "In this painting by Gaddi, Saint Francis of Assisi receives Christ’s wounds (stigmata) from a vision of the crucified Christ borne by a seraph, an angel with six fiery wings. The miracle is believed to have taken place in 1224, two years before Francis’s death, while he was praying at Mount La Verna in Tuscany. This arresting image— possibly intended for a Franciscan church in Florence— was based on an earlier painting by Giotto, Gaddi’s godfather. Giotto’s influence on Gaddi can be seen in the naturalistic portrayal of Francis’s concentrated expression and in the folds of his brown habit, rendered through soft brushwork and subtle gradation of tone.",
+   "credit": "Harvard Art Museums/Fogg Museum, Friends of the Fogg Art Museum Fund",
+   "url": "https://www.harvardartmuseums.org/collections/object/304462",
+   "views": 6735
+  },
+  {
+   "id": 213825,
+   "objectnumber": "1998.305",
+   "title": "Study of Trees",
+   "artist": "Paul Cézanne",
+   "artistDates": "1839 - 1906",
+   "dated": "c. 1904",
+   "year": 1899,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "64.3 × 48.9 cm (25 5/16 × 19 1/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:819362",
+   "width": 7894,
+   "height": 10489,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.2953
+    },
+    {
+     "hex": "#afaf96",
+     "hue": "Green",
+     "percent": 0.2423
+    },
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.1515
+    },
+    {
+     "hex": "#324b4b",
+     "hue": "Grey",
+     "percent": 0.0883
+    },
+    {
+     "hex": "#4b6464",
+     "hue": "Blue",
+     "percent": 0.0721
+    },
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.061
+    },
+    {
+     "hex": "#e1e1c8",
+     "hue": "Green",
+     "percent": 0.0514
+    },
+    {
+     "hex": "#647d96",
+     "hue": "Blue",
+     "percent": 0.0228
+    },
+    {
+     "hex": "#967d4b",
+     "hue": "Brown",
+     "percent": 0.0082
+    },
+    {
+     "hex": "#7d6432",
+     "hue": "Yellow",
+     "percent": 0.007
+    },
+    {
+     "hex": "#00327d",
+     "hue": "Blue",
+     "percent": 0.0001
+    },
+    {
+     "hex": "#afc8fa",
+     "hue": "Blue",
+     "percent": 0.0001
+    }
+   ],
+   "text": "Cézanne’s fascination with the complexities of human perception and his desire to transcribe the abstract properties of vision established him as the central figure linking nineteenth-century impressionism with early twentieth-century cubism. Study of Trees exemplifies the problem of dynamically depicting depth on the flat space of a canvas, which occupied the artist for most of his career. Energetically applied diagonal brushstrokes slice the space of the picture, producing the suggestion of movement in and out of depth, and dashed lines define the tree trunks on either side of a winding country road. Remarkably, the rough, unpainted areas of the canvas seem as animated as the daubs of paint flickering across the picture’s surface like leaves in shifting sunlight. At the time of its making, Study of Trees was at the vanguard of intellectualized, abstract painting.",
+   "credit": "Harvard Art Museums/Fogg Museum, The Lois Orswell Collection",
+   "url": "https://www.harvardartmuseums.org/collections/object/213825",
+   "views": 6503
+  },
+  {
+   "id": 209770,
+   "objectnumber": "1924.41",
+   "title": "Eight Men Ferrying a Statue of the Buddha (from Mogao Cave 323, Dunhuang, Gansu province)",
+   "artist": "Chinese",
+   "artistDates": null,
+   "dated": "7th century",
+   "year": 600,
+   "century": "7th century",
+   "culture": "Chinese",
+   "period": "Tang dynasty, 618-907",
+   "medium": "Section of a wall painting; polychromy on unfired clay",
+   "support": "plaster",
+   "dimensions": "painting proper (irregular): H. 50.8 x W. 94 cm (20 x 37 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC105457_dynmc",
+   "width": 2550,
+   "height": 1440,
+   "alt": "This Image shows ten people riding right to left on a covered boat while six people stand close together on the shore.",
+   "colors": [
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.326
+    },
+    {
+     "hex": "#967d64",
+     "hue": "Brown",
+     "percent": 0.2671
+    },
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.1314
+    },
+    {
+     "hex": "#644b4b",
+     "hue": "Brown",
+     "percent": 0.1021
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.0879
+    },
+    {
+     "hex": "#4b3232",
+     "hue": "Red",
+     "percent": 0.0856
+    }
+   ],
+   "text": "This mural section was part of a series of vignettes recounting the recovery of a sculpture of Shakyamuni Buddha believed to have been sponsored by a daughter of the great Indian monarch Ashoka (304–232 BCE) from a river near Yangzhou in the early fourth century. Inscriptions in rectangular cartouches (a fragment of one is visible directly below the skiff) briefly describe each scene of the narrative, which has also been passed down in canonical histories of Chinese Buddhism. The flaming jewels on the tall canopy that covers the Buddha sculpture, together with the fluttering banners that adornthe boat and are held by the assembly of monks nearby, signal the importance of the recovered sculpture and imbue the scene with a sense of celebration.",
+   "credit": "Harvard Art Museums/Arthur M. Sackler Museum, First Fogg Expedition to China (1923-1924)",
+   "url": "https://www.harvardartmuseums.org/collections/object/209770",
+   "views": 6352
+  },
+  {
+   "id": 228651,
+   "objectnumber": "1951.59",
+   "title": "Seated Bather",
+   "artist": "Pierre-Auguste Renoir",
+   "artistDates": "1841 - 1919",
+   "dated": "c. 1883-1884",
+   "year": 1883,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "119.7 x 93 cm (47 1/8 x 36 5/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC252042_dynmc",
+   "width": 1988,
+   "height": 2550,
+   "alt": "A young nude woman sits on drapery folded over her lap in a landscape of rocks in a stream.　",
+   "colors": [
+    {
+     "hex": "#afafaf",
+     "hue": "Grey",
+     "percent": 0.2143
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.1602
+    },
+    {
+     "hex": "#7d7d64",
+     "hue": "Yellow",
+     "percent": 0.1349
+    },
+    {
+     "hex": "#64644b",
+     "hue": "Green",
+     "percent": 0.1264
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.1176
+    },
+    {
+     "hex": "#7d9696",
+     "hue": "Green",
+     "percent": 0.102
+    },
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.0661
+    },
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.0357
+    },
+    {
+     "hex": "#4b7d96",
+     "hue": "Blue",
+     "percent": 0.0212
+    },
+    {
+     "hex": "#32647d",
+     "hue": "Blue",
+     "percent": 0.0197
+    }
+   ],
+   "text": "Following a trip to Italy in 1881–82 to study the masterpieces of ancient Roman and Renaissance painting, Renoir embarked on one of his most innovative periods. As he later recalled, “Around 1883 there occurred what seemed to be a break in my work. I had wrung impressionism dry.” Exploring the canonical theme of female nude bathers, Renoir titled a work similar to this one Naiad, or water nymph, highlighting the figure’s classical inspiration. Her pose recalls a well-known Roman sculpture of a bathing nymph; it also evokes a long tradition in painting of depicting nude figures in a landscape. While this work responds to these precedents, it also breaks with them. Renoir painted the figure and her drapery differently from the landscape, so that she appears to float in the setting. He also left her right foot unresolved where it meets the fabric, signaling that his pictorial approach was no longer a purely naturalistic enterprise.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest from the Collection of Maurice Wertheim, Class of 1906",
+   "url": "https://www.harvardartmuseums.org/collections/object/228651",
+   "views": 6350
+  },
+  {
+   "id": 299847,
+   "objectnumber": "1942.167",
+   "title": "The Infant Bacchus Entrusted to the Nymphs of Nysa; The Death of Echo and Narcissus",
+   "artist": "Nicolas Poussin",
+   "artistDates": "1594 - 1665",
+   "dated": "1657",
+   "year": 1657,
+   "century": "17th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "122.6 x 180.5 cm (48 1/4 x 71 1/16 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC102192_dynmc",
+   "width": 2550,
+   "height": 1702,
+   "alt": "Reclining figures surround a baby in front of a forested landscape",
+   "colors": [
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.3941
+    },
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.3093
+    },
+    {
+     "hex": "#7d7d7d",
+     "hue": "Grey",
+     "percent": 0.1074
+    },
+    {
+     "hex": "#4b4b32",
+     "hue": "Green",
+     "percent": 0.0905
+    },
+    {
+     "hex": "#646464",
+     "hue": "Grey",
+     "percent": 0.0837
+    },
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.0096
+    },
+    {
+     "hex": "#af9664",
+     "hue": "Yellow",
+     "percent": 0.0055
+    }
+   ],
+   "text": "Poussin was a French expatriate resident in Rome for most of his career. His insistence on the primacy of form and theme over color and painterly effects made him the preeminent exponent of a severe, stoic classicism. His ideas and methods were so admired that they became the model for European art academies. This painting was commissioned in 1657 by his friend and fellow painter Jacques Stella, whose Liberality of Titus also hangs in this gallery. Poussin’s picture elaborates themes drawn from classical sources, such as Ovid’s Metamorphoses, Euripides’s Bacchae, Philostratus’s Imagines, and later scholarly commentaries to produce a dense allegory of human destiny. The main theme visualizes the birth and secret nurturing of Bacchus by the nymphs of Nysa. Fertility (Bacchus) and sterility (Narcissus and Echo) are represented through a visual meditation on the character of a specific natural and sacred site — Nysa — in the ancient Greek city-state of Thebes.",
+   "credit": "Harvard Art Museums/Fogg Museum, Gift of Mrs. Samuel Sachs in memory of her husband, Samuel Sachs",
+   "url": "https://www.harvardartmuseums.org/collections/object/299847",
+   "views": 6327
+  },
+  {
+   "id": 4988,
+   "objectnumber": "2006.4",
+   "title": "Still Life with Watermelon",
+   "artist": "Sarah Miriam Peale",
+   "artistDates": "1800-1885",
+   "dated": "1822",
+   "year": 1822,
+   "century": "19th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on panel",
+   "support": "panel",
+   "dimensions": "46.4 x 67 cm (18 1/4 x 26 3/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC100622_dynmc",
+   "width": 2550,
+   "height": 1772,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.3752
+    },
+    {
+     "hex": "#323219",
+     "hue": "Brown",
+     "percent": 0.2121
+    },
+    {
+     "hex": "#000000",
+     "hue": "Black",
+     "percent": 0.2066
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.0619
+    },
+    {
+     "hex": "#af3232",
+     "hue": "Red",
+     "percent": 0.0468
+    },
+    {
+     "hex": "#c8644b",
+     "hue": "Red",
+     "percent": 0.0345
+    },
+    {
+     "hex": "#7d7d4b",
+     "hue": "Green",
+     "percent": 0.0177
+    },
+    {
+     "hex": "#969664",
+     "hue": "Green",
+     "percent": 0.0171
+    },
+    {
+     "hex": "#afaf7d",
+     "hue": "Green",
+     "percent": 0.0102
+    },
+    {
+     "hex": "#c8af96",
+     "hue": "Brown",
+     "percent": 0.0073
+    }
+   ],
+   "text": "Sarah Miriam was one of the first professional female artists in the United States. Active in Baltimore and Philadelphia during the 1820s, she gained fame for her portraits and still lifes. This painting, one of Peale’s greatest works, portrays fruit in an ideal, unblemished state. No bruises or dents mar the melons, peaches, or grapes assembled on the table; rather, each is rendered as an exquisite, glistening jewel.\nThe Peale family occupies a unique position in the history of American art. Under the supervision and tutelage of painter, naturalist, and museum proprietor Charles Willson Peale, 10 members of the family became prolific, well-regarded painters. Sarah Miriam trained with her father, James Peale, a miniaturist and still-life painter. At moments, she shared studio space with several of her well-regarded cousins, including artist and mechanic Raphaelle Peale, botanist-painter Reubens Peale, portraitist Rembrandt Peale, and acclaimed miniaturist Angelica Kauffmann Peale Robinson.",
+   "credit": "Harvard Art Museums/Fogg Museum, Daniel A. Pollack, Class of 1960, American Art Acquisition Fund",
+   "url": "https://www.harvardartmuseums.org/collections/object/4988",
+   "views": 6301
+  },
+  {
+   "id": 304414,
+   "objectnumber": "BR50.12",
+   "title": "Self-Portrait with Cat",
+   "artist": "Ernst Ludwig Kirchner",
+   "artistDates": "1880 - 1938",
+   "dated": "1920",
+   "year": 1920,
+   "century": "20th century",
+   "culture": "German",
+   "period": null,
+   "medium": "Oil on commercially woven cotton fabric",
+   "support": "canvas",
+   "dimensions": "120.6 x 80 cm (47 1/2 x 31 1/2 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC250876_dynmc",
+   "width": 1692,
+   "height": 2550,
+   "alt": "A painting in orange, red, blue and black.",
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.2075
+    },
+    {
+     "hex": "#964b19",
+     "hue": "Brown",
+     "percent": 0.2034
+    },
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.182
+    },
+    {
+     "hex": "#96324b",
+     "hue": "Red",
+     "percent": 0.1048
+    },
+    {
+     "hex": "#af6464",
+     "hue": "Red",
+     "percent": 0.0661
+    },
+    {
+     "hex": "#194b64",
+     "hue": "Blue",
+     "percent": 0.0508
+    },
+    {
+     "hex": "#32647d",
+     "hue": "Blue",
+     "percent": 0.0251
+    },
+    {
+     "hex": "#7d7d4b",
+     "hue": "Green",
+     "percent": 0.0239
+    },
+    {
+     "hex": "#7d9696",
+     "hue": "Green",
+     "percent": 0.0189
+    },
+    {
+     "hex": "#96967d",
+     "hue": "Green",
+     "percent": 0.0187
+    }
+   ],
+   "text": "An avid commentator on his own work after World War I — in diaries, correspondence, and even publicly under a pseudonym — Kirchner contributed to the legend of his wartime experi-ence as a soldier. The Brücke expressionist had suffered a breakdown during the war, and is now known to have partially feigned illness to avoid returning to the front. To recuperate, he eventually left Germany permanently for rural Frauenkirch, near Davos, Switzerland, in 1917. Despite the self-imposed isolation in the mountains depicted here, Kirchner kept abreast of developments in Germany, debating details of the history of Brücke and consistently emphasizing his own artistic leadership and autonomy. Thickly painted on a red-and-white checkered cloth — a rare example of a work by Kirchner on an unconventional support — Self-Portrait with Cat retains the more vigorous paint application of the artist’s prewar years, a style he soon abandoned for large, flat planes of color.",
+   "credit": "Harvard Art Museums/Busch-Reisinger Museum, Museum purchase",
+   "url": "https://www.harvardartmuseums.org/collections/object/304414",
+   "views": 6280
+  },
+  {
+   "id": 299966,
+   "objectnumber": "1942.174",
+   "title": "Neptune Calming the Tempest",
+   "artist": "Peter Paul Rubens",
+   "artistDates": "1577 - 1640",
+   "dated": "1635",
+   "year": 1635,
+   "century": "17th century",
+   "culture": "Flemish",
+   "period": null,
+   "medium": "Oil on panel",
+   "support": "panel",
+   "dimensions": "48.9 x 64.1 cm (19 1/4 x 25 1/4 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:huam:DDC112827_dynmc",
+   "width": 2550,
+   "height": 2082,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.2486
+    },
+    {
+     "hex": "#7d6432",
+     "hue": "Yellow",
+     "percent": 0.2441
+    },
+    {
+     "hex": "#4b3219",
+     "hue": "Brown",
+     "percent": 0.1944
+    },
+    {
+     "hex": "#967d4b",
+     "hue": "Brown",
+     "percent": 0.1871
+    },
+    {
+     "hex": "#af9664",
+     "hue": "Yellow",
+     "percent": 0.1049
+    },
+    {
+     "hex": "#c8af7d",
+     "hue": "Brown",
+     "percent": 0.0203
+    },
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.0004
+    },
+    {
+     "hex": "#000000",
+     "hue": "Black",
+     "percent": 0.0003
+    }
+   ],
+   "text": "This elaborate oil sketch, or modello, was created for the “triumphal entry” of Cardinal Infante Ferdinand into Antwerp, a spectacular procession featuring music, theater, and enormous painted tableaus enlarged from Rubens’s sketches. Cities in the Netherlands traditionally staged these events as a formal welcome for a new ruler. Ferdinand, Archbishop of Toledo and brother of King Philip IV of Spain, succeeded his late aunt, the Archduchess Isabella, as governor of the southern Netherlands. The Antwerp magistrates turned to Rubens to plan the elaborate pageant that welcomed Ferdinand into their city in January 1635. His protracted journey from Spain was delayed by storms when his fleet attempted to sail from Barcelona to Genoa. Rubens’s modello celebrates Ferdinand’s safe crossing by drawing a flattering comparison between this incident and a passage in Virgil’s Aeneid, in which Neptune rises from the sea to calm the winds threatening Aeneas’s fleet.",
+   "credit": "Harvard Art Museums/Fogg Museum, Alpheus Hyatt Purchasing Fund",
+   "url": "https://www.harvardartmuseums.org/collections/object/299966",
+   "views": 6246
+  },
+  {
+   "id": 229043,
+   "objectnumber": "1951.49",
+   "title": "Poèmes Barbares",
+   "artist": "Paul Gauguin",
+   "artistDates": "1848 - 1903",
+   "dated": "1896",
+   "year": 1896,
+   "century": "19th century",
+   "culture": "French",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "64.8 x 48.3 cm (25 1/2 x 19 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC252014_dynmc",
+   "width": 1906,
+   "height": 2550,
+   "alt": "A young winged female figure stands next to an animal-like figure with bright white eyes on the lower left.",
+   "colors": [
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.274
+    },
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.2602
+    },
+    {
+     "hex": "#7d6432",
+     "hue": "Yellow",
+     "percent": 0.1874
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.1871
+    },
+    {
+     "hex": "#af4b32",
+     "hue": "Orange",
+     "percent": 0.0714
+    },
+    {
+     "hex": "#324b4b",
+     "hue": "Grey",
+     "percent": 0.019
+    },
+    {
+     "hex": "#af967d",
+     "hue": "Brown",
+     "percent": 0.0007
+    },
+    {
+     "hex": "#003264",
+     "hue": "Blue",
+     "percent": 0.0002
+    }
+   ],
+   "text": "Gauguin’s model for this painting was likely Pau’ura a Tai, a 14-year-old girl whom the artist described as his “native wife” while living in Tahiti in the 1890s. Widelycriticized today, the painter’s sexual relationships with local adolescents were also condemned by some of his contem poraries in French Polynesia. The painting maybe a response to the 1896 death in infancy of Gauguin’s daughter with Pau’ura a Tai. The figure’s wings, posture, and drapery evoke representations of the Virgin Mary and Christ Child. But instead of cradling a baby in her left arm, she protectively clutches her abdomen, emphasizing her loss. Reinforcing this narrative of birth and death is the presence at lower left of Ta’aroa, the Tahitian creator of the universe. Pau’ura a Tai averts her gaze from the deity, who Gauguin anthropomorphizes in an unusually childlike form. The girl’s downcast stare, coupled with her exposed chest, underscores the powerimbalance between artist and sitter.Below the SurfaceAn X-radiograph of this painting reveals a different image beneath the surface. It confirms that Gauguin first painted a horizontal landscape with riders on galloping horses before turning the canvas and repainting it with the composition of Poèmes Barbares. The pigments that the artist used for the underlying landscape are denser than those used on the surface layer. As a result, they block X-rays more effectively, leaving a brighter imprint on the radiograph. Gauguin was frequently short on supplies in Tahiti, so it’s possible he sacrificed one painting to create another. The landscape imagery of the underpainting relates to several pastoral scenes that Gauguin executed during this period—perhaps he felt comfortable abandoning one of his more common compositions to produce a work that marked the birth and death of his child.[x-radiograph image]",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest from the Collection of Maurice Wertheim, Class of 1906",
+   "url": "https://www.harvardartmuseums.org/collections/object/229043",
+   "views": 6211
+  },
+  {
+   "id": 231737,
+   "objectnumber": "1924.31",
+   "title": "The Martyrdom of Saint Sebastian",
+   "artist": "Giovanni Battista Caracciolo",
+   "artistDates": "1578-1635",
+   "dated": "c. 1625",
+   "year": 1620,
+   "century": "17th century",
+   "culture": "Italian",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "sight: 202.3 x 113.9 cm (79 5/8 x 44 13/16 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC252872_dynmc",
+   "width": 1433,
+   "height": 2550,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.7976
+    },
+    {
+     "hex": "#af967d",
+     "hue": "Brown",
+     "percent": 0.0419
+    },
+    {
+     "hex": "#c8af7d",
+     "hue": "Brown",
+     "percent": 0.0348
+    },
+    {
+     "hex": "#967d64",
+     "hue": "Brown",
+     "percent": 0.0333
+    },
+    {
+     "hex": "#7d644b",
+     "hue": "Yellow",
+     "percent": 0.0332
+    },
+    {
+     "hex": "#4b3232",
+     "hue": "Red",
+     "percent": 0.0233
+    },
+    {
+     "hex": "#644b32",
+     "hue": "Brown",
+     "percent": 0.0153
+    },
+    {
+     "hex": "#190000",
+     "hue": "Black",
+     "percent": 0.0122
+    },
+    {
+     "hex": "#c8c8c8",
+     "hue": "Grey",
+     "percent": 0.0041
+    },
+    {
+     "hex": "#afafaf",
+     "hue": "Grey",
+     "percent": 0.003
+    }
+   ],
+   "text": "Sebastian was a third-century Roman warrior who was killed for refusing to deny his Christian faith. (He would later be canonized as a saint.) The Roman emperor had ordered his soldiers to test Sebastian by tying him to a tree and shooting him with arrows.In this painting, Sebastian’s pale, pain-wracked body stands out from the dark background, yet Sebastian remains upright. The Christian male body is presented as having almost supernatural powers to withstand pain and abuse; indeed, Sebastian did survive this first attack and because of that became the patron saint of those suffering from the plague. He was especially popular as a visual icon of male power.artists throughout 17th-century Europe. The context for this work is unknown, but a painting of Saint Sebastian would have provided symbolic protection from illness wherever it was hung.",
+   "credit": "Harvard Art Museums/Fogg Museum, Gift of Herbert Pope, Arthur Pope, Edward W. Forbes and Paul J. Sachs",
+   "url": "https://www.harvardartmuseums.org/collections/object/231737",
+   "views": 6197
+  },
+  {
+   "id": 302046,
+   "objectnumber": "H357",
+   "title": "Abbott Lawrence Lowell (1856-1943)",
+   "artist": "John Singer Sargent",
+   "artistDates": "1856 - 1925",
+   "dated": "1923-1924",
+   "year": 1923,
+   "century": "20th century",
+   "culture": "American",
+   "period": null,
+   "medium": "Oil on canvas",
+   "support": "canvas",
+   "dimensions": "140.6 x 98.7 cm (55 3/8 x 38 7/8 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:60809_dynmc",
+   "width": 720,
+   "height": 1024,
+   "alt": null,
+   "colors": [
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.9549
+    },
+    {
+     "hex": "#af3219",
+     "hue": "Red",
+     "percent": 0.0147
+    },
+    {
+     "hex": "#966432",
+     "hue": "Orange",
+     "percent": 0.0081
+    },
+    {
+     "hex": "#c89664",
+     "hue": "Brown",
+     "percent": 0.0062
+    },
+    {
+     "hex": "#af7d4b",
+     "hue": "Yellow",
+     "percent": 0.0031
+    },
+    {
+     "hex": "#e1af7d",
+     "hue": "Orange",
+     "percent": 0.0029
+    },
+    {
+     "hex": "#64644b",
+     "hue": "Green",
+     "percent": 0.0024
+    },
+    {
+     "hex": "#e1c896",
+     "hue": "Yellow",
+     "percent": 0.0022
+    },
+    {
+     "hex": "#c8c8af",
+     "hue": "Green",
+     "percent": 0.0018
+    },
+    {
+     "hex": "#7d7d64",
+     "hue": "Yellow",
+     "percent": 0.0015
+    }
+   ],
+   "text": "",
+   "credit": "Harvard University Portrait Collection, Gift to Harvard College of members of the Board of Overseers who served during President Lowell's administration, 1924",
+   "url": "https://www.harvardartmuseums.org/collections/object/302046",
+   "views": 6187
+  },
+  {
+   "id": 230460,
+   "objectnumber": "1943.105",
+   "title": "The Virgin and Child",
+   "artist": "Sandro Botticelli (Alessandro Filipepi)",
+   "artistDates": "1444/45 - 1510",
+   "dated": "c. 1490",
+   "year": 1485,
+   "century": "15th century",
+   "culture": "Italian",
+   "period": null,
+   "medium": "Tempera on panel",
+   "support": "panel",
+   "dimensions": "88.9 x 55.9 cm (35 x 22 in.)",
+   "image": "https://nrs.harvard.edu/urn-3:HUAM:DDC252568_dynmc",
+   "width": 1600,
+   "height": 2550,
+   "alt": "A woman holds a baby in front of a background of buildings.",
+   "colors": [
+    {
+     "hex": "#323232",
+     "hue": "Grey",
+     "percent": 0.1646
+    },
+    {
+     "hex": "#19324b",
+     "hue": "Blue",
+     "percent": 0.124
+    },
+    {
+     "hex": "#646464",
+     "hue": "Grey",
+     "percent": 0.1069
+    },
+    {
+     "hex": "#644b4b",
+     "hue": "Brown",
+     "percent": 0.1021
+    },
+    {
+     "hex": "#191919",
+     "hue": "Grey",
+     "percent": 0.0862
+    },
+    {
+     "hex": "#96644b",
+     "hue": "Brown",
+     "percent": 0.075
+    },
+    {
+     "hex": "#324b7d",
+     "hue": "Blue",
+     "percent": 0.0715
+    },
+    {
+     "hex": "#967d64",
+     "hue": "Brown",
+     "percent": 0.0699
+    },
+    {
+     "hex": "#af967d",
+     "hue": "Brown",
+     "percent": 0.0448
+    },
+    {
+     "hex": "#7d9696",
+     "hue": "Green",
+     "percent": 0.0434
+    }
+   ],
+   "text": "Botticelli oversaw an active workshop that produced multiple versions of the same composition. The central figures in this painting are a reworking of the Virgin and Child from the San Barnaba altarpiece, one of the most important commissions of Botticelli’s mature period in Florence. They are framed in a pavilion whose perspective is carefully rendered, while in the background, a townscape rises beneath a blue sky. The crisp linearity, idealized facial features, foreshortened halos, and geometric organization of space are characteristically Florentine. The architecture of the buildings, however, is Netherlandish — evidence of the vibrant cultural exchange between Florence and the North during the fifteenth century. Technical studies show that the Christ child originally held a recorder, an unusual attribute that was apparently rejected and painted over with the pomegranate, a symbol of the Passion because of its blood-red seeds.",
+   "credit": "Harvard Art Museums/Fogg Museum, Bequest of Grenville L. Winthrop",
+   "url": "https://www.harvardartmuseums.org/collections/object/230460",
+   "views": 6065
+  }
+ ]
+}

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lumen-Strata</title>
+  <meta name="description" content="Sixty paintings from the Harvard Art Museums, taken apart into transparent sheets by scrolling, then put back together by light." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <header class="nav">
+    <a class="brand" href="#/" aria-label="Lumen-Strata home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 20 16 25 26 20M6 15 16 20 26 15M6 10 16 15 26 10 16 5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      <span>Lumen<span class="dot">·</span>Strata</span>
+    </a>
+    <nav>
+      <a href="#/collection">Collection</a>
+      <a href="#/method">Method</a>
+      <a href="#/light">Light</a>
+    </nav>
+  </header>
+
+  <!-- ======================= HOME ======================= -->
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow mono">Harvard Art Museums · 60 paintings · technical art history</p>
+        <h1 class="title"><span>Lumen</span><span class="title-2">Strata</span></h1>
+        <p class="lede">A painting is not one surface but a sediment of decisions: a support, a ground, a drawing, a lay-in of light and colour, a skin of glaze. Scroll to <em>peel them apart</em>. Then switch on the light, and watch the sheets add back up to the picture.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#/collection">Choose a painting</a>
+          <a class="btn ghost" id="hero-random" href="#/">Surprise me</a>
+        </div>
+      </div>
+      <div class="hero-stage" aria-hidden="true">
+        <div class="hero-world" id="hero-world"></div>
+        <p class="hero-caption mono" id="hero-caption"></p>
+      </div>
+      <div class="scroll-cue mono" aria-hidden="true"><span></span>scroll</div>
+    </section>
+
+    <section class="collection" id="collection">
+      <div class="section-head">
+        <p class="eyebrow mono">01 / Collection</p>
+        <h2>The sixty most-viewed paintings in the collection</h2>
+        <p class="sub">Ranked by the Harvard Art Museums API's own <code>totalpageviews</code> field, limited to public-domain images. Every work below is fetched from the API.</p>
+      </div>
+      <div class="filters">
+        <label class="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <input id="q" type="search" placeholder="Search artist, title, century…" autocomplete="off" />
+        </label>
+        <div class="chips" id="support-chips" role="group" aria-label="Filter by support">
+          <button class="chip on" data-support="all">All</button>
+          <button class="chip" data-support="canvas">Canvas</button>
+          <button class="chip" data-support="panel">Panel</button>
+          <button class="chip" data-support="other">Other</button>
+        </div>
+        <label class="sort mono">Sort
+          <select id="sort">
+            <option value="views">Most viewed</option>
+            <option value="year">Oldest first</option>
+            <option value="-year">Newest first</option>
+            <option value="artist">Artist A–Z</option>
+          </select>
+        </label>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="empty" id="empty" hidden>No paintings match that search.</p>
+    </section>
+
+    <section class="method" id="method">
+      <div class="section-head">
+        <p class="eyebrow mono">02 / Method</p>
+        <h2>Seven sheets, seven ways of looking beneath paint</h2>
+        <p class="sub">Each sheet stands for one stage in how a painting was traditionally built. Conservators study each stage with a different instrument. Since the 1920s Harvard's Fogg Museum has been one of the places where this science began: Alan Burroughs X-rayed paintings there, and Rutherford Gettens and George Stout worked on pigments, today's Straus Center for Conservation and Technical Studies.</p>
+      </div>
+      <ol class="method-list" id="method-list"></ol>
+      <p class="disclaimer">These sheets are <strong>computational analogies</strong>. Your browser generates them from the museum's photograph using edge detection, tonal posterisation and colour quantisation. They are <strong>not</strong> scans of the real paint layers. They show what each stage <em>does</em> to a picture, not what a particular painter actually laid down.</p>
+    </section>
+
+    <section class="light-essay" id="light">
+      <div class="section-head">
+        <p class="eyebrow mono">03 / Light</p>
+        <h2>Why a lamp puts the picture back together</h2>
+      </div>
+      <div class="essay-cols">
+        <div>
+          <h3>Light through layers</h3>
+          <p>Oil paint is partly transparent. Light enters a glaze, passes through the colour beneath, bounces off a pale ground and comes back out filtered by every layer it crossed. That is why Van Eyck's or Titian's glazes seem to glow from within. In Lumen-Strata the lamp shines through all seven transparent sheets, and the image that lands on the wall is the painting. The whole is the sum of its strata.</p>
+        </div>
+        <div>
+          <h3>The camera obscura</h3>
+          <p>Pass light through a small opening into a dark room and an image of the outside world appears on the far wall, <em>upside down</em>. Mozi and Aristotle noted the effect. Ibn al-Haytham (c. 1011–1021) explained it, and Giambattista della Porta (1558) recommended it to painters. Whether Vermeer traced from one is still debated (Philip Steadman, <em>Vermeer's Camera</em>, 2001; the Hockney–Falco thesis). Switch the viewer's lens to <strong>Obscura</strong> to see the inversion.</p>
+        </div>
+        <div>
+          <h3>Seeing the invisible</h3>
+          <p>Technical art history also depends on light, just at wavelengths we can't see. X-rays (Röntgen, 1895) show dense lead white. Infrared passes through paint and is absorbed by carbon drawing. Ultraviolet makes aged varnish fluoresce. Every instrument in the Method list is a different kind of lamp.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>Data and images: <a href="https://harvardartmuseums.org/collections/api" target="_blank" rel="noopener">Harvard Art Museums API</a>. Images © President and Fellows of Harvard College, shown for non-commercial educational use.</p>
+      <p class="mono">Lumen-Strata · CS 85 · <a href="https://github.com/Dash0077/Lumen-Strata" target="_blank" rel="noopener">source on GitHub</a></p>
+    </footer>
+  </main>
+
+  <!-- ======================= VIEWER ======================= -->
+  <section id="viewer" hidden>
+    <div class="track" id="track">
+      <div class="stage" id="stage">
+        <div class="world" id="world">
+          <div class="wall" id="wall">
+            <div class="wall-glow"></div>
+            <img id="wall-img" alt="" crossorigin="anonymous" />
+          </div>
+          <div class="beam" id="beam"></div>
+          <div class="sheets" id="sheets"></div>
+          <div class="lamp" id="lamp"><span></span></div>
+        </div>
+
+        <div class="hud hud-top">
+          <a class="back mono" href="#/collection">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Collection
+          </a>
+          <div class="nowshowing">
+            <span class="mono" id="v-rank"></span>
+            <span id="v-title"></span>
+          </div>
+          <div class="pager">
+            <button class="icon-btn" id="prev" aria-label="Previous painting"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="icon-btn" id="next" aria-label="Next painting"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+
+        <div class="intro-card" id="intro-card">
+          <p class="eyebrow mono" id="v-meta"></p>
+          <h1 id="v-h1"></h1>
+          <p class="artist" id="v-artist"></p>
+          <p class="hint mono"><span class="mouse"></span>Scroll to dissect</p>
+        </div>
+
+        <ol class="layer-index mono" id="layer-index" aria-label="Layers"></ol>
+
+        <aside class="note" id="note" aria-live="polite">
+          <p class="note-num mono" id="note-num"></p>
+          <h2 id="note-title"></h2>
+          <p class="note-sub mono" id="note-sub"></p>
+          <p id="note-body"></p>
+          <div class="note-instr">
+            <p class="mono label">How conservators see it</p>
+            <p id="note-instr"></p>
+          </div>
+          <p class="note-how mono" id="note-how"></p>
+        </aside>
+
+        <div class="light-caption" id="light-caption">
+          <p class="mono" id="light-mode"></p>
+          <p id="light-text"></p>
+        </div>
+
+        <div class="hud hud-bottom">
+          <div class="progress"><span id="progress-bar"></span></div>
+          <div class="controls">
+            <button class="lens" id="lens" aria-pressed="false" title="Flip the projection like a camera obscura">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+              <span>Obscura</span>
+            </button>
+            <button class="light-toggle" id="light" aria-pressed="false">
+              <span class="bulb" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="lt-label">Light <b id="light-state">off</b></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="loader" id="loader">
+          <div class="loader-stack"><i></i><i></i><i></i><i></i></div>
+          <p class="mono" id="loader-text">Separating strata…</p>
+        </div>
+      </div>
+    </div>
+
+    <article class="dossier" id="dossier">
+      <div class="dossier-img"><img id="d-img" alt="" /></div>
+      <div class="dossier-body">
+        <p class="eyebrow mono" id="d-eyebrow"></p>
+        <h2 id="d-title"></h2>
+        <p class="artist" id="d-artist"></p>
+        <dl class="facts" id="d-facts"></dl>
+        <div class="d-text" id="d-text"></div>
+        <div class="palette">
+          <p class="mono label">Palette measured by the Harvard Art Museums API</p>
+          <div class="swatches" id="d-swatches"></div>
+        </div>
+        <div class="dossier-actions">
+          <a class="btn primary" id="d-link" target="_blank" rel="noopener">View at Harvard Art Museums ↗</a>
+          <button class="btn ghost" id="d-top">Dissect again ↑</button>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
