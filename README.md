@@ -2,7 +2,20 @@
 
 **Live site: <https://dash0077.github.io/Lumen-Strata/>**
 
-Lumen-Strata takes paintings apart. Pick one of the sixty most-viewed paintings in the [Harvard Art Museums](https://harvardartmuseums.org) collection, and as you scroll, the canvas splits in 3D into seven transparent sheets, one for each stage of how a painting is traditionally built. Then switch on the **light**: a lamp shines through every sheet, and the image projected on the wall behind them is the painting again.
+Lumen-Strata takes paintings apart. Pick one of the sixty most-viewed paintings in the [Harvard Art Museums](https://harvardartmuseums.org) collection, and as you scroll, the canvas splits in 3D into seven transparent sheets, one for each stage of how a painting is traditionally built. Click any sheet to study it against the original. Then switch on the **projector**: its beam shines through every sheet, and the image on the wall behind them is the painting again. Slide sheets out of the beam and the wall shows only what is left, the way a conservator reads a painting one layer at a time.
+
+## Using it
+
+| Action | What happens |
+|---|---|
+| **Scroll** | The painting turns, then peels apart into seven sheets, surface first |
+| **Click a sheet** | Opens it full screen with a before/after slider against the original |
+| **Drag** | Orbits the stack (double-click resets) |
+| **Light** (or `L`) | Turns on the projector and swings the camera to a side view of the bench |
+| **Click a sheet with the light on** | Slides it out of the beam; the wall recomposites |
+| **Presets** | *Full painting · Under the varnish · Infrared view · X-ray view · Colour only* |
+| **Obscura** (or `O`) | Flips the projection upside down, like a camera obscura |
+| `←` `→` | Previous or next painting |
 
 Built for **CS 85**.
 
@@ -30,14 +43,15 @@ The ground changes with the painting's date and support, following broad histori
 
 ### Light and the camera obscura
 
-The light toggle makes two arguments:
+The projector makes three arguments:
 
 1. **Light through layers.** Oil paint is partly transparent. Light passes through glazes, reflects off a pale ground and comes back filtered by every layer, which is the source of oil painting's glow. In the viewer, light passes through all seven transparent sheets and lands on the wall as the finished painting. The whole is the sum of its strata.
 2. **The camera obscura.** Light entering a dark room through a small opening casts an upside-down image of the outside world. Mozi and Aristotle noted the effect, Ibn al-Haytham explained it, and Della Porta (1558) recommended it to painters. Whether Vermeer used one is still debated (Steadman, *Vermeer's Camera*, 2001; the Hockney–Falco thesis). The **Obscura** lens button flips the projection to show the inversion.
+3. **The light table: what the projection is for.** Conservators rarely read one image alone. They register a painting's X-radiograph, infrared reflectogram and ultraviolet photograph over its normal photograph, then switch between them to see which layer holds which decision: a hidden drawing, a changed pose, a later repaint. Lumen-Strata's light table does the same with the seven sheets. Lift sheets out of the beam and the wall shows only the light that passes through what remains. The presets recombine the sheets into those professional ways of seeing: *Infrared view* (drawing on the ground), *X-ray view* (support and the map of lights), *Under the varnish*, and *Colour only*. With no sheets left, only bare lamplight reaches the wall.
 
 ### An honest caveat
 
-The sheets are **computational analogies**, not scans of real paint layers. The Harvard Art Museums API does not publish X-ray or infrared images, so each sheet is generated in your browser from the museum's photograph to show what that stage contributes to the picture. The site says this in the Method section and in a "Here:" note on every sheet.
+The sheets are **computational analogies**, not scans of real paint layers. The Harvard Art Museums API does not publish X-ray or infrared images, so each sheet is generated in your browser from the museum's photograph to show what that stage contributes to the picture. The site says this in the Method section ("Are these real paint layers?") and in each sheet's "Read more" note.
 
 ---
 
@@ -72,14 +86,20 @@ The blurs are separable two-pass box blurs on `Float32Array`s, so the whole diss
 `js/viewer.js` places each sheet on its own plane inside a `transform-style: preserve-3d` world. The page has a tall scroll track with a sticky stage, and scroll progress drives the camera:
 
 - **0–20%**: the painting turns from face-on to a three-quarter view
-- **20–84%**: the sheets peel apart, surface first and support last, like an excavation. A side card explains each stratum and its instrument.
-- **84–100%**: fully exploded, and the light button starts to pulse
+- **20–84%**: the sheets peel apart, surface first and support last, like an excavation. A compact card names each stratum and the instrument used to see it, with longer text behind "Read more".
+- **84–100%**: fully exploded, and the light switch starts to pulse
 
-**Light on** swings the camera into a side "projector bench" view. A lamp sits in front, a volumetric beam built from 18 stacked translucent planes runs through the sheets, the sheets turn filmy, and the full painting flickers onto a textured wall behind them. **Obscura** rotates the projection 180°.
+The room is built from CSS planes too: a gridded **floor**, a plaster **wall**, and a **projector** made of six faces with a lens barrel of stacked rings, standing on a pole. Switching the light on blends the scroll camera into a fixed "projector bench" camera, so it works from any scroll position. It also fans the sheets out, turns them filmy, and fills a volumetric beam built from 18 stacked translucent planes.
 
-Motion is smoothed with frame-rate-independent damping, and `prefers-reduced-motion` is respected. The layout adapts to phones, where the note card becomes a bottom sheet.
+The **light table** composites the sheets still in the beam onto a `<canvas>` on the wall, back to front over warm lamplight. With all seven sheets in, the wall shows the museum's high-resolution photograph. Lifted sheets slide up out of the beam.
 
-Below the scroll track, a dossier shows the API's label text, facts, the measured palette as a proportional colour bar, and a link to the object's page on the museum website.
+The **inspector** shows a sheet full screen, clipped against the original with a draggable range slider. For the varnish sheet it compares the original with the composite of all the strata beneath it.
+
+Motion is smoothed with frame-rate-independent damping, `prefers-reduced-motion` is respected, and the layout adapts to phones.
+
+### 4. The home page
+
+The design is modelled on modern editorial sites: two typefaces (Instrument Serif and Familjen Grotesk), a full-screen menu, rolling-text hover links, and a hero whose 3D stack is built from the featured painting's real strata. A statement lights up word by word as you scroll, a marquee lists the artists, and the sticky Method section highlights one sheet per step.
 
 ---
 
