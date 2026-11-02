@@ -508,7 +508,14 @@ export function initViewer() {
     if (e.button !== 0 || e.target.closest("button, a, input, summary, .note, .hud-bottom")) return;
     state.dragging = { x: e.clientX, y: e.clientY, start: state.drag, moved: false, sheet: e.target.closest(".sheet") };
     stage.setPointerCapture(e.pointerId);
+    // A mouse press would otherwise start a text selection that the drag then
+    // sweeps across every label on screen. (Touch keeps its default so
+    // vertical swipes still scroll.)
+    if (e.pointerType === "mouse") e.preventDefault();
+    getSelection()?.removeAllRanges();
+    document.body.classList.add("orbiting");
   });
+  document.addEventListener("selectstart", (e) => { if (state.dragging) e.preventDefault(); });
   stage.addEventListener("pointermove", (e) => {
     const d = state.dragging;
     if (!d) return;
@@ -522,12 +529,17 @@ export function initViewer() {
     const d = state.dragging;
     state.dragging = null;
     stage.classList.remove("dragging");
+    document.body.classList.remove("orbiting");
     if (d && !d.moved && d.sheet) {
       const k = +d.sheet.dataset.k;
       state.litTarget ? toggleBeam(k) : openInspect(k);
     }
   });
-  stage.addEventListener("pointercancel", () => { state.dragging = null; stage.classList.remove("dragging"); });
+  stage.addEventListener("pointercancel", () => {
+    state.dragging = null;
+    stage.classList.remove("dragging");
+    document.body.classList.remove("orbiting");
+  });
   stage.addEventListener("dblclick", () => (state.drag = 0));
 
   addEventListener("keydown", (e) => {

@@ -313,6 +313,12 @@ section.collection, section.method, section.light-essay { padding: 15vh var(--gu
 #viewer { --lit: 0; --sw: 300px; --sh: 400px; }
 .track { height: 760vh; position: relative; }
 .stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; perspective: 2000px; perspective-origin: 50% 44%; cursor: grab; touch-action: pan-y; }
+/* The stage is a drag surface: its labels are not text to select. The note card's
+   prose stays selectable, and nothing on the page selects mid-drag. */
+.stage { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+.stage .note, .stage .note * { -webkit-user-select: text; user-select: text; }
+body.orbiting, body.orbiting * { -webkit-user-select: none !important; user-select: none !important; }
+.sheet canvas, .projection img { -webkit-user-drag: none; }
 .stage.dragging { cursor: grabbing; }
 .world { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform-style: preserve-3d; will-change: transform; }
 .sheets { position: absolute; transform-style: preserve-3d; }
