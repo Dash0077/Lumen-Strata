@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <a class="skip" href="#collection">Skip to the collection</a>
+  <a class="skip" href="#/collection">Skip to the collection</a>
   <canvas id="stars" aria-hidden="true"></canvas>
 
   <!-- ======================= NAV + MENU ======================= -->
@@ -48,7 +48,7 @@
         <a href="#/" id="menu-random" data-preview="3"><span class="cap">04</span><em>Surprise me</em></a>
       </nav>
       <div class="menu-side">
-        <div class="menu-preview" aria-hidden="true"><img id="menu-preview" alt="" /></div>
+        <div class="menu-preview" aria-hidden="true"><img id="menu-preview" alt="" decoding="async" /></div>
         <div class="menu-cols">
           <div>
             <p class="cap dim">Source</p>
@@ -186,8 +186,8 @@
   <!-- ======================= VIEWER ======================= -->
   <section id="viewer" hidden>
     <div class="track" id="track">
-      <div class="stage" id="stage" role="img" aria-label="">
-        <div class="world" id="world">
+      <div class="stage" id="stage">
+        <div class="world" id="world" role="img" aria-label="">
           <div class="floor" id="floor"></div>
           <div class="wall" id="wall">
             <div class="wall-glow"></div>
@@ -302,7 +302,7 @@
     </div>
 
     <article class="dossier" id="dossier">
-      <div class="dossier-img"><img id="d-img" alt="" /></div>
+      <div class="dossier-img"><img id="d-img" alt="" loading="lazy" decoding="async" /></div>
       <div class="dossier-body">
         <p class="cap dim" id="d-eyebrow"></p>
         <h2 id="d-title"></h2>

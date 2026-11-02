@@ -64,6 +64,7 @@ function buildRail() {
     const k = N - 1 - o;
     return `<li><button type="button" data-k="${k}"><span class="r-fill"></span><span class="r-num">${pad(k + 1)}</span><span class="r-name">${LAYERS[k].name}</span></button></li>`;
   }).join("");
+  el.railBtns = [...el.rail.querySelectorAll("button")];
   el.rail.addEventListener("click", (e) => {
     const b = e.target.closest("button");
     if (!b) return;
@@ -219,7 +220,16 @@ function frame(now) {
   state.mxs = lerp(state.mxs, state.mx, damp(3, dt));
   state.mys = lerp(state.mys, state.my, damp(3, dt));
   state.dragS = lerp(state.dragS, state.drag, damp(6, dt));
-  state.beamS = state.beamS.map((b, k) => lerp(b, state.inBeam[k] ? 1 : 0, damp(5, dt)));
+  for (let k = 0; k < N; k++) state.beamS[k] = lerp(state.beamS[k], state.inBeam[k] ? 1 : 0, damp(5, dt));
+
+  // Skip all DOM writes once everything has settled: an idle viewer costs
+  // nothing but this comparison.
+  const sig = `${state.p.toFixed(4)}|${state.lit.toFixed(4)}|${state.mxs.toFixed(4)}|${state.mys.toFixed(4)}|${state.dragS.toFixed(3)}|${state.beamS.map((b) => b.toFixed(3))}|${innerWidth}x${innerHeight}|${state.sheets.length}|${state.litTarget}`;
+  if (sig === state.sig) {
+    requestAnimationFrame(frame);
+    return;
+  }
+  state.sig = sig;
 
   const { p, lit, gap, sh } = state;
   const vw = innerWidth, vh = innerHeight;
@@ -233,7 +243,8 @@ function frame(now) {
   const cam = {
     rx: lerp(0, 12, turn), ry: lerp(0, -44, turn),
     sc: lerp(1, 0.9, turn) * lerp(1, 0.95, ease(spread)),
-    tx: mobile ? 0 : lerp(vw * 0.14, -vw * 0.05, turn),
+    // Centre the exploded stack in the space left of the note card.
+    tx: mobile ? 0 : lerp(vw * 0.14, -(Math.min(320, vw * 0.26) + Math.min(48, vw * 0.034)) / 2, turn),
     ty: mobile ? lerp(0, -vh * 0.07, turn) : lerp(0, -vh * 0.02, turn),
   };
   const bench = { rx: 14, ry: -50, sc: mobile ? 0.5 : 0.56, tx: mobile ? 0 : vw * 0.03, ty: mobile ? -vh * 0.08 : -vh * 0.03 };
@@ -269,9 +280,10 @@ function frame(now) {
   el.note.classList.toggle("show", spread > 0.005 && state.litTarget === 0);
   showNote(spread <= 0 ? -1 : done ? N : activeO);
   el.light.classList.toggle("beckon", done && state.litTarget === 0);
+  if (p > 0.6) loadWall(); // fetch the wall's high-res photograph before the light is likely needed
 
   // Rail: each segment fills as its stratum peels away.
-  [...el.rail.querySelectorAll("button")].forEach((b, o) => {
+  el.railBtns.forEach((b, o) => {
     b.style.setProperty("--f", clamp(spread * N - o).toFixed(3));
     b.classList.toggle("on", state.litTarget === 0 && spread > 0 && !done && o === activeO);
     b.classList.toggle("off", state.litTarget === 1 && !state.inBeam[N - 1 - o]);
@@ -290,7 +302,14 @@ function scrollToProgress(p) {
 
 // ---------- light + light table ----------
 
+// The wall's 1400px photograph is only fetched once it may be seen.
+function loadWall() {
+  const src = el.wallImg.dataset.src;
+  if (src && el.wallImg.getAttribute("src") !== src) el.wallImg.src = src;
+}
+
 function setLight(on) {
+  if (on) loadWall();
   state.litTarget = on ? 1 : 0;
   el.viewer.classList.toggle("lit", on);
   el.light.setAttribute("aria-pressed", String(on));
@@ -327,9 +346,10 @@ function beamChanged() {
 // beam, composited back to front. With all seven in, it is the photograph.
 function composite() {
   const r = state.result;
-  const all = state.inBeam.every(Boolean);
-  el.projection.classList.toggle("partial", !all);
-  if (!r || all) return;
+  // Until the high-res photograph arrives, the canvas (all sheets) stands in.
+  const photo = state.inBeam.every(Boolean) && el.wallImg.complete && el.wallImg.naturalWidth > 0;
+  el.projection.classList.toggle("partial", !photo);
+  if (!r || photo) return;
   const c = el.wallCanvas;
   c.width = r.w;
   c.height = r.h;
@@ -473,6 +493,7 @@ export function initViewer() {
   $("ins-prev").addEventListener("click", () => openInspect((state.inspectK + N - 1) % N));
   $("ins-next").addEventListener("click", () => openInspect((state.inspectK + 1) % N));
   el.inspect.addEventListener("click", (e) => { if (e.target === el.inspect) closeInspect(); });
+  el.wallImg.addEventListener("load", composite);
   $("cmp-range").addEventListener("input", (e) => $("compare").style.setProperty("--x", `${e.target.value}%`));
   addEventListener("resize", layout);
   addEventListener("pointermove", (e) => {
@@ -510,10 +531,17 @@ export function initViewer() {
   stage.addEventListener("dblclick", () => (state.drag = 0));
 
   addEventListener("keydown", (e) => {
-    if (el.viewer.hidden || e.metaKey || e.ctrlKey || e.altKey || e.target.closest("input:not([type=range]), select, textarea")) return;
+    if (el.viewer.hidden || e.metaKey || e.ctrlKey || e.altKey || e.target.closest?.("input:not([type=range]), select, textarea")) return;
     if (document.body.classList.contains("menu-open")) return;
     if (!el.inspect.hidden) {
       if (e.key === "Escape") closeInspect();
+      if (e.key === "Tab") {
+        const f = [...el.inspect.querySelectorAll("button, summary, input")].filter((x) => x.offsetParent);
+        const i = f.indexOf(document.activeElement);
+        if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+        else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+        return;
+      }
       if (e.target.type === "range") return;
       if (e.key === "ArrowLeft") openInspect((state.inspectK + N - 1) % N);
       if (e.key === "ArrowRight") openInspect((state.inspectK + 1) % N);
@@ -550,11 +578,13 @@ export async function openViewer(p, list) {
   scrollTo({ top: 0, behavior: "auto" });
   document.title = `${p.title} · Lumen-Strata`;
   $("nav-title").innerHTML = `<b>No. ${pad(rank)}</b>${esc(p.title)} — ${esc(p.artist)}`;
-  el.stage.setAttribute("aria-label", `3D dissection of ${p.title} by ${p.artist}`);
+  el.world.setAttribute("aria-label", `3D dissection of ${p.title} by ${p.artist}`);
   $("v-meta").textContent = [p.dated, p.medium].filter(Boolean).join(" · ");
   $("v-h1").textContent = p.title;
   $("v-artist").textContent = p.artist;
-  el.wallImg.src = imageUrl(p, 1400);
+  el.wallImg.removeAttribute("src");
+  el.wallImg.dataset.src = imageUrl(p, 1400);
+  state.sig = "";
   fillDossier(p, rank);
   fillNextUp(p);
 
@@ -575,6 +605,7 @@ export async function openViewer(p, list) {
     state.result = result;
     mountSheets(result);
     fillInspectThumbs();
+    composite();
     el.loader.classList.remove("show");
   } catch (err) {
     if (token !== state.token) return;

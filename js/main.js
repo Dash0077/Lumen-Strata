@@ -10,7 +10,28 @@ const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 const pad = (n) => String(n).padStart(2, "0");
-const surname = (name) => name.replace(/\s*\(.*\)/, "").split(",")[0].trim().split(" ").pop();
+// Names as art history uses them, where the last word of the API name is not it.
+const KNOWN_AS = { Rijn: "Rembrandt", Canal: "Canaletto", Angelico: "Fra Angelico" };
+const surname = (name) => {
+  const last = name.replace(/\s*\(.*\)/, "").split(",")[0].trim().split(" ").pop();
+  return KNOWN_AS[last] || last;
+};
+
+// One passive scroll listener, batched to a single rAF; every scroll-linked
+// effect on the page registers here instead of adding its own listener.
+const scrollJobs = [];
+let scrollQueued = false;
+function onScroll(fn) {
+  scrollJobs.push(fn);
+}
+addEventListener("scroll", () => {
+  if (scrollQueued) return;
+  scrollQueued = true;
+  requestAnimationFrame(() => {
+    scrollQueued = false;
+    scrollJobs.forEach((fn) => fn(scrollY));
+  });
+}, { passive: true });
 
 // ---------- starfield ----------
 
@@ -28,7 +49,13 @@ function stars() {
       r: Math.random() ** 3 * 1.3 + 0.25, d: Math.random() * 0.4 + 0.08, t: Math.random() * 6.28,
     }));
   };
+  // Twinkling only needs ~12 fps; scrolling redraws immediately.
+  let lastDraw = 0, lastY = -1;
   const draw = (time) => {
+    requestAnimationFrame(draw);
+    if (scrollY === lastY && time - lastDraw < 80) return;
+    lastDraw = time;
+    lastY = scrollY;
     ctx.clearRect(0, 0, innerWidth, innerHeight);
     ctx.fillStyle = "#fff";
     const H = innerHeight * 3;
@@ -40,7 +67,6 @@ function stars() {
       ctx.arc(s.x, y, s.r, 0, 6.283);
       ctx.fill();
     }
-    requestAnimationFrame(draw);
   };
   resize();
   addEventListener("resize", resize);
@@ -52,15 +78,14 @@ function stars() {
 function nav() {
   const bar = $("nav");
   let lastY = scrollY;
-  addEventListener("scroll", () => {
-    const y = scrollY;
+  onScroll((y) => {
     bar.classList.toggle("solid", y > 30);
     // Tuck the bar away while reading downwards on the home page; bring it back on any upward scroll.
     const inViewer = document.body.classList.contains("in-viewer");
     bar.classList.toggle("tuck", !inViewer && y > innerHeight && y > lastY + 2);
     if (y < lastY - 2) bar.classList.remove("tuck");
     lastY = y;
-  }, { passive: true });
+  });
   $("to-top").addEventListener("click", () => scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }));
 }
 
@@ -73,6 +98,7 @@ const menu = {
     document.body.classList.add("menu-open");
     this.btn.setAttribute("aria-expanded", "true");
     this.setLabel("Close");
+    if (!$("menu-preview").getAttribute("src")) this.preview(0);
     requestAnimationFrame(() => requestAnimationFrame(() => this.el.classList.add("open")));
     setTimeout(() => this.el.querySelector(".menu-main a")?.focus({ preventScroll: true }), 300);
   },
@@ -84,6 +110,21 @@ const menu = {
     this.setLabel("Menu");
     setTimeout(() => { if (!this.el.classList.contains("open")) this.el.hidden = true; }, reduceMotion ? 0 : 900);
     if (restoreFocus) this.lastFocus?.focus?.({ preventScroll: true });
+  },
+  // Cross-fade the preview image. A token drops stale swaps when the pointer
+  // sweeps across several links quickly.
+  previewToken: 0,
+  preview(key) {
+    const p = this.previews[key];
+    const img = $("menu-preview");
+    if (!p) return;
+    const src = imageUrl(p, 900);
+    if (img.getAttribute("src") === src) { img.style.opacity = 1; return; }
+    const token = ++this.previewToken;
+    img.style.opacity = 0;
+    const next = new Image();
+    next.onload = () => { if (token === this.previewToken) { img.src = src; img.style.opacity = 1; } };
+    next.src = src;
   },
   setLabel(text) {
     const roll = this.btn.querySelector(".roll");
@@ -104,14 +145,9 @@ const menu = {
       }
     });
     this.el.addEventListener("click", (e) => { if (e.target.closest("a")) this.close(false); });
-    const img = $("menu-preview");
     this.el.querySelectorAll("[data-preview]").forEach((a) => {
-      a.addEventListener("pointerenter", () => {
-        const p = this.previews[a.dataset.preview];
-        if (!p) return;
-        img.style.opacity = 0;
-        setTimeout(() => { img.src = imageUrl(p, 900); img.onload = () => (img.style.opacity = 1); }, 180);
-      });
+      a.addEventListener("pointerenter", () => this.preview(a.dataset.preview));
+      a.addEventListener("focus", () => this.preview(a.dataset.preview));
     });
     $("menu-random").addEventListener("click", (e) => { e.preventDefault(); this.close(false); surprise(); });
   },
@@ -141,13 +177,21 @@ function sheetStack(world, result, p, cls) {
 async function hero(featured) {
   const world = $("hero-world");
   $("hero-featured").href = `#/p/${featured.id}`;
+  let pointer = null;
   addEventListener("pointermove", (e) => {
-    world.style.setProperty("--px", (e.clientX / innerWidth - 0.5).toFixed(3));
-    world.style.setProperty("--py", (e.clientY / innerHeight - 0.5).toFixed(3));
-  });
-  addEventListener("scroll", () => {
-    if (!home.hidden) world.style.setProperty("--spread", Math.min(1, scrollY / innerHeight).toFixed(3));
+    if (home.hidden || scrollY > innerHeight) return;
+    if (!pointer) requestAnimationFrame(() => {
+      world.style.setProperty("--px", (pointer.x / innerWidth - 0.5).toFixed(3));
+      world.style.setProperty("--py", (pointer.y / innerHeight - 0.5).toFixed(3));
+      pointer = null;
+    });
+    pointer = { x: e.clientX, y: e.clientY };
   }, { passive: true });
+  let spread = -1;
+  onScroll((y) => {
+    const s = home.hidden ? spread : Math.min(1, y / innerHeight).toFixed(3);
+    if (s !== spread) world.style.setProperty("--spread", (spread = s));
+  });
   // The photograph stands in while the strata are computed.
   world.style.setProperty("--ar", ((featured.width || 3) / (featured.height || 4)).toFixed(4));
   world.innerHTML = `<div class="hero-sheet" style="--k:6"><img src="${imageUrl(featured, 700)}" alt="" style="width:100%;height:100%;object-fit:cover" /></div>`;
@@ -167,14 +211,18 @@ function statement() {
   const el = $("statement-text");
   el.innerHTML = el.textContent.split(/\s+/).map((w) => `<span class="w">${esc(w)}</span>`).join(" ");
   const words = [...el.children];
+  let lit = -1;
   const update = () => {
     if (home.hidden) return;
     const r = el.getBoundingClientRect();
+    if (r.bottom < -innerHeight || r.top > innerHeight * 2) return;
     const t = (innerHeight * 0.82 - r.top) / (r.height + innerHeight * 0.35);
     const n = Math.round(Math.min(1, Math.max(0, t)) * words.length);
+    if (n === lit) return;
+    lit = n;
     words.forEach((w, i) => w.classList.toggle("on", i < n));
   };
-  addEventListener("scroll", update, { passive: true });
+  onScroll(update);
   update();
 }
 
@@ -210,8 +258,6 @@ function renderGrid() {
       const alt = esc(p.alt ? p.alt.slice(0, 200) : `${p.title} by ${p.artist}`);
       return `<a class="card" href="#/p/${p.id}" style="--i:${Math.min(i, 12)}" aria-label="${esc(p.title)}, ${esc(p.artist)}">
         <div class="card-media">
-          <img class="ly ly0" src="${url}" alt="" loading="lazy" decoding="async" />
-          <img class="ly ly1" src="${url}" alt="" loading="lazy" decoding="async" />
           <img class="ly ly2" src="${url}" alt="${alt}" loading="lazy" decoding="async" />
           <span class="glare"></span>
           <span class="card-go" aria-hidden="true">→</span>
@@ -227,6 +273,28 @@ function renderGrid() {
     .join("");
   $("empty").hidden = list.length > 0;
   $("count").textContent = `${pad(list.length)} / ${paintings.length} works`;
+}
+
+// The two filtered "strata" behind each card are only built the first time a
+// card is hovered or focused, so 60 cards decode 60 images, not 180.
+function cardLayers() {
+  const add = (e) => {
+    const card = e.target.closest?.(".card");
+    if (!card || card.dataset.layered) return;
+    card.dataset.layered = "1";
+    const photo = card.querySelector(".ly2");
+    ["ly0", "ly1"].forEach((cls) => {
+      const img = document.createElement("img");
+      img.className = `ly ${cls}`;
+      img.alt = "";
+      img.decoding = "async";
+      img.src = photo.currentSrc || photo.src;
+      photo.before(img);
+    });
+    requestAnimationFrame(() => requestAnimationFrame(() => card.classList.add("ready")));
+  };
+  $("grid").addEventListener("pointerover", add);
+  $("grid").addEventListener("focusin", add);
 }
 
 function tilt() {
@@ -306,6 +374,7 @@ function route() {
   const m = h.match(/^#\/p\/(\d+)/);
   const p = m && paintings.find((x) => String(x.id) === m[1]);
   if (p) {
+    firstRoute = false;
     home.hidden = true;
     document.body.classList.add("in-viewer");
     $("nav").classList.remove("tuck");
@@ -318,29 +387,51 @@ function route() {
   home.hidden = false;
   document.title = "Lumen-Strata — Light, layered.";
   const section = { "#/collection": "collection", "#/method": "method", "#/light": "light" }[h];
-  const behavior = wasViewer || reduceMotion ? "auto" : "smooth";
-  requestAnimationFrame(() => {
-    if (section) $(section).scrollIntoView({ behavior });
-    else scrollTo({ top: 0, behavior });
-  });
+  // First load and returning from the viewer jump; in-page navigation glides.
+  const behavior = firstRoute || wasViewer || reduceMotion ? "auto" : "smooth";
+  const go = () => (section ? $(section).scrollIntoView({ behavior }) : scrollTo({ top: 0, behavior }));
+  if (firstRoute && section) document.fonts.ready.then(() => requestAnimationFrame(go)); // wait for final layout
+  else requestAnimationFrame(go);
+  firstRoute = false;
 }
+let firstRoute = true;
+
+// Following a link to the hash we are already on fires no hashchange; route
+// anyway so "Collection" in the menu still scrolls there.
+document.addEventListener("click", (e) => {
+  const a = e.target.closest('a[href^="#/"]');
+  if (a && a.getAttribute("href") === (location.hash || "#/") && !e.metaKey && !e.ctrlKey) {
+    e.preventDefault();
+    route();
+  }
+});
 
 async function boot() {
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
   stars();
   nav();
   menu.init();
   initViewer();
   method();
-  const res = await fetch("data/paintings.json");
-  paintings = (await res.json()).paintings;
+  try {
+    const res = await fetch("data/paintings.json");
+    if (!res.ok) throw new Error(`data/paintings.json: ${res.status}`);
+    paintings = (await res.json()).paintings;
+  } catch (err) {
+    console.error(err);
+    $("grid").innerHTML = "";
+    $("empty").textContent = "The collection could not be loaded. Please refresh the page.";
+    $("empty").hidden = false;
+    return;
+  }
   paintings.forEach((p, i) => (p.rank = i + 1));
   const byId = (id) => paintings.find((p) => p.id === id) || paintings[0];
   menu.previews = { 0: byId(228649), 1: byId(231830), 2: byId(299838), 3: paintings[Math.floor(Math.random() * paintings.length)] };
-  $("menu-preview").src = imageUrl(menu.previews[0], 900);
   statement();
   marquee();
   controls();
   tilt();
+  cardLayers();
   renderGrid();
   addEventListener("hashchange", route);
   route();

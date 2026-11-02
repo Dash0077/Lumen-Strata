@@ -125,35 +125,48 @@ export function loadImage(url) {
   });
 }
 
-const tick = () => new Promise((r) => setTimeout(r, 0));
+// Yield to the browser between strata so the loader keeps animating.
+// A MessageChannel task is not throttled the way setTimeout is in background tabs.
+const channel = new MessageChannel();
+const waiting = [];
+channel.port1.onmessage = () => waiting.shift()?.();
+const tick = () => new Promise((r) => { waiting.push(r); channel.port2.postMessage(0); });
 
 // ---------- small image helpers ----------
 
+// Two passes of a separable box blur (close to a gaussian), with clamped edges.
+// Uses two scratch buffers and no per-pixel Math.min/max: this is the hottest
+// loop in the dissection.
 function boxBlur(src, w, h, r) {
-  // Two passes of a separable box blur: close enough to a gaussian.
-  let a = src, b = new Float32Array(src.length);
+  const n = w * h, inv = 1 / (2 * r + 1);
+  const tmp = new Float32Array(n), out = new Float32Array(n);
+  let a = src;
   for (let pass = 0; pass < 2; pass++) {
     for (let y = 0; y < h; y++) {
-      let acc = 0;
-      const row = y * w;
-      for (let x = -r; x <= r; x++) acc += a[row + Math.min(w - 1, Math.max(0, x))];
+      const row = y * w, last = row + w - 1;
+      let acc = a[row] * (r + 1);
+      for (let x = 1; x <= r; x++) acc += a[x < w ? row + x : last];
       for (let x = 0; x < w; x++) {
-        b[row + x] = acc / (2 * r + 1);
-        acc += a[row + Math.min(w - 1, x + r + 1)] - a[row + Math.max(0, x - r)];
+        tmp[row + x] = acc * inv;
+        const add = x + r + 1 < w ? a[row + x + r + 1] : a[last];
+        const sub = x - r > 0 ? a[row + x - r] : a[row];
+        acc += add - sub;
       }
     }
-    const c = new Float32Array(src.length);
     for (let x = 0; x < w; x++) {
-      let acc = 0;
-      for (let y = -r; y <= r; y++) acc += b[Math.min(h - 1, Math.max(0, y)) * w + x];
+      const lastY = (h - 1) * w + x;
+      let acc = tmp[x] * (r + 1);
+      for (let y = 1; y <= r; y++) acc += tmp[y < h ? y * w + x : lastY];
       for (let y = 0; y < h; y++) {
-        c[y * w + x] = acc / (2 * r + 1);
-        acc += b[Math.min(h - 1, y + r + 1) * w + x] - b[Math.max(0, y - r) * w + x];
+        out[y * w + x] = acc * inv;
+        const add = y + r + 1 < h ? tmp[(y + r + 1) * w + x] : tmp[lastY];
+        const sub = y - r > 0 ? tmp[(y - r) * w + x] : tmp[x];
+        acc += add - sub;
       }
     }
-    a = c;
+    a = out;
   }
-  return a;
+  return out;
 }
 
 function hash(x, y) {
@@ -196,48 +209,91 @@ function put(w, h, fill) {
   return c;
 }
 
+// Draw a small canvas up to full size. Used for strata that carry only
+// low-frequency information, which are computed at half resolution.
+function upscale(src, w, h) {
+  const c = makeCanvas(w, h);
+  const ctx = c.getContext("2d");
+  ctx.imageSmoothingQuality = "high";
+  ctx.drawImage(src, 0, 0, w, h);
+  return c;
+}
+
+// 2x2 box downsample of a channel.
+function half(src, w, h) {
+  const w2 = w >> 1, h2 = h >> 1;
+  const out = new Float32Array(w2 * h2);
+  for (let y = 0; y < h2; y++) {
+    const r0 = 2 * y * w, r1 = r0 + w;
+    for (let x = 0; x < w2; x++) {
+      const i = 2 * x;
+      out[y * w2 + x] = (src[r0 + i] + src[r0 + i + 1] + src[r1 + i] + src[r1 + i + 1]) * 0.25;
+    }
+  }
+  return out;
+}
+
 // ---------- the strata ----------
 
-function supportSheet(p, w, h) {
-  return put(w, h, (d) => {
-    for (let y = 0; y < h; y++) {
-      for (let x = 0; x < w; x++) {
-        const i = (y * w + x) * 4;
-        let r, g, b, s;
-        if (p.support === "panel") {
-          const warp = valueNoise(x * 0.01, y * 0.002) * 30;
-          s = 0.78 + 0.16 * Math.sin((x + warp) * 0.22 + valueNoise(x * 0.05, y * 0.01) * 4) + (hash(x, y) - 0.5) * 0.06;
-          [r, g, b] = [164 * s, 118 * s, 74 * s];
-        } else if (p.support === "canvas") {
-          const t = 4;
-          const over = ((Math.floor(x / t) + Math.floor(y / t)) & 1) === 0;
-          const along = over ? (x % t) / t : (y % t) / t;
-          s = 0.8 + 0.14 * Math.sin(along * Math.PI) + (valueNoise(x * 0.3, y * 0.02) - 0.5) * 0.12 + (hash(x, y) - 0.5) * 0.05;
-          [r, g, b] = [200 * s, 184 * s, 150 * s];
-        } else {
-          s = 0.86 + (valueNoise(x * 0.08, y * 0.08) - 0.5) * 0.14 + (hash(x, y) - 0.5) * 0.06;
-          [r, g, b] = p.support === "plaster" ? [206 * s, 194 * s, 176 * s] : [226 * s, 216 * s, 196 * s];
-        }
-        d[i] = r; d[i + 1] = g; d[i + 2] = b; d[i + 3] = 255;
+// The canvas weave is periodic, so one tile is generated once and repeated.
+let weaveTile = null;
+function weave() {
+  if (weaveTile) return weaveTile;
+  const T = 256, t = 4;
+  return (weaveTile = put(T, T, (d) => {
+    for (let y = 0; y < T; y++) {
+      for (let x = 0; x < T; x++) {
+        const over = (((x / t) | 0) + ((y / t) | 0)) & 1;
+        const along = over ? (y % t) / t : (x % t) / t;
+        const s = 0.8 + 0.14 * Math.sin(along * Math.PI) + (valueNoise(x * 0.3, y * 0.02) - 0.5) * 0.12 + (hash(x, y) - 0.5) * 0.05;
+        const i = (y * T + x) * 4;
+        d[i] = 200 * s; d[i + 1] = 184 * s; d[i + 2] = 150 * s; d[i + 3] = 255;
       }
     }
-  });
+  }));
+}
+
+function supportSheet(p, w, h) {
+  if (p.support === "canvas") {
+    const c = makeCanvas(w, h);
+    const ctx = c.getContext("2d");
+    ctx.fillStyle = ctx.createPattern(weave(), "repeat");
+    ctx.fillRect(0, 0, w, h);
+    return c;
+  }
+  // Wood grain, paper and plaster are low-frequency: half resolution is enough.
+  const w2 = Math.ceil(w / 2), h2 = Math.ceil(h / 2);
+  const tone = p.support === "panel" ? [164, 118, 74] : p.support === "plaster" ? [206, 194, 176] : [226, 216, 196];
+  return upscale(put(w2, h2, (d) => {
+    for (let y = 0; y < h2; y++) {
+      for (let x = 0; x < w2; x++) {
+        const X = x * 2, Y = y * 2;
+        const s = p.support === "panel"
+          ? 0.78 + 0.16 * Math.sin((X + valueNoise(X * 0.01, Y * 0.002) * 30) * 0.22 + valueNoise(X * 0.05, Y * 0.01) * 4) + (hash(x, y) - 0.5) * 0.06
+          : 0.86 + (valueNoise(X * 0.08, Y * 0.08) - 0.5) * 0.14 + (hash(x, y) - 0.5) * 0.06;
+        const i = (y * w2 + x) * 4;
+        d[i] = tone[0] * s; d[i + 1] = tone[1] * s; d[i + 2] = tone[2] * s; d[i + 3] = 255;
+      }
+    }
+  }), w, h);
 }
 
 function groundSheet(p, w, h) {
   const [gr, gg, gb] = groundFor(p).rgb;
-  return put(w, h, (d) => {
-    for (let y = 0; y < h; y++) {
-      for (let x = 0; x < w; x++) {
-        const i = (y * w + x) * 4;
+  const w2 = Math.ceil(w / 2), h2 = Math.ceil(h / 2);
+  return upscale(put(w2, h2, (d) => {
+    for (let y = 0; y < h2; y++) {
+      for (let x = 0; x < w2; x++) {
+        const X = x * 2, Y = y * 2;
         // Broad horizontal brush sweeps.
-        const sweep = valueNoise(x * 0.004, y * 0.045) * 0.6 + valueNoise(x * 0.02, y * 0.2) * 0.4;
+        const sweep = valueNoise(X * 0.004, Y * 0.045) * 0.6 + valueNoise(X * 0.02, Y * 0.2) * 0.4;
         const k = 0.92 + (sweep - 0.5) * 0.16;
+        const i = (y * w2 + x) * 4;
         d[i] = gr * k; d[i + 1] = gg * k; d[i + 2] = gb * k;
         d[i + 3] = 170 + sweep * 70;
       }
     }
-  });
+  }), w, h);
 }
 
 function drawingSheet(L, w, h) {
@@ -249,7 +305,7 @@ function drawingSheet(L, w, h) {
       const i = y * w + x;
       const gx = -Lb[i - w - 1] - 2 * Lb[i - 1] - Lb[i + w - 1] + Lb[i - w + 1] + 2 * Lb[i + 1] + Lb[i + w + 1];
       const gy = -Lb[i - w - 1] - 2 * Lb[i - w] - Lb[i - w + 1] + Lb[i + w - 1] + 2 * Lb[i + w] + Lb[i + w + 1];
-      G[i] = Math.hypot(gx, gy);
+      G[i] = Math.sqrt(gx * gx + gy * gy);
       if ((i & 63) === 0) sample.push(G[i]);
     }
   }
@@ -257,8 +313,7 @@ function drawingSheet(L, w, h) {
   const p92 = sample[Math.floor(sample.length * 0.92)] || 1;
   const Ls = boxBlur(L, w, h, 4);
   return put(w, h, (d) => {
-    for (let i = 0; i < w * h; i++) {
-      const x = i % w, y = (i / w) | 0;
+    for (let y = 0, i = 0; y < h; y++) for (let x = 0; x < w; x++, i++) {
       let a = smooth(0.35, 1.1, G[i] / p92);
       // Diagonal hatching in deep shadow, the way a draughtsman would model it.
       const dark = 1 - Ls[i] / 255;
@@ -271,8 +326,10 @@ function drawingSheet(L, w, h) {
   });
 }
 
+// Computed on half-resolution channels (see run): the result is blurred and
+// posterised anyway, so the upscale is invisible and the work is a quarter.
 function valueSheet(L, w, h) {
-  const Lb = boxBlur(L, w, h, 3);
+  const Lb = boxBlur(L, w, h, 2);
   const dark = [44, 32, 24], light = [236, 226, 204];
   return put(w, h, (d) => {
     for (let i = 0; i < w * h; i++) {
@@ -287,7 +344,7 @@ function valueSheet(L, w, h) {
 }
 
 function colourSheet(R, G, B, w, h, palette) {
-  const r = boxBlur(R, w, h, 5), g = boxBlur(G, w, h, 5), b = boxBlur(B, w, h, 5);
+  const r = boxBlur(R, w, h, 3), g = boxBlur(G, w, h, 3), b = boxBlur(B, w, h, 3);
   const pal = palette.length ? palette.map((c) => hexToRgb(c.hex)) : [[128, 128, 128]];
   return put(w, h, (d) => {
     for (let i = 0; i < w * h; i++) {
@@ -332,17 +389,25 @@ export function copySheet(src, maxSide = 640) {
   return c;
 }
 
+// Each dissection holds seven ~900px canvases (~17 MB), so only the most
+// recently used few are kept. A Map iterates in insertion order, which makes
+// it a small LRU: re-inserting on use moves an entry to the back.
 const cache = new Map();
+const CACHE_SIZE = 4;
 
-// Returns a promise of { image, w, h, sheets: { key: canvas } }. The promise is
+// Returns a promise of { w, h, sheets: { key: canvas } }. The promise is
 // cached, so concurrent callers share one dissection; failures are not cached.
 export function dissect(p, onProgress = () => {}) {
-  if (!cache.has(p.id)) {
-    const job = run(p, onProgress);
-    cache.set(p.id, job);
-    job.catch(() => cache.delete(p.id));
+  let job = cache.get(p.id);
+  if (job) {
+    cache.delete(p.id);
+  } else {
+    job = run(p, onProgress);
+    job.catch(() => cache.get(p.id) === job && cache.delete(p.id));
   }
-  return cache.get(p.id);
+  cache.set(p.id, job);
+  while (cache.size > CACHE_SIZE) cache.delete(cache.keys().next().value);
+  return job;
 }
 
 async function run(p, onProgress) {
@@ -360,13 +425,15 @@ async function run(p, onProgress) {
     R[i] = px[i * 4]; G[i] = px[i * 4 + 1]; B[i] = px[i * 4 + 2];
     L[i] = 0.2126 * R[i] + 0.7152 * G[i] + 0.0722 * B[i];
   }
+  const w2 = w >> 1, h2 = h >> 1;
+  const [Rh, Gh, Bh, Lh] = [R, G, B, L].map((c) => half(c, w, h));
 
   const steps = [
     ["support", () => supportSheet(p, w, h)],
     ["ground", () => groundSheet(p, w, h)],
     ["drawing", () => drawingSheet(L, w, h)],
-    ["value", () => valueSheet(L, w, h)],
-    ["colour", () => colourSheet(R, G, B, w, h, p.colors)],
+    ["value", () => upscale(valueSheet(Lh, w2, h2), w, h)],
+    ["colour", () => upscale(colourSheet(Rh, Gh, Bh, w2, h2, p.colors), w, h)],
     ["glaze", () => glazeSheet(R, G, B, L, w, h)],
     ["surface", () => base],
   ];
@@ -377,5 +444,5 @@ async function run(p, onProgress) {
     await tick();
     sheets[key] = make();
   }
-  return { image, w, h, sheets };
+  return { w, h, sheets };
 }
