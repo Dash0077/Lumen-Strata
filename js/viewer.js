@@ -10,11 +10,12 @@
 // The light is a toggle, independent of scroll: switching it on swings the
 // camera round to a "projector bench" view, wherever the reader is.
 
-import { LAYERS, dissect, imageUrl, copySheet } from "./layers.js";
+import { LAYERS, dissect, imageUrl, copySheet, filterCanvas, project } from "./layers.js";
 
 const $ = (id) => document.getElementById(id);
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const lerp = (a, b, t) => a + (b - a) * t;
+const smoothstep = (a, b, x) => { const t = clamp((x - a) / (b - a)); return t * t * (3 - 2 * t); };
 const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 const pad = (n) => String(n).padStart(2, "0");
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -35,7 +36,7 @@ const PRESETS = [
 
 const el = {
   viewer: $("viewer"), track: $("track"), stage: $("stage"), world: $("world"), sheets: $("sheets"),
-  wall: $("wall"), projection: $("projection"), wallImg: $("wall-img"), wallCanvas: $("wall-canvas"),
+  wall: $("wall"), projection: $("projection"), wallCanvas: $("wall-canvas"),
   beam: $("beam"), lamp: $("lamp"), projector: $("projector"), floor: $("floor"),
   intro: $("intro-card"), note: $("note"), rail: $("rail"), hint: $("stage-hint"),
   light: $("light-btn"), lens: $("lens"), presets: $("presets"),
@@ -123,6 +124,10 @@ function layout() {
     transform: `translate(-50%, -100%) translateY(${floorY}px) translateZ(${wallZ}px)`,
   });
   Object.assign(el.projection.style, { width: `${sw * wallScale}px`, height: `${sh * wallScale}px`, top: `${wallH - floorY}px` });
+  // The beam is a cone from the lens: a sheet at depth z must be this much
+  // larger (or smaller) for its shadow to land in register on the wall.
+  const beamFrom = lensZ - side * 0.08, beamTo = wallZ + 4;
+  state.coneAt = (z) => Math.max(0.2, lerp(0.07, wallScale * 1.02, clamp((beamFrom - z) / (beamFrom - beamTo))));
 
   // Floor: from just behind the wall to beyond the projector.
   const floorBack = wallZ - 2, floorFront = lensZ + side * 0.9;
@@ -153,6 +158,10 @@ function layout() {
 
 function mountSheets(result) {
   el.sheets.innerHTML = "";
+  state.assembled = document.createElement("div");
+  state.assembled.className = "sheet assembled";
+  state.assembled.setAttribute("aria-hidden", "true");
+  state.assembled.appendChild(copySheet(result.product, 1100));
   state.sheets = LAYERS.map((layer, k) => {
     const div = document.createElement("div");
     div.className = `sheet sheet-${layer.key}`;
@@ -168,6 +177,7 @@ function mountSheets(result) {
     el.sheets.appendChild(div);
     return div;
   });
+  el.sheets.appendChild(state.assembled);
 }
 
 // ---------- note (compact) ----------
@@ -262,13 +272,22 @@ function frame(now) {
     const s = Math.max(ease(clamp((spread - o * 0.085) / 0.49)), L);
     const z = lerp((k - (N - 1) / 2) * 1.5, (k - (N - 1) / 2) * gap, s);
     const out = 1 - state.beamS[k];
-    div.style.transform = `translate(-50%, -50%) translateY(${-out * sh * 0.95}px) translateZ(${z}px)`;
+    // With the light on, each sheet grows or shrinks to fill the cone at its depth.
+    const cone = lerp(1, state.coneAt(z), L);
+    div.style.transform = `translate(-50%, -50%) translateY(${-out * sh * 0.95 * cone}px) translateZ(${z}px) scale(${cone})`;
     const isActive = spread > 0 && !done && o === activeO;
     div.classList.toggle("active", (isActive || done) && lit < 0.5);
     div.classList.toggle("out", !state.inBeam[k]);
     const base = spread <= 0 || done ? (k === N - 1 && spread > 0.1 ? 0.92 : 1) : isActive ? 1 : 0.4;
     div.style.opacity = (lerp(base, 0.5, L) * lerp(1, 0.3, out)).toFixed(3);
   });
+
+  // Assembled, the stacked filters read as the painting; the moment they part,
+  // the picture is gone until light passes through all of them.
+  if (state.assembled) {
+    state.assembled.style.opacity = ((1 - smoothstep(0, 0.12, spread)) * (1 - L)).toFixed(3);
+    state.assembled.style.transform = `translate(-50%, -50%) translateZ(${(N - 1) / 2 * 1.5 + 1}px)`;
+  }
 
   const scene = Math.max(turn, L);
   el.wall.style.opacity = Math.max(turn * 0.5, L).toFixed(3);
@@ -280,7 +299,6 @@ function frame(now) {
   el.note.classList.toggle("show", spread > 0.005 && state.litTarget === 0);
   showNote(spread <= 0 ? -1 : done ? N : activeO);
   el.light.classList.toggle("beckon", done && state.litTarget === 0);
-  if (p > 0.6) loadWall(); // fetch the wall's high-res photograph before the light is likely needed
 
   // Rail: each segment fills as its stratum peels away.
   el.railBtns.forEach((b, o) => {
@@ -302,14 +320,7 @@ function scrollToProgress(p) {
 
 // ---------- light + light table ----------
 
-// The wall's 1400px photograph is only fetched once it may be seen.
-function loadWall() {
-  const src = el.wallImg.dataset.src;
-  if (src && el.wallImg.getAttribute("src") !== src) el.wallImg.src = src;
-}
-
 function setLight(on) {
-  if (on) loadWall();
   state.litTarget = on ? 1 : 0;
   el.viewer.classList.toggle("lit", on);
   el.light.setAttribute("aria-pressed", String(on));
@@ -342,21 +353,20 @@ function beamChanged() {
   updateLightCaption();
 }
 
-// What reaches the wall: lamp light filtered through every sheet still in the
-// beam, composited back to front. With all seven in, it is the photograph.
+// What reaches the wall: lamp light multiplied through every filter still in
+// the beam. With all seven in, that product is the painting.
 function composite() {
   const r = state.result;
-  // Until the high-res photograph arrives, the canvas (all sheets) stands in.
-  const photo = state.inBeam.every(Boolean) && el.wallImg.complete && el.wallImg.naturalWidth > 0;
-  el.projection.classList.toggle("partial", !photo);
-  if (!r || photo) return;
-  const c = el.wallCanvas;
-  c.width = r.w;
-  c.height = r.h;
-  const ctx = c.getContext("2d");
-  ctx.fillStyle = "#fbf3e2"; // bare lamp light
-  ctx.fillRect(0, 0, r.w, r.h);
-  LAYERS.forEach((L, k) => state.inBeam[k] && ctx.drawImage(r.sheets[L.key], 0, 0));
+  if (!r) return;
+  const keys = LAYERS.filter((_, k) => state.inBeam[k]).map((L) => L.key);
+  if (keys.length === N) {
+    const c = el.wallCanvas;
+    c.width = r.w;
+    c.height = r.h;
+    c.getContext("2d").drawImage(r.product, 0, 0);
+  } else {
+    project(r, keys, el.wallCanvas);
+  }
 }
 
 function updateLightCaption() {
@@ -377,20 +387,14 @@ function updateLightCaption() {
 
 // ---------- inspector ----------
 
+// The inspector shows each filter as it would look on a lightbox.
 function copyOf(key) {
-  if (!state.copies[key]) state.copies[key] = copySheet(state.result.sheets[key], 1100);
+  if (!state.copies[key]) state.copies[key] = filterCanvas(state.result, key);
   return state.copies[key];
 }
 
 function beneathVarnish() {
-  if (state.copies._beneath) return state.copies._beneath;
-  const r = state.result;
-  const c = document.createElement("canvas");
-  c.width = r.w;
-  c.height = r.h;
-  const ctx = c.getContext("2d");
-  LAYERS.slice(0, N - 1).forEach((L) => ctx.drawImage(r.sheets[L.key], 0, 0));
-  return (state.copies._beneath = c);
+  return (state.copies._beneath ||= project(state.result, LAYERS.slice(0, N - 1).map((L) => L.key)));
 }
 
 function openInspect(k) {
@@ -408,7 +412,7 @@ function openInspect(k) {
   $("ins-instr").innerHTML = L.instr(p);
   const surface = k === N - 1;
   $("cmp-top").replaceChildren(surface ? beneathVarnish() : copyOf(L.key));
-  $("cmp-base").replaceChildren(copyOf("surface"));
+  $("cmp-base").replaceChildren((state.copies._photo ||= copySheet(state.result.photo, 1100)));
   $("cmp-top").dataset.key = surface ? "beneath" : L.key;
   $("cmp-l").textContent = surface ? "Strata beneath" : L.name;
   $("compare").style.setProperty("--ar", (state.result.w / state.result.h).toFixed(4));
@@ -440,7 +444,7 @@ function buildInspectStrip() {
 }
 
 function fillInspectThumbs() {
-  [...$("ins-strip").children].forEach((b, k) => b.querySelector(".thumb").replaceChildren(copySheet(state.result.sheets[LAYERS[k].key], 140)));
+  [...$("ins-strip").children].forEach((b, k) => b.querySelector(".thumb").replaceChildren(filterCanvas(state.result, LAYERS[k].key, 140)));
 }
 
 // ---------- dossier + next ----------
@@ -493,7 +497,6 @@ export function initViewer() {
   $("ins-prev").addEventListener("click", () => openInspect((state.inspectK + N - 1) % N));
   $("ins-next").addEventListener("click", () => openInspect((state.inspectK + 1) % N));
   el.inspect.addEventListener("click", (e) => { if (e.target === el.inspect) closeInspect(); });
-  el.wallImg.addEventListener("load", composite);
   $("cmp-range").addEventListener("input", (e) => $("compare").style.setProperty("--x", `${e.target.value}%`));
   addEventListener("resize", layout);
   addEventListener("pointermove", (e) => {
@@ -582,6 +585,7 @@ export async function openViewer(p, list) {
   state.p = 0;
   state.drag = state.dragS = 0;
   state.sheets = [];
+  state.assembled = null;
   setLight(false);
   setLens(false);
   const rank = list.findIndex((x) => x.id === p.id) + 1;
@@ -594,8 +598,6 @@ export async function openViewer(p, list) {
   $("v-meta").textContent = [p.dated, p.medium].filter(Boolean).join(" · ");
   $("v-h1").textContent = p.title;
   $("v-artist").textContent = p.artist;
-  el.wallImg.removeAttribute("src");
-  el.wallImg.dataset.src = imageUrl(p, 1400);
   state.sig = "";
   fillDossier(p, rank);
   fillNextUp(p);

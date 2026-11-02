@@ -2,7 +2,9 @@
 
 **Live site: <https://dash0077.github.io/Lumen-Strata/>**
 
-Lumen-Strata takes paintings apart. Pick one of the sixty most-viewed paintings in the [Harvard Art Museums](https://harvardartmuseums.org) collection, and as you scroll, the canvas splits in 3D into seven transparent sheets, one for each stage of how a painting is traditionally built. Click any sheet to study it against the original. Then switch on the **projector**: its beam shines through every sheet, and the image on the wall behind them is the painting again. Slide sheets out of the beam and the wall shows only what is left, the way a conservator reads a painting one layer at a time.
+Lumen-Strata is about two crafts that meet on a museum wall: the painter's, who builds a picture one layer of paint at a time, and the lighting designer's, who decides how those layers are finally seen.
+
+Choose a painting from the [Harvard Art Museums](https://harvardartmuseums.org) and scroll. The assembled picture separates in 3D into seven translucent filters, one for each stage of how a painting is traditionally built. The moment they part, the picture is gone: no single sheet holds it. Switch on the **projector** and its beam passes through every filter, so the image comes back together on the wall. Lift sheets out of the beam and the wall shows only what the rest let through, the way a conservator reads a painting one layer at a time.
 
 ## Using it
 
@@ -51,7 +53,7 @@ The projector makes three arguments:
 
 ### An honest caveat
 
-The sheets are **computational analogies**, not scans of real paint layers. The Harvard Art Museums API does not publish X-ray or infrared images, so each sheet is generated in your browser from the museum's photograph to show what that stage contributes to the picture. The site says this in the Method section ("Are these real paint layers?") and in each sheet's "Read more" note.
+The sheets are **computational analogies**, not scans of real paint layers. The Harvard Art Museums API does not publish X-ray or infrared images, so each sheet is a light filter generated in your browser from the museum's photograph, holding the kind of information that stage contributes to the picture. The site says this in the Method section ("Are these real paint layers?") and in each sheet's "Read more" note.
 
 ---
 
@@ -59,27 +61,35 @@ The sheets are **computational analogies**, not scans of real paint layers. The 
 
 ### 1. Choosing the paintings (build time)
 
-`scripts/build-data.mjs` queries the Harvard Art Museums API for objects with `classification=Paintings`, `hasimage=1` and `imagepermissionlevel:0` (public-domain images), sorted by the API's own **`totalpageviews`** field. "Popular" is therefore decided by the museum's visitors, not by me. It keeps the top 60 and writes `data/paintings.json` with each painting's title, artist, date, medium, dimensions, label text, image URL and the **colour palette the API measured for that object** (`colors`).
+`scripts/build-data.mjs` queries the Harvard Art Museums API for objects with `classification=Paintings`, `hasimage=1` and `imagepermissionlevel:0` (public-domain images), sorted by the API's own **`totalpageviews`** field. "Popular" is therefore decided by the museum's visitors, not by me. It keeps the most-viewed works (60 by default) and writes `data/paintings.json` with each painting's title, artist, date, medium, dimensions, label text, image URL and the **colour palette the API measured for that object** (`colors`).
 
 The list includes Van Gogh's *Self-Portrait Dedicated to Paul Gauguin*, Monet's *Gare Saint-Lazare*, Ingres's *Odalisque*, Picasso's *Mother and Child*, Degas, Renoir, Sargent, Beckmann's *Self-Portrait in Tuxedo*, Klimt, Rembrandt, Botticelli, van Eyck, Rubens, Cézanne, Manet, Seurat, Matisse and more.
 
 Because the data is pre-built, the site is fully static. **The API key is used only on my machine when building and never ships to the browser.**
 
-### 2. Splitting a painting into strata (in the browser)
+### 2. Splitting a painting into light filters (in the browser)
 
-`js/layers.js` loads the museum's image (Harvard's image server allows cross-origin canvas access) at up to 900 px and builds seven `<canvas>` sheets:
+`js/layers.js` loads the museum's image at up to 900 px. Harvard's image server allows cross-origin canvas access. The browser then turns the image into seven **filters**: each sheet stores, per pixel and per colour channel, the fraction of light it lets through (its transmittance, *T*).
 
-| Sheet | Algorithm |
+Stacked filters multiply, so their **optical densities** (*D = −ln T*) add. The photograph's density is shared out among the sheets: each takes only the kind of density its stage would hold, and never more than is left. Whatever remains goes to the glazes. As a result:
+
+- **With all seven sheets in the beam,** lamp light × every filter reproduces the photograph (mean error about 0.3/255).
+- **No single sheet contains the picture.** The front varnish is a nearly clear amber film.
+- **Removing sheets is physically meaningful:** the wall shows exactly the light the remaining filters pass.
+
+| Sheet | Density it takes |
 |---|---|
-| Support | Procedural texture chosen from the medium line: woven canvas, wood grain, paper fibre or plaster |
-| Ground | Historical ground colour for the date and support, with value-noise brush sweeps |
-| Underdrawing | Sobel edge detection on blurred luminance, plus diagonal hatching in the deepest shadows |
-| Dead colouring | Luminance blurred and posterised into five tonal steps, tinted umber |
-| Colour lay-in | Blurred image quantised to the API's measured palette using a "redmean" colour distance |
-| Glazes & highlights | High-pass detail (image minus blurred image) plus the brightest highlights, on transparency |
-| Surface | The original photograph |
+| Support | Weave, wood grain, paper or plaster texture (from the medium line), as a faint tinted filter |
+| Ground | A typical priming tint for the date and support, strongest where the brush sweeps are thickest |
+| Underdrawing | Grey density along Sobel edges, plus hatching in the deepest shadows |
+| Dead colouring | Grey density of the blurred tones, posterised into five steps (a grisaille) |
+| Colour lay-in | Colour only: each zone takes the hue of the nearest colour in the API's measured palette, with its brightness removed |
+| Glazes & highlights | Everything the other sheets have not absorbed: fine detail, deep shadow, final colour |
+| Varnish | A thin, slightly uneven amber tint with a gloss streak; nearly clear |
 
-The blurs are separable two-pass box blurs on `Float32Array`s, so the whole dissection takes a fraction of a second.
+Each filter is drawn two ways. In the 3D room it is a film: dense areas show their colour and clear areas almost vanish against a faint frosted backing. In the inspector and the Method section it appears as it would on a lightbox.
+
+The heavy lifting is fast. The canvas weave is a cached tile, low-frequency strata are computed at half resolution, the separable box blur is branch-light, and densities use lookup tables. A dissection takes about half a second, and the three most recent are cached.
 
 ### 3. The 3D scene (CSS 3D, no WebGL)
 
@@ -91,9 +101,11 @@ The blurs are separable two-pass box blurs on `Float32Array`s, so the whole diss
 
 The room is built from CSS planes too: a gridded **floor**, a plaster **wall**, and a **projector** made of six faces with a lens barrel of stacked rings, standing on a pole. Switching the light on blends the scroll camera into a fixed "projector bench" camera, so it works from any scroll position. It also fans the sheets out, turns them filmy, and fills a volumetric beam built from 18 stacked translucent planes.
 
-The **light table** composites the sheets still in the beam onto a `<canvas>` on the wall, back to front over warm lamplight. With all seven sheets in, the wall shows the museum's high-resolution photograph. Lifted sheets slide up out of the beam.
+The **light table** multiplies the transmittances of the sheets still in the beam and draws the result on the wall. With all seven in, that product is the painting. Lifted sheets slide up out of the beam. With the light on, each sheet is also scaled to fill the cone of light at its depth (sheets near the lens shrink, sheets near the wall grow), so that from a point source all seven shadows land in register.
 
-The **inspector** shows a sheet full screen, clipped against the original with a draggable range slider. For the varnish sheet it compares the original with the composite of all the strata beneath it.
+Before the sheets part, a plane showing the assembled product sits at the front of the stack. It fades out the moment they separate, so the picture exists only assembled or on the wall.
+
+The **inspector** shows a sheet full screen, as a filter on a lightbox, clipped against the museum photograph with a draggable range slider. For the varnish sheet it compares the photograph with the product of all the strata beneath it.
 
 Motion is smoothed with frame-rate-independent damping, `prefers-reduced-motion` is respected, and the layout adapts to phones.
 
@@ -111,7 +123,7 @@ css/style.css           Space-black and white design, 3D cards, viewer, responsi
 js/main.js              Data loading, hash router, hero stack, gallery filters, starfield
 js/viewer.js            Scroll-driven 3D dissection, light projection, dossier
 js/layers.js            The seven strata: art-history copy and pixel algorithms
-data/paintings.json     60 paintings, generated from the API
+data/paintings.json     The paintings, generated from the API
 scripts/build-data.mjs  Build script that queries the Harvard Art Museums API
 assets/favicon.svg
 ```

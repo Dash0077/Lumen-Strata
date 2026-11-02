@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lumen-Strata</title>
-  <meta name="description" content="Sixty paintings from the Harvard Art Museums, taken apart into transparent 3D sheets by scrolling, then put back together by light." />
+  <meta name="description" content="Paintings from the Harvard Art Museums, separated layer of paint by layer of paint into translucent filters, then gathered back into one image by museum light." />
   <meta name="theme-color" content="#040509" />
   <meta property="og:title" content="Lumen-Strata — Light, layered." />
-  <meta property="og:description" content="Scroll to dissect sixty Harvard Art Museums paintings into seven transparent strata. Then switch on the light." />
+  <meta property="og:description" content="See how a painting is built, one layer of paint at a time, and how the light of a gallery gathers those layers into a single image." />
   <meta property="og:image" content="https://nrs.harvard.edu/URN-3:HUAM:828557?width=1200" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -80,18 +80,18 @@
       </div>
       <ul class="hero-labels cap" aria-label="At a glance">
         <li>Harvard Art Museums</li>
-        <li>60 paintings</li>
-        <li>7 strata</li>
-        <li>1 light</li>
+        <li>Layer by layer</li>
+        <li>Seven strata</li>
+        <li>One light</li>
       </ul>
       <p class="hero-caption" id="hero-caption">A painting is more than its surface.<br />It is how light moves through it.</p>
     </section>
 
     <section class="statement" id="statement">
       <p class="cap dim">About</p>
-      <p class="statement-text" id="statement-text">We take sixty paintings apart, from support and ground through drawing, shadow, colour and glaze to varnish, and let one beam of light put each of them back together.</p>
+      <p class="statement-text" id="statement-text">No painting is finished by the painter alone. Ground, drawing, shadow, colour and glaze wait in the dark, one thin layer over another, until the light of a gallery passes through them and gathers them into a single image.</p>
       <div class="statement-foot">
-        <p>Lumen-Strata is a study in <em>technical art history</em>, the discipline that reads a painting as a physical object built in layers. Every work is drawn live from the Harvard Art Museums API and taken apart in your browser.</p>
+        <p>Lumen-Strata is about two crafts that meet on a museum wall: the painter's, who builds a picture one layer of paint at a time, and the lighting designer's, who decides how those layers are finally seen. Every work comes from the Harvard Art Museums.</p>
       </div>
     </section>
 
@@ -100,8 +100,8 @@
     <section class="collection" id="collection">
       <div class="section-head">
         <p class="cap dim"><span>01</span> — Collection</p>
-        <h2 class="h2">The sixty most-viewed<br /><em>paintings</em> in the collection</h2>
-        <p class="sub">Ranked by the museum API's own page views. Choose one to dissect it.</p>
+        <h2 class="h2">Choose a painting<br />to see it <em>layer by layer</em></h2>
+        <p class="sub">Drawn from the Harvard Art Museums' most-visited paintings, in the order visitors favour them.</p>
       </div>
       <div class="filters">
         <label class="search">
@@ -145,7 +145,7 @@
       </div>
       <details class="more disclaimer">
         <summary class="chip-btn">Are these real paint layers?</summary>
-        <div class="more-body"><p>No. The sheets are <strong>computational analogies</strong>, generated in your browser from the museum's photograph with edge detection, tonal posterisation and colour quantisation. They show what each stage <em>does</em> to a picture, not what a particular painter laid down.</p></div>
+        <div class="more-body"><p>No. The sheets are <strong>computational analogies</strong>. Your browser splits the museum's photograph into seven light filters, each holding the kind of information one stage of painting contributes: a weave, a ground tint, contours, tonal masses, colour, fine detail and a clear varnish. Stacked in a beam, the filters multiply back into the picture. They show what each stage <em>does</em>, not what a particular painter laid down.</p></div>
       </details>
     </section>
 
@@ -175,9 +175,9 @@
         </article>
         <article>
           <p class="cap dim">iv.</p>
-          <h3>Seeing the invisible</h3>
-          <p>Every instrument in the Method is a different kind of lamp.</p>
-          <details class="more"><summary class="chip-btn">Read more</summary><div class="more-body"><p>X-rays (Röntgen, 1895) show dense lead white. Infrared passes through paint and is absorbed by carbon drawing. Ultraviolet makes aged varnish fluoresce.</p></div></details>
+          <h3>Lighting the gallery</h3>
+          <p>Museum light is its own craft: dim, warm and carefully angled.</p>
+          <details class="more"><summary class="chip-btn">Read more</summary><div class="more-body"><p>Conservators and lighting designers balance seeing against fading. Oil paintings are commonly lit at around 150–200 lux, works on paper at about 50. Lamps are often aimed at roughly 30° from vertical so that glare off the varnish falls below the visitor's eye, and warm light (around 3000 K) suits the oil glazes the old masters built up. Every instrument in the Method is another kind of lamp, from X-ray to ultraviolet.</p></div></details>
         </article>
       </div>
     </section>
@@ -192,7 +192,6 @@
           <div class="wall" id="wall">
             <div class="wall-glow"></div>
             <div class="projection" id="projection">
-              <img id="wall-img" alt="" />
               <canvas id="wall-canvas" aria-hidden="true"></canvas>
             </div>
           </div>

@@ -24,7 +24,7 @@ export const LAYERS = [
       p.support === "panel"
         ? "<b>Dendrochronology.</b> Matching the growth rings of an oak panel to a reference chronology dates the felling of the tree, and so the earliest possible date for the painting."
         : "<b>Thread counting.</b> Canvas density measured in X-radiographs can show that two pictures were cut from the same bolt. Thread counting has been used to date and authenticate Van Gogh's canvases.",
-    how: "Procedural texture chosen from the medium line in the API record.",
+    how: "The weave or grain implied by the medium line in the API record, as a faint tinted filter.",
   },
   {
     key: "ground",
@@ -36,7 +36,7 @@ export const LAYERS = [
       `A layer of glue size and then a ground seals the support and gives the paint something to hold. Its colour sets the temperature of every layer above. ${groundFor(p).why}`,
     instr: () =>
       "<b>Cross-sections.</b> A sample smaller than a pinhead is set in resin, cut and polished. Under the microscope the ground is the band at the bottom of the paint stack.",
-    how: "A typical ground for the painting's date and support. A reconstruction, not a measurement.",
+    how: "A typical ground tint for the painting's date and support (a reconstruction, not a measurement), as a light filter.",
   },
   {
     key: "drawing",
@@ -48,7 +48,7 @@ export const LAYERS = [
       "Contours, then hatching for the shadows, in charcoal, chalk or thin dark paint. Painters often changed their minds. Those revisions are called <i>pentimenti</i>, from the Italian for \"repentances\".",
     instr: () =>
       "<b>Infrared reflectography (IRR).</b> Many pigments become transparent in the near infrared, but carbon absorbs it, so the drawing shows through. J. R. J. van Asperen de Boer developed the method in the late 1960s.",
-    how: "Edges found with a Sobel filter on luminance, with hatching added in the deepest shadows.",
+    how: "Grey density along edges found with a Sobel filter, with hatching in the deepest shadows.",
   },
   {
     key: "value",
@@ -60,7 +60,7 @@ export const LAYERS = [
       "Old masters often modelled the whole design in browns and greys first, a grisaille or <i>dead colouring</i>. This fixed the chiaroscuro, the fall of light and shadow, before any colour went on.",
     instr: () =>
       "<b>X-radiography.</b> Lead white blocks X-rays, so an X-ray reads like a map of a painting's lights and reveals compositions painted over. The Fogg Museum began X-raying paintings systematically in the 1920s.",
-    how: "Luminance, blurred and posterised into five tonal steps, then tinted umber.",
+    how: "Grey density from the blurred lights and shadows, in five tonal steps.",
   },
   {
     key: "colour",
@@ -72,7 +72,7 @@ export const LAYERS = [
       "Local colour is laid into each zone as flat, opaque fields: the blue of a coat, the green of a wall. Here every pixel snaps to the nearest colour in the palette the museum's API measured for this painting.",
     instr: () =>
       "<b>X-ray fluorescence (XRF).</b> This finds elements without taking a sample: mercury means vermilion, copper means a green or azurite, lead means lead white. Harvard's Forbes Pigment Collection holds more than 2,500 reference pigments for comparison.",
-    how: "Blurred image quantised to the API's <code>colors</code> palette for this object.",
+    how: "A colour-only filter: each zone takes the hue of the nearest colour in the API's <code>colors</code> palette, with its brightness removed.",
   },
   {
     key: "glaze",
@@ -84,19 +84,19 @@ export const LAYERS = [
       "Last come thin, translucent glazes that deepen shadows and saturate colour, and thick touches of impasto for the highlights. Light passes through a glaze, reflects off the layers below and comes back tinted. This is where oil painting gets its glow.",
     instr: () =>
       "<b>Raking light & stereomicroscopy.</b> Light skimming across the surface throws impasto, brush direction and tool marks into relief.",
-    how: "High-pass detail (the image minus a blurred copy) plus the brightest lights.",
+    how: "Whatever light the other six sheets have not already filtered: fine detail, deep shadow and the last touches of colour.",
   },
   {
     key: "surface",
     name: "Varnish & surface",
-    short: "The picture as we see it, under varnish.",
+    short: "A thin, clear skin that saturates everything beneath.",
     tool: "Ultraviolet fluorescence",
-    sub: () => "The picture as we see it",
+    sub: () => "Nearly clear resin film",
     body: () =>
-      "A clear resin varnish saturates the colours and protects the paint. Natural varnishes yellow over decades, which is why cleaning a painting can change it so much. This top sheet is the museum's photograph.",
+      "A clear resin varnish saturates the colours and protects the paint. Natural varnishes yellow over decades, which is why cleaning a painting can change it so much. Here it is a nearly clear amber film: the picture exists only where the light lands.",
     instr: () =>
       "<b>Ultraviolet fluorescence.</b> Aged natural varnish glows a milky green under UV, while later retouching shows up as dark patches on top of it.",
-    how: "The Harvard Art Museums photograph, unaltered.",
+    how: "A thin amber tint, slightly uneven where resin pooled, with a gloss highlight. Nearly clear.",
   },
 ];
 
@@ -296,7 +296,25 @@ function groundSheet(p, w, h) {
   }), w, h);
 }
 
-function drawingSheet(L, w, h) {
+// ---------- strata as light filters ----------
+//
+// Each sheet is a filter: it lets through a fraction T of the light in each
+// colour channel. Stacked filters multiply (T1 x T2 x ...), so in optical
+// density D = -ln T they add. The photograph's density is shared out among
+// the seven sheets, back to front, each taking only what it is "meant" to
+// hold and never more than is left. Whatever remains goes to the glazes. With
+// all seven in the beam, lamp light x every filter = the painting; with any
+// one removed, the wall shows what that stratum contributed.
+
+const I_MIN = 0.02; // darkest transmittance a sheet stack may reach
+const EXP_STEPS = 1024; // density lookup resolution per unit
+const EXP_MAX = 5;
+const EXP_LUT = new Float32Array(EXP_STEPS * EXP_MAX + 1).map((_, i) => Math.exp(-i / EXP_STEPS));
+const DENSITY_LUT = new Float32Array(256).map((_, v) => -Math.log(Math.max(v / 255, I_MIN)));
+const transmit = (d) => EXP_LUT[Math.min(EXP_STEPS * EXP_MAX, (d * EXP_STEPS) | 0)];
+
+// Edge strength (0..1) for the underdrawing, with hatching in deep shadow.
+function drawingAlpha(L, w, h) {
   const Lb = boxBlur(L, w, h, 1);
   const G = new Float32Array(w * h);
   const sample = [];
@@ -312,71 +330,97 @@ function drawingSheet(L, w, h) {
   sample.sort((a, b) => a - b);
   const p92 = sample[Math.floor(sample.length * 0.92)] || 1;
   const Ls = boxBlur(L, w, h, 4);
-  return put(w, h, (d) => {
-    for (let y = 0, i = 0; y < h; y++) for (let x = 0; x < w; x++, i++) {
-      let a = smooth(0.35, 1.1, G[i] / p92);
-      // Diagonal hatching in deep shadow, the way a draughtsman would model it.
-      const dark = 1 - Ls[i] / 255;
-      if (dark > 0.55 && (x + y) % 6 === 0) a = Math.max(a, smooth(0.55, 0.85, dark) * 0.55);
-      if (dark > 0.75 && (x - y + 1000) % 6 === 0) a = Math.max(a, smooth(0.75, 0.95, dark) * 0.45);
-      const o = i * 4;
-      d[o] = 22; d[o + 1] = 19; d[o + 2] = 17;
-      d[o + 3] = a * 235;
-    }
-  });
+  const A = new Float32Array(w * h);
+  for (let y = 0, i = 0; y < h; y++) for (let x = 0; x < w; x++, i++) {
+    let a = smooth(0.35, 1.1, G[i] / p92);
+    const dark = 1 - Ls[i] / 255;
+    if (dark > 0.55 && (x + y) % 6 === 0) a = Math.max(a, smooth(0.55, 0.85, dark) * 0.55);
+    if (dark > 0.75 && (x - y + 1000) % 6 === 0) a = Math.max(a, smooth(0.75, 0.95, dark) * 0.45);
+    A[i] = a;
+  }
+  return A;
 }
 
-// Computed on half-resolution channels (see run): the result is blurred and
-// posterised anyway, so the upscale is invisible and the work is a quarter.
-function valueSheet(L, w, h) {
-  const Lb = boxBlur(L, w, h, 2);
-  const dark = [44, 32, 24], light = [236, 226, 204];
-  return put(w, h, (d) => {
-    for (let i = 0; i < w * h; i++) {
-      const q = Math.round((Lb[i] / 255) * 4) / 4;
-      const o = i * 4;
-      d[o] = dark[0] + (light[0] - dark[0]) * q;
-      d[o + 1] = dark[1] + (light[1] - dark[1]) * q;
-      d[o + 2] = dark[2] + (light[2] - dark[2]) * q;
-      d[o + 3] = 214;
+// Take density from what remains. `want(i, out)` writes the desired density
+// per channel; neutral sheets take the same amount from every channel so
+// they stay grey. Returns the sheet's transmittance as RGB bytes.
+function take(rem, n, want, neutral = false) {
+  const T = new Uint8ClampedArray(n * 3);
+  const d = [0, 0, 0];
+  const [r0, r1, r2] = rem;
+  for (let i = 0; i < n; i++) {
+    want(i, d);
+    let a, b, c;
+    if (neutral) {
+      a = b = c = Math.max(0, Math.min(d[0], r0[i], r1[i], r2[i]));
+    } else {
+      a = Math.max(0, Math.min(d[0], r0[i]));
+      b = Math.max(0, Math.min(d[1], r1[i]));
+      c = Math.max(0, Math.min(d[2], r2[i]));
     }
-  });
+    r0[i] -= a; r1[i] -= b; r2[i] -= c;
+    const o = i * 3;
+    T[o] = 255 * transmit(a); T[o + 1] = 255 * transmit(b); T[o + 2] = 255 * transmit(c);
+  }
+  return T;
 }
 
-function colourSheet(R, G, B, w, h, palette) {
-  const r = boxBlur(R, w, h, 3), g = boxBlur(G, w, h, 3), b = boxBlur(B, w, h, 3);
-  const pal = palette.length ? palette.map((c) => hexToRgb(c.hex)) : [[128, 128, 128]];
-  return put(w, h, (d) => {
-    for (let i = 0; i < w * h; i++) {
-      let best = 0, bestD = Infinity;
-      for (let k = 0; k < pal.length; k++) {
-        // Weighted RGB distance ("redmean"), cheap but perceptually saner than plain RGB.
-        const rm = (r[i] + pal[k][0]) / 2;
-        const dr = r[i] - pal[k][0], dg = g[i] - pal[k][1], db = b[i] - pal[k][2];
-        const dist = (2 + rm / 256) * dr * dr + 4 * dg * dg + (2 + (255 - rm) / 256) * db * db;
-        if (dist < bestD) { bestD = dist; best = k; }
-      }
-      const o = i * 4;
-      d[o] = pal[best][0]; d[o + 1] = pal[best][1]; d[o + 2] = pal[best][2];
-      d[o + 3] = 222;
+// How a filter looks as a sheet of film in the dark room: its colour where it
+// is dense, nearly invisible where it is clear.
+function filmCanvas(T, w, h, sheen = false) {
+  const c = put(w, h, (d) => {
+    for (let i = 0, n = w * h; i < n; i++) {
+      const o = i * 3, q = i * 4;
+      const t = (T[o] + T[o + 1] + T[o + 2]) / 765;
+      const chroma = Math.max(T[o], T[o + 1], T[o + 2]) - Math.min(T[o], T[o + 1], T[o + 2]);
+      d[q] = T[o]; d[q + 1] = T[o + 1]; d[q + 2] = T[o + 2];
+      d[q + 3] = Math.min(240, 255 * (1 - t) * 1.5 + chroma * 0.9 + 6);
     }
   });
+  if (sheen) {
+    // Varnish: a soft specular streak across a nearly clear film.
+    const ctx = c.getContext("2d");
+    const g = ctx.createLinearGradient(0, 0, w, h);
+    g.addColorStop(0.18, "rgba(255,250,235,0)");
+    g.addColorStop(0.3, "rgba(255,250,235,0.16)");
+    g.addColorStop(0.36, "rgba(255,250,235,0.04)");
+    g.addColorStop(0.5, "rgba(255,250,235,0)");
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, w, h);
+  }
+  return c;
 }
 
-function glazeSheet(R, G, B, L, w, h) {
-  const rb = boxBlur(R, w, h, 4), gb = boxBlur(G, w, h, 4), bb = boxBlur(B, w, h, 4);
-  return put(w, h, (d) => {
-    for (let i = 0; i < w * h; i++) {
-      const dr = R[i] - rb[i], dg = G[i] - gb[i], db = B[i] - bb[i];
-      const mag = (Math.abs(dr) + Math.abs(dg) + Math.abs(db)) / 3;
-      const hi = smooth(205, 245, L[i]);
-      const o = i * 4;
-      d[o] = Math.min(255, R[i] + dr * 1.2 + hi * 40);
-      d[o + 1] = Math.min(255, G[i] + dg * 1.2 + hi * 40);
-      d[o + 2] = Math.min(255, B[i] + db * 1.2 + hi * 40);
-      d[o + 3] = Math.min(255, Math.max(smooth(4, 26, mag) * 230, hi * 240));
+// The same filter on a lightbox: opaque, as it would look backlit on white.
+export function filterCanvas(r, key, maxSide = Infinity) {
+  const T = r.filters[key];
+  const full = put(r.w, r.h, (d) => {
+    for (let i = 0, n = r.w * r.h; i < n; i++) {
+      d[i * 4] = T[i * 3]; d[i * 4 + 1] = T[i * 3 + 1]; d[i * 4 + 2] = T[i * 3 + 2]; d[i * 4 + 3] = 255;
     }
   });
+  return maxSide < Math.max(r.w, r.h) ? copySheet(full, maxSide) : full;
+}
+
+// Lamp light through the chosen filters: the per-channel product of their
+// transmittances. Draws into `target` (resized to fit) or a new canvas.
+export function project(r, keys, target = makeCanvas(r.w, r.h)) {
+  target.width = r.w;
+  target.height = r.h;
+  const ctx = target.getContext("2d");
+  const img = ctx.createImageData(r.w, r.h);
+  const d = img.data, fs = keys.map((k) => r.filters[k]), n = r.w * r.h;
+  for (let i = 0; i < n; i++) {
+    let a = 255, b = 255, c = 255;
+    for (const T of fs) { a = (a * T[i * 3]) / 255; b = (b * T[i * 3 + 1]) / 255; c = (c * T[i * 3 + 2]) / 255; }
+    d[i * 4] = a; d[i * 4 + 1] = b; d[i * 4 + 2] = c; d[i * 4 + 3] = 255;
+  }
+  ctx.putImageData(img, 0, 0);
+  return target;
+}
+
+function pixels(canvas) {
+  return canvas.getContext("2d").getImageData(0, 0, canvas.width, canvas.height).data;
 }
 
 // A scaled copy of a sheet, for when the same strata appear in more than one
@@ -389,14 +433,17 @@ export function copySheet(src, maxSide = 640) {
   return c;
 }
 
-// Each dissection holds seven ~900px canvases (~17 MB), so only the most
+// Each dissection holds ~35 MB of canvases and filters, so only the most
 // recently used few are kept. A Map iterates in insertion order, which makes
 // it a small LRU: re-inserting on use moves an entry to the back.
 const cache = new Map();
-const CACHE_SIZE = 4;
+const CACHE_SIZE = 3;
 
-// Returns a promise of { w, h, sheets: { key: canvas } }. The promise is
-// cached, so concurrent callers share one dissection; failures are not cached.
+// Returns a promise of { w, h, sheets, filters, photo, product }:
+//   sheets   key -> canvas, the film as it appears in the 3D room
+//   filters  key -> RGB transmittance bytes
+//   photo    the museum photograph; product: all filters multiplied
+// The promise is cached, so concurrent callers share one dissection.
 export function dissect(p, onProgress = () => {}) {
   let job = cache.get(p.id);
   if (job) {
@@ -415,34 +462,93 @@ async function run(p, onProgress) {
   const image = await loadImage(imageUrl(p));
   const scale = Math.min(1, MAX_SIDE / Math.max(image.naturalWidth, image.naturalHeight));
   const w = Math.round(image.naturalWidth * scale), h = Math.round(image.naturalHeight * scale);
+  const n = w * h;
 
-  const base = makeCanvas(w, h);
-  const bctx = base.getContext("2d", { willReadFrequently: true });
-  bctx.drawImage(image, 0, 0, w, h);
-  const px = bctx.getImageData(0, 0, w, h).data;
-  const R = new Float32Array(w * h), G = new Float32Array(w * h), B = new Float32Array(w * h), L = new Float32Array(w * h);
-  for (let i = 0; i < w * h; i++) {
+  const photo = makeCanvas(w, h);
+  const pctx = photo.getContext("2d", { willReadFrequently: true });
+  pctx.drawImage(image, 0, 0, w, h);
+  const px = pctx.getImageData(0, 0, w, h).data;
+  const R = new Float32Array(n), G = new Float32Array(n), B = new Float32Array(n), L = new Float32Array(n);
+  const rem = [new Float32Array(n), new Float32Array(n), new Float32Array(n)];
+  for (let i = 0; i < n; i++) {
     R[i] = px[i * 4]; G[i] = px[i * 4 + 1]; B[i] = px[i * 4 + 2];
     L[i] = 0.2126 * R[i] + 0.7152 * G[i] + 0.0722 * B[i];
+    rem[0][i] = DENSITY_LUT[px[i * 4]]; rem[1][i] = DENSITY_LUT[px[i * 4 + 1]]; rem[2][i] = DENSITY_LUT[px[i * 4 + 2]];
   }
-  const w2 = w >> 1, h2 = h >> 1;
-  const [Rh, Gh, Bh, Lh] = [R, G, B, L].map((c) => half(c, w, h));
 
-  const steps = [
-    ["support", () => supportSheet(p, w, h)],
-    ["ground", () => groundSheet(p, w, h)],
-    ["drawing", () => drawingSheet(L, w, h)],
-    ["value", () => upscale(valueSheet(Lh, w2, h2), w, h)],
-    ["colour", () => upscale(colourSheet(Rh, Gh, Bh, w2, h2, p.colors), w, h)],
-    ["glaze", () => glazeSheet(R, G, B, L, w, h)],
-    ["surface", () => base],
-  ];
-  const sheets = {};
-  for (let s = 0; s < steps.length; s++) {
-    const [key, make] = steps[s];
-    onProgress((s + 1) / steps.length, `Separating ${LAYERS[s].name.toLowerCase()}`);
+  const filters = {};
+  let done = 0;
+  const step = async (k, label, make) => {
+    onProgress(done++ / 7, `Separating ${label}`);
     await tick();
-    sheets[key] = make();
-  }
-  return { w, h, sheets };
+    filters[LAYERS[k].key] = make();
+  };
+
+  // Support: its weave or grain as a faint tinted filter.
+  await step(0, "support", () => {
+    const tex = pixels(supportSheet(p, w, h));
+    return take(rem, n, (i, d) => { for (let c = 0; c < 3; c++) d[c] = -Math.log(1 - (1 - tex[i * 4 + c] / 255) * 0.24); });
+  });
+  // Ground: the priming tint, strongest where the brush laid it thickest.
+  await step(1, "ground", () => {
+    const g = pixels(groundSheet(p, w, h));
+    return take(rem, n, (i, d) => {
+      const k = 0.34 * (g[i * 4 + 3] / 255);
+      for (let c = 0; c < 3; c++) d[c] = -Math.log(1 - (1 - g[i * 4 + c] / 255) * k);
+    });
+  });
+  // Varnish is allocated early so its thin amber tint is always available,
+  // but it sits at the front of the stack.
+  await step(6, "varnish", () => take(rem, n, (i, d) => {
+    const pool = 0.8 + 0.4 * valueNoise((i % w) * 0.006, ((i / w) | 0) * 0.006);
+    d[0] = 0.012 * pool; d[1] = 0.03 * pool; d[2] = 0.08 * pool;
+  }));
+  // Underdrawing: neutral grey density along contours and in hatching.
+  await step(2, "underdrawing", () => {
+    const A = drawingAlpha(L, w, h);
+    return take(rem, n, (i, d) => (d[0] = A[i] * 1.1), true);
+  });
+  // Dead colouring: neutral density of the blurred tones, in five steps.
+  await step(3, "dead colouring", () => {
+    const Lb = boxBlur(L, w, h, 4);
+    return take(rem, n, (i, d) => (d[0] = Math.round(DENSITY_LUT[Lb[i] | 0] / 0.42) * 0.42 * 0.8), true);
+  });
+  // Colour lay-in: the hue of the nearest measured palette colour, with its
+  // brightness removed, so this sheet carries colour and nothing else.
+  await step(4, "colour lay-in", () => {
+    const w2 = w >> 1, h2 = h >> 1;
+    const [r, g, b] = [R, G, B].map((ch) => boxBlur(half(ch, w, h), w2, h2, 3));
+    const pal = (p.colors.length ? p.colors.map((c) => hexToRgb(c.hex)) : [[128, 128, 128]]).map((c) => {
+      const m = Math.max(...c, 1);
+      return c.map((v) => -Math.log(Math.max(v / m, 0.08)) * 0.9);
+    });
+    const raw = p.colors.length ? p.colors.map((c) => hexToRgb(c.hex)) : [[128, 128, 128]];
+    const idx = new Uint8Array(w2 * h2);
+    for (let i = 0; i < w2 * h2; i++) {
+      let best = 0, bestD = Infinity;
+      for (let k = 0; k < raw.length; k++) {
+        const rm = (r[i] + raw[k][0]) / 2;
+        const dr = r[i] - raw[k][0], dg = g[i] - raw[k][1], db = b[i] - raw[k][2];
+        const dist = (2 + rm / 256) * dr * dr + 4 * dg * dg + (2 + (255 - rm) / 256) * db * db;
+        if (dist < bestD) { bestD = dist; best = k; }
+      }
+      idx[i] = best;
+    }
+    return take(rem, n, (i, d) => {
+      const x = Math.min(w2 - 1, (i % w) >> 1), y = Math.min(h2 - 1, ((i / w) | 0) >> 1);
+      const c = pal[idx[y * w2 + x]];
+      d[0] = c[0]; d[1] = c[1]; d[2] = c[2];
+    });
+  });
+  // Glazes: everything the other sheets have not absorbed (the fine detail,
+  // deep shadows and last touches of colour).
+  await step(5, "glazes", () => take(rem, n, (i, d) => { d[0] = rem[0][i]; d[1] = rem[1][i]; d[2] = rem[2][i]; }));
+
+  onProgress(1, "Assembling");
+  await tick();
+  const sheets = {};
+  for (const L_ of LAYERS) sheets[L_.key] = filmCanvas(filters[L_.key], w, h, L_.key === "surface");
+  const result = { w, h, sheets, filters, photo };
+  result.product = project(result, LAYERS.map((x) => x.key));
+  return result;
 }

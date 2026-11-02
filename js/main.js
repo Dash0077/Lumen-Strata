@@ -1,4 +1,4 @@
-import { LAYERS, dissect, imageUrl, copySheet } from "./layers.js";
+import { LAYERS, dissect, imageUrl, copySheet, filterCanvas } from "./layers.js";
 import { initViewer, openViewer, closeViewer } from "./viewer.js";
 
 const $ = (id) => document.getElementById(id);
@@ -161,7 +161,9 @@ function surprise() {
 
 // ---------- hero: the featured painting's real strata ----------
 
-function sheetStack(world, result, p, cls) {
+// `canvasFor(key)` picks how each stratum is drawn: as film in the dark
+// (hero) or as a filter on a lightbox (method).
+function sheetStack(world, result, cls, canvasFor) {
   world.style.setProperty("--ar", (result.w / result.h).toFixed(4));
   world.innerHTML = "";
   LAYERS.forEach((L, k) => {
@@ -169,7 +171,7 @@ function sheetStack(world, result, p, cls) {
     div.className = cls;
     div.style.setProperty("--k", k);
     div.dataset.name = `${pad(k + 1)}  ${L.name}`;
-    div.appendChild(copySheet(result.sheets[L.key], 640));
+    div.appendChild(canvasFor(L.key));
     world.appendChild(div);
   });
 }
@@ -197,8 +199,13 @@ async function hero(featured) {
   world.innerHTML = `<div class="hero-sheet" style="--k:6"><img src="${imageUrl(featured, 700)}" alt="" style="width:100%;height:100%;object-fit:cover" /></div>`;
   try {
     const result = await dissect(featured);
-    sheetStack(world, result, featured, "hero-sheet");
-    sheetStack($("method-world"), result, featured, "method-sheet");
+    sheetStack(world, result, "hero-sheet", (key) => copySheet(result.sheets[key], 640));
+    // Behind the films, the image they make together, as if cast on a wall.
+    const proj = document.createElement("div");
+    proj.className = "hero-proj";
+    proj.appendChild(copySheet(result.product, 900));
+    world.prepend(proj);
+    sheetStack($("method-world"), result, "method-sheet", (key) => filterCanvas(result, key, 640));
     setMethodActive(methodActive);
   } catch (err) {
     console.error(err);

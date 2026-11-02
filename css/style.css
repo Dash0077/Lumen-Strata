@@ -162,6 +162,15 @@ body.menu-open .brand { display: block; }
   opacity: 0; animation: sheet-in 1.4s var(--ease) forwards; animation-delay: calc(0.3s + (6 - var(--k)) * 0.09s);
 }
 .hero-sheet canvas, .method-sheet canvas { width: 100%; height: 100%; display: block; }
+.hero-sheet { background: rgba(250, 244, 232, 0.12); }
+.hero-proj {
+  position: absolute; inset: 0; transform: translateZ(-300px) scale(1.25); opacity: 0;
+  animation: proj-in 2.4s 1s ease forwards;
+  -webkit-mask: radial-gradient(ellipse 70% 70% at 50% 50%, #000 55%, transparent 100%);
+          mask: radial-gradient(ellipse 70% 70% at 50% 50%, #000 55%, transparent 100%);
+}
+.hero-proj canvas { width: 100%; height: 100%; display: block; filter: brightness(0.9); }
+@keyframes proj-in { to { opacity: 0.85; } }
 .hero-sheet::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(115deg, rgba(255, 255, 255, 0.14), transparent 38%);
@@ -318,15 +327,17 @@ section.collection, section.method, section.light-essay { padding: 15vh var(--gu
 .stage { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
 .stage .note, .stage .note * { -webkit-user-select: text; user-select: text; }
 body.orbiting, body.orbiting * { -webkit-user-select: none !important; user-select: none !important; }
-.sheet canvas, .projection img { -webkit-user-drag: none; }
+.sheet canvas { -webkit-user-drag: none; }
 .stage.dragging { cursor: grabbing; }
 .world { position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform-style: preserve-3d; will-change: transform; }
 .sheets { position: absolute; transform-style: preserve-3d; }
 
 /* sheets of transparent film */
+/* Each sheet is a film: a faint frosted backing catches the room's light, so
+   clear areas read pale and dense areas dark, and it glows when lit. */
 .sheet {
   position: absolute; left: 0; top: 0; width: var(--sw); height: var(--sh); cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.16); background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.18); background: rgba(250, 244, 232, calc(0.13 + var(--lit) * 0.07));
   transition: border-color 0.4s, box-shadow 0.6s;
   box-shadow: 0 0 calc(var(--lit) * 50px) calc(var(--lit) * 2px) rgba(255, 241, 214, calc(var(--lit) * 0.18));
 }
@@ -335,6 +346,8 @@ body.orbiting, body.orbiting * { -webkit-user-select: none !important; user-sele
 .sheet:hover { border-color: var(--warm); }
 .sheet:hover .sheet-tag { opacity: 1; }
 .sheet.out { border-style: dashed; }
+.sheet.assembled { pointer-events: none; background: none; border-color: transparent; }
+.sheet.assembled canvas { box-shadow: 0 30px 80px -30px #000; }
 .lit .sheet canvas { filter: brightness(calc(1 + var(--lit) * 0.2)); }
 .reg { position: absolute; width: 14px; height: 14px; opacity: 0.5; pointer-events: none; }
 .reg::before, .reg::after { content: ""; position: absolute; background: #fff; }
@@ -373,9 +386,7 @@ body.orbiting, body.orbiting * { -webkit-user-select: none !important; user-sele
           mask: radial-gradient(ellipse 74% 74% at 50% 50%, #000 66%, transparent 100%);
   transition: opacity 1.4s ease 0.4s, filter 1.8s var(--ease) 0.4s, rotate 1.2s var(--ease);
 }
-.projection img, .projection canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.projection canvas { opacity: 0; transition: opacity 0.6s; }
-.projection.partial canvas { opacity: 1; }
+.projection canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .lit .projection { opacity: 1; filter: blur(0) brightness(1.04); animation: flicker 0.9s steps(1) 0.35s; }
 .obscura .projection { rotate: 180deg; }
 @keyframes flicker { 0% { opacity: 0.2; } 15% { opacity: 0.8; } 25% { opacity: 0.1; } 40% { opacity: 0.9; } 55% { opacity: 0.5; } 70% { opacity: 1; } }
